@@ -1,5 +1,81 @@
-import React from 'react';
+import {
+  createContext,
+  createRef,
+  useCallback,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useState,
+} from 'react';
+import Login from '../pages/login/login';
+import styles from './authContext.module.css';
 
-const AuthProvider = (props) => <h1>useContext</h1>;
+const AuthContext = createContext({});
+const contextRef = createRef();
 
-export default AuthProvider;
+export function AuthProvider({ authService, authErrorEventBus, children }) {
+  const [user, setUser] = useState(undefined);
+
+  useImperativeHandle(contextRef, () => (user ? user.token : undefined));
+
+  useEffect(() => {
+    authErrorEventBus.listen((err) => setUser(undefined));
+  }, [authErrorEventBus]);
+
+  useEffect(() => {
+    authService.me().then(setUser).catch(console.error);
+  }, [authService]);
+
+  const signUp = useCallback(
+    async (username, password, name, email, url) =>
+      authService
+        .signup(username, password, name, email, url)
+        .then((user) => setUser(user)),
+    [authService]
+  );
+
+  const logIn = useCallback(
+    async (username, password) =>
+      authService.login(username, password).then((user) => setUser(user)),
+    [authService]
+  );
+
+  const logOut = useCallback(
+    async () => authService.logout().then(() => setUser(undefined)),
+    [authService]
+  );
+
+  const context = useMemo(() => ({ user, signUp, logIn, logOut }), [
+    user,
+    signUp,
+    logIn,
+    logOut,
+  ]);
+
+  return (
+    <AuthContext.Provider value={context}>
+      {user ? (
+        children
+      ) : (
+        <div className={styles.app}>
+          <Login onSignUp={signUp} onLogin={logIn} />
+        </div>
+      )}
+    </AuthContext.Provider>
+  );
+}
+
+export class AuthErrorEventBus {
+  listen(callback) {
+    this.callback = callback;
+  }
+
+  notify(err) {
+    this.callback(err);
+  }
+}
+
+export default AuthContext;
+export const fetchToken = () => contextRef.current;
+export const useAuth = () => useContext(AuthContext);
