@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import Login from '../pages/login/login';
+import Landing from '../pages/landing/landing';
 import styles from './authContext.module.css';
 
 const AuthContext = createContext({});
@@ -55,13 +55,7 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
 
   return (
     <AuthContext.Provider value={context}>
-      {user ? (
-        children
-      ) : (
-        <div className={styles.app}>
-          <Login onSignUp={signUp} onLogin={logIn} />
-        </div>
-      )}
+      {user ? children : <Landing onSignup={signUp} onLogin={logIn} />}
     </AuthContext.Provider>
   );
 }

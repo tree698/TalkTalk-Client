@@ -1,0 +1,7 @@
+.landing {
+  width: 100vw;
+  min-width: 600px;
+  height: 100vh;
+  background-color: var(--color-white);
+  display: flex;
+}
