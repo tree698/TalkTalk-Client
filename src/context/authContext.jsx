@@ -29,10 +29,7 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
 
   const signUp = useCallback(
     async (username, password, name, email, url) =>
-      authService
-        .signup(username, password, name, email, url)
-        .then((user) => setUser(user)),
-    [authService]
+      authService.signup(username, password, name, email, url)[authService]
   );
 
   const logIn = useCallback(
@@ -55,7 +52,7 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
 
   return (
     <AuthContext.Provider value={context}>
-      {user ? children : <Landing onSignup={signUp} onLogin={logIn} />}
+      {user ? children : <Landing onSignUp={signUp} onLogIn={logIn} />}
     </AuthContext.Provider>
   );
 }

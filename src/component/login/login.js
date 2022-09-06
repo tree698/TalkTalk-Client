@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './login.module.css';
 
-const Login = ({ onLogin, onSignUpClick }) => {
+const LogIn = ({ onLogIn, onSignUpClick }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [text, setText] = useState('');
@@ -14,7 +14,7 @@ const Login = ({ onLogin, onSignUpClick }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    onLogin(username, password).catch(setError);
+    onLogIn(username, password).catch(setError);
   };
 
   const setError = (error) => {
@@ -70,4 +70,4 @@ const Login = ({ onLogin, onSignUpClick }) => {
   );
 };
 
-export default Login;
+export default LogIn;

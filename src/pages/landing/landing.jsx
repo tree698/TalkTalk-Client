@@ -1,23 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
 import Heading from '../../component/heading/heading';
-import Login from '../../component/login/login';
-import Signup from '../../component/signup/signup';
+import LogIn from '../../component/login/login';
+import SignUp from '../../component/signup/signup';
 import styles from './landing.module.css';
 
-const Landing = ({ onSignUp, onLogin }) => {
-  const [signup, setSignup] = useState(false);
+const Landing = ({ onSignUp, onLogIn }) => {
+  const [signUp, setSignUp] = useState(false);
 
+  const onLogInClick = () => {
+    setSignUp(false);
+  };
   const onSignUpClick = () => {
-    setSignup(true);
+    setSignUp(true);
   };
   return (
     <div className={styles.landing}>
       <Heading />
-      {signup ? (
-        <Signup onSignUp={onSignUp} />
+      {signUp ? (
+        <SignUp onSignUp={onSignUp} onLogInClick={onLogInClick} />
       ) : (
-        <Login onLogin={onLogin} onSignUpClick={onSignUpClick} />
+        <LogIn onLogIn={onLogIn} onSignUpClick={onSignUpClick} />
       )}
     </div>
   );
