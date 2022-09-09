@@ -28,8 +28,8 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
   }, [authService]);
 
   const signUp = useCallback(
-    async (username, password, name, email, url) =>
-      authService.signup(username, password, name, email, url)[authService]
+    async (username, password, email, url) =>
+      authService.signup(username, password, email, url)[authService]
   );
 
   const logIn = useCallback(
