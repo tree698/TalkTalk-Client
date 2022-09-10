@@ -19,8 +19,11 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
 
   useImperativeHandle(contextRef, () => (user ? user.token : undefined));
 
+  // 필요 한가??
   useEffect(() => {
-    authErrorEventBus.listen((err) => setUser(undefined));
+    authErrorEventBus.listen((err) => {
+      setUser(undefined);
+    });
   }, [authErrorEventBus]);
 
   useEffect(() => {
@@ -29,7 +32,8 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
 
   const signUp = useCallback(
     async (username, password, email, url) =>
-      authService.signup(username, password, email, url)[authService]
+      authService.signup(username, password, email, url),
+    [authService]
   );
 
   const logIn = useCallback(

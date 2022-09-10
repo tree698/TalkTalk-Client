@@ -5,7 +5,7 @@ export default class HttpClient {
   }
 
   async fetch(url, options) {
-    const res = await fetch(`${this.baseURL}/${url}`, {
+    const res = await fetch(`${this.baseURL}${url}`, {
       ...options,
       headers: {
         'Content-Type': 'application/json',
@@ -23,9 +23,11 @@ export default class HttpClient {
       const message =
         data && data.message ? data.message : 'Something went wrong! 🤪';
       const error = new Error(message);
+
+      // 해결한 건가??
       if (res.status === 401) {
         this.authErrorEventBus.notify(error);
-        return;
+        // return;
       }
       throw error;
     }

@@ -9,7 +9,7 @@ const LogIn = ({ onLogIn, onSignUpClick }) => {
   const [isAlert, setIsAlert] = useState(false);
 
   const onClick = () => {
-    !isAlert && onSignUpClick();
+    onSignUpClick();
   };
 
   const onSubmit = (event) => {
@@ -41,6 +41,7 @@ const LogIn = ({ onLogIn, onSignUpClick }) => {
       <button className={styles.signupBtn} onClick={onClick}>
         SIGN UP
       </button>
+      {text && <p>{text}</p>}
       <h1 className={styles.title}>Welcome Back</h1>
       <p className={styles.subTitle}>Login you account</p>
       <form className={styles.login_form} onSubmit={onSubmit}>

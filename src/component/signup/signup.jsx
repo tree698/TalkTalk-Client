@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from './signup.module.css';
 
@@ -11,13 +12,15 @@ const SignUp = ({ onSignUp, onLogInClick }) => {
   const [isAlert, setIsAlert] = useState(false);
 
   const onClick = () => {
-    !isAlert && onLogInClick();
+    onLogInClick();
   };
 
+  // user를 받아 오면 then을 사용하요 login으로 이동
   const onSubmit = (event) => {
     event.preventDefault();
-    onSignUp(username, password, email, url).catch(setError);
-    !isAlert && onLogInClick();
+    onSignUp(username, password, email, url)
+      .then((user) => onLogInClick())
+      .catch(setError);
   };
 
   const setError = (error) => {
@@ -44,6 +47,7 @@ const SignUp = ({ onSignUp, onLogInClick }) => {
   return (
     <div className={styles.signup}>
       <h1 className={styles.title}>Create an account</h1>
+      {text && <p>{text}</p>}
       <form className={styles.signup_form} onSubmit={onSubmit}>
         <input
           name="username"
