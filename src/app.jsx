@@ -6,7 +6,7 @@ import Home from './pages/home/home';
 import Talk from './pages/talk/talk';
 import Upload from './pages/upload/upload';
 
-const App = () => {
+const App = ({ workService }) => {
   const { user, logOut } = useAuth();
   const onLogout = () => {
     logOut();
@@ -18,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/talk" element={<Talk />} />
-        <Route path="/upload" element={<Upload />} />
+        <Route path="/upload" element={<Upload workService={workService} />} />
       </Routes>
     </>
   );

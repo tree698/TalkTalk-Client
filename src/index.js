@@ -7,12 +7,14 @@ import { AuthErrorEventBus, AuthProvider } from './context/authContext';
 import TokenStorage from './db/token';
 import HttpClient from './network/http';
 import AuthService from './service/auth';
+import WorkService from './service/work';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const authErrorEventBus = new AuthErrorEventBus();
 const tokenStorage = new TokenStorage();
 const httpClient = new HttpClient(baseURL, authErrorEventBus);
 const authService = new AuthService(httpClient, tokenStorage);
+const workService = new WorkService(httpClient, tokenStorage);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,7 +24,7 @@ root.render(
         authService={authService}
         authErrorEventBus={authErrorEventBus}
       >
-        <App />
+        <App workService={workService} />
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
