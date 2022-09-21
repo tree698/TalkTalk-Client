@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FileUpload from '../../component/fileUpload/fileUpload';
 import styles from './upload.module.css';
 
 const Upload = ({ workService }) => {
@@ -47,6 +48,7 @@ const Upload = ({ workService }) => {
     <div>
       <h1>Upload Page</h1>
       {text && <p>{text}</p>}
+      <FileUpload workService={workService} />
       <form onSubmit={onSubmit} className={styles.form}>
         <input
           type="text"

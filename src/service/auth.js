@@ -13,6 +13,7 @@ export default class AuthService {
         email,
         url,
       }),
+      type: { 'Content-Type': 'application/json' },
     });
     this.tokenStorage.saveToken(data.token);
     return data;
@@ -22,6 +23,7 @@ export default class AuthService {
     const data = await this.http.fetch('/auth/login', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
+      type: { 'Content-Type': 'application/json' },
     });
     this.tokenStorage.saveToken(data.token);
     return data;
@@ -32,6 +34,7 @@ export default class AuthService {
     return this.http.fetch('/auth/me', {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
+      type: { 'Content-Type': 'application/json' },
     });
   }
 
