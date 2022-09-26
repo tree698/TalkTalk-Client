@@ -4,12 +4,18 @@ export default class WorkService {
     this.tokenStorage = tokenStorage;
   }
 
-  async createWork(title, description, brush, image) {
+  async createWork(title, description, brush, originalName, fileName) {
     return this.http.fetch('/work', {
       method: 'POST',
       type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),
-      body: JSON.stringify({ title, description, brush, image }),
+      body: JSON.stringify({
+        title,
+        description,
+        brush,
+        originalName,
+        fileName,
+      }),
     });
   }
 
