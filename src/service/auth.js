@@ -4,14 +4,14 @@ export default class AuthService {
     this.tokenStorage = tokenStorage;
   }
 
-  async signup(username, password, email, url) {
+  async signup(username, password, email, photo) {
     const data = await this.http.fetch('/auth/signup', {
       method: 'POST',
       body: JSON.stringify({
         username,
         password,
         email,
-        url,
+        photo,
       }),
       type: { 'Content-Type': 'application/json' },
     });

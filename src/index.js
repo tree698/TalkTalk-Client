@@ -23,6 +23,7 @@ root.render(
       <AuthProvider
         authService={authService}
         authErrorEventBus={authErrorEventBus}
+        workService={workService}
       >
         <App workService={workService} />
       </AuthProvider>

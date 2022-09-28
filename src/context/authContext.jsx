@@ -14,7 +14,12 @@ import styles from './authContext.module.css';
 const AuthContext = createContext({});
 const contextRef = createRef();
 
-export function AuthProvider({ authService, authErrorEventBus, children }) {
+export function AuthProvider({
+  authService,
+  authErrorEventBus,
+  children,
+  workService,
+}) {
   const [user, setUser] = useState(undefined);
 
   useImperativeHandle(contextRef, () => (user ? user.token : undefined));
@@ -56,7 +61,11 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
 
   return (
     <AuthContext.Provider value={context}>
-      {user ? children : <Landing onSignUp={signUp} onLogIn={logIn} />}
+      {user ? (
+        children
+      ) : (
+        <Landing onSignUp={signUp} onLogIn={logIn} workService={workService} />
+      )}
     </AuthContext.Provider>
   );
 }

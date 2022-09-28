@@ -5,7 +5,7 @@ import LogIn from '../../component/login/login';
 import SignUp from '../../component/signup/signup';
 import styles from './landing.module.css';
 
-const Landing = ({ onSignUp, onLogIn }) => {
+const Landing = ({ onSignUp, onLogIn, workService }) => {
   const [signUp, setSignUp] = useState(false);
 
   const onLogInClick = () => {
@@ -18,7 +18,11 @@ const Landing = ({ onSignUp, onLogIn }) => {
     <div className={styles.landing}>
       <Heading />
       {signUp ? (
-        <SignUp onSignUp={onSignUp} onLogInClick={onLogInClick} />
+        <SignUp
+          onSignUp={onSignUp}
+          onLogInClick={onLogInClick}
+          workService={workService}
+        />
       ) : (
         <LogIn onLogIn={onLogIn} onSignUpClick={onSignUpClick} />
       )}

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import FileUpload from '../fileUpload/fileUpload';
 import styles from './signup.module.css';
 
-const SignUp = ({ onSignUp, onLogInClick }) => {
+const SignUp = ({ onSignUp, onLogInClick, workService }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [url, setURL] = useState('');
+  const [photo, setPhoto] = useState('');
   const [text, setText] = useState('');
   const [isAlert, setIsAlert] = useState(false);
 
@@ -18,7 +19,7 @@ const SignUp = ({ onSignUp, onLogInClick }) => {
   // user를 받아 오면 then을 사용하요 login으로 이동
   const onSubmit = (event) => {
     event.preventDefault();
-    onSignUp(username, password, email, url)
+    onSignUp(username, password, email, photo)
       .then((user) => onLogInClick())
       .catch(setError);
   };
@@ -39,11 +40,14 @@ const SignUp = ({ onSignUp, onLogInClick }) => {
         return setPassword(value);
       case 'email':
         return setEmail(value);
-      case 'url':
-        return setURL(value);
       default:
     }
   };
+
+  const liftFile = (file) => {
+    setPhoto(file.fileName);
+  };
+
   return (
     <div className={styles.signup}>
       <h1 className={styles.title}>Create an account</h1>
@@ -76,14 +80,9 @@ const SignUp = ({ onSignUp, onLogInClick }) => {
           placeholder="email"
           required
         />
-        <input
-          name="url"
-          type="text"
-          value={url}
-          onChange={onChange}
-          className={styles.form_input}
-          placeholder="image url (optional)"
-        />
+
+        <FileUpload workService={workService} liftFile={liftFile} />
+
         <button className={styles.loginBtn} type="submit">
           Create account
         </button>
