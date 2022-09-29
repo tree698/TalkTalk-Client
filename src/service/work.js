@@ -4,6 +4,15 @@ export default class WorkService {
     this.tokenStorage = tokenStorage;
   }
 
+  async getWorks(username) {
+    const query = username ? `?username=${username}` : '';
+    return this.http.fetch(`/work${query}`, {
+      method: 'GET',
+      type: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
+    });
+  }
+
   async createWork(title, description, brush, originalName, fileName) {
     return this.http.fetch('/work', {
       method: 'POST',
@@ -27,6 +36,14 @@ export default class WorkService {
       method: 'POST',
       headers: this.getHeaders(),
       body: formData,
+    });
+  }
+
+  async deleteWork(workId) {
+    return this.http.fetch(`/work/${workId}`, {
+      method: 'PUT',
+      type: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
     });
   }
 
