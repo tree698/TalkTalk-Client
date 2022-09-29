@@ -16,7 +16,7 @@ const App = ({ workService }) => {
     <>
       <button onClick={onLogout}>Logout</button>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home workService={workService} />} />
         <Route path="/talk" element={<Talk />} />
         <Route path="/upload" element={<Upload workService={workService} />} />
       </Routes>
