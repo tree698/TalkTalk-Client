@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Works = ({ work }) => {
+const AllWorks = ({ work, onClickWork }) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
   const onClickHandler = () => {
     navigate('/talk');
+    onClickWork(work);
   };
 
   return (
@@ -22,4 +23,4 @@ const Works = ({ work }) => {
   );
 };
 
-export default Works;
+export default AllWorks;
