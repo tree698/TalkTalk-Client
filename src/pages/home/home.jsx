@@ -1,18 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Works from '../../component/works/works';
 import styles from './home.module.css';
 
 const Home = ({ workService }) => {
-  const [work, setWork] = useState([]);
+  const [works, setWorks] = useState([]);
 
   useEffect(() => {
-    workService.getWorks().then((data) => console.log(data[0].title));
+    workService.getWorks().then(setWorks);
   }, [workService]);
 
   return (
     <div>
       <h1>Home Page</h1>
+      {works.map((work) => (
+        <Works key={work.id} work={work} />
+      ))}
     </div>
   );
 };
