@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import AllWorks from '../../component/allWorks/allWorks';
+import Header from '../../component/header/header';
 import styles from './home.module.css';
 
 const Home = ({ workService, onClickWork }) => {
@@ -35,6 +36,7 @@ const Home = ({ workService, onClickWork }) => {
 
   return (
     <div>
+      <Header addUpload={true} />
       <h1>Home Page</h1>
       {works.map((work) => (
         <AllWorks key={work.id} work={work} onClickWork={onClickWork} />

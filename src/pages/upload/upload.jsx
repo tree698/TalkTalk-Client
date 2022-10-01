@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FileUpload from '../../component/fileUpload/fileUpload';
+import Header from '../../component/header/header';
 import styles from './upload.module.css';
 
 const Upload = ({ workService }) => {
@@ -56,6 +57,7 @@ const Upload = ({ workService }) => {
 
   return (
     <div>
+      <Header addHome={true} />
       <h1>Upload Page</h1>
       {text && <p>{text}</p>}
       <FileUpload workService={workService} liftFile={liftFile} />
