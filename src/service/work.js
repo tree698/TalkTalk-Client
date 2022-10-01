@@ -4,8 +4,10 @@ export default class WorkService {
     this.tokenStorage = tokenStorage;
   }
 
-  async getWorks(username) {
-    const query = username ? `?username=${username}` : '';
+  async getWorks(limit, offset, username) {
+    const query = username
+      ? `?username=${username}&limit=${limit}&offset=${offset}`
+      : `?limit=${limit}&offset=${offset}`;
     return this.http.fetch(`/work${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
