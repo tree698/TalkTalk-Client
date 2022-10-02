@@ -1,26 +1,44 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import DisplayWork from '../displayWorks/displayWork';
 
-const AllWorks = ({ work, onClickWork }) => {
-  const baseURL = process.env.REACT_APP_BASE_URL;
-  const navigate = useNavigate();
+const AllWorks = ({ workService, onClickWork }) => {
+  const pagination = {
+    limit: 8,
+    offset: 0,
+  };
 
-  const onClickHandler = () => {
-    navigate('/talk');
-    onClickWork(work);
+  const [works, setWorks] = useState([]);
+  const [limit, setLimit] = useState(pagination.limit);
+  const [offset, setOffset] = useState(pagination.offset);
+  const [lengthWork, setLengthWork] = useState(pagination.limit);
+
+  useEffect(() => {
+    workService.getWorks(limit, offset).then(setWorks);
+    updateOffset();
+  }, [workService]);
+
+  const clickHandler = () => {
+    updateOffset();
+    workService.getWorks(limit, offset).then((data) => {
+      setLengthWork(data.length);
+      setWorks([...works, ...data]);
+    });
+  };
+
+  const updateOffset = () => {
+    const updateOffset = limit + offset;
+    setOffset(updateOffset);
   };
 
   return (
-    <button onClick={onClickHandler}>
-      <img
-        style={{ width: '30%' }}
-        src={`${baseURL}/uploaded_images/${work.fileName}`}
-        alt=""
-      />
-      <p>{work.title}</p>
-      <p>{work.usesrname}</p>
-    </button>
+    <div>
+      {works.map((work) => (
+        <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
+      ))}
+
+      {lengthWork >= limit && <button onClick={clickHandler}>View More</button>}
+    </div>
   );
 };
-
 export default AllWorks;

@@ -19,7 +19,7 @@ const App = ({ workService }) => {
     <>
       <Routes>
         <Route
-          path="/"
+          path="*"
           element={
             <Home workService={workService} onClickWork={handleSelectedWork} />
           }

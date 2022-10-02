@@ -16,7 +16,9 @@ const Header = ({ addHome, addUpload }) => {
   };
 
   const onLogout = () => {
-    logOut();
+    if (window.confirm('Do you want to log out?')) {
+      logOut();
+    }
   };
 
   return (
