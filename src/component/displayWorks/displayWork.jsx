@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './displayWorks.module.css';
 
-const DisplayWork = ({ work, onClickWork }) => {
+const DisplayWork = ({ work, onClickWork, addDeleteBtn }) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
@@ -13,6 +13,7 @@ const DisplayWork = ({ work, onClickWork }) => {
 
   return (
     <div>
+      {addDeleteBtn && <input name="delete" id="delete" type="checkbox" />}
       <button onClick={onClickHandler}>
         <img
           style={{ width: '30%' }}

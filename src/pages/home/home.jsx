@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import ActionBtn from '../../component/actionBtn/actionBtn';
 import AllWorks from '../../component/allWorks/allWorks';
@@ -9,6 +9,8 @@ import { useAuth } from '../../context/authContext';
 import styles from './home.module.css';
 
 const Home = ({ workService, onClickWork }) => {
+  const [addDeleteBtn, setAddDeleteBtn] = useState(false);
+
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -17,17 +19,23 @@ const Home = ({ workService, onClickWork }) => {
   }, []);
 
   const onAllWorks = () => {
+    setAddDeleteBtn(false);
     navigate('/');
   };
 
   const onMyWorks = () => {
+    setAddDeleteBtn(true);
     navigate(`/${user.username}`);
   };
 
   return (
     <div>
       <Header addUpload={true} />
-      <ActionBtn onAllWorks={onAllWorks} onMyWorks={onMyWorks} />
+      <ActionBtn
+        addDeleteBtn={addDeleteBtn}
+        onAllWorks={onAllWorks}
+        onMyWorks={onMyWorks}
+      />
       <h1>Home Page</h1>
       <Routes>
         <Route
@@ -39,7 +47,11 @@ const Home = ({ workService, onClickWork }) => {
         <Route
           path="/:username"
           element={
-            <MyWorks workService={workService} onClickWork={onClickWork} />
+            <MyWorks
+              workService={workService}
+              onClickWork={onClickWork}
+              addDeleteBtn={addDeleteBtn}
+            />
           }
         />
       </Routes>
