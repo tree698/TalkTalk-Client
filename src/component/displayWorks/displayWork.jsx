@@ -1,10 +1,25 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './displayWorks.module.css';
 
-const DisplayWork = ({ work, onClickWork, addDeleteBtn }) => {
+const DisplayWork = ({
+  work,
+  onClickWork,
+  addDeleteBtn,
+  sendToBeDeletedWork,
+}) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
+
+  const [test, setTest] = useState();
+
+  const onChange = (event) => {
+    if (event.target.checked) {
+      setTest(work.id);
+      sendToBeDeletedWork(test);
+    }
+  };
 
   const onClickHandler = () => {
     navigate('/talk');
@@ -13,7 +28,9 @@ const DisplayWork = ({ work, onClickWork, addDeleteBtn }) => {
 
   return (
     <div>
-      {addDeleteBtn && <input name="delete" id="delete" type="checkbox" />}
+      {addDeleteBtn && (
+        <input name="delete" id="delete" onChange={onChange} type="checkbox" />
+      )}
       <button onClick={onClickHandler}>
         <img
           style={{ width: '30%' }}

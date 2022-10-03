@@ -43,7 +43,7 @@ export default class WorkService {
 
   async deleteWork(workId) {
     return this.http.fetch(`/work/${workId}`, {
-      method: 'PUT',
+      method: 'DELETE',
       type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),
     });
