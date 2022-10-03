@@ -7,18 +7,14 @@ const DisplayWork = ({
   work,
   onClickWork,
   addDeleteBtn,
-  sendToBeDeletedWork,
+  onSendToBeDeletedWork,
 }) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
+  const { id } = work;
   const navigate = useNavigate();
 
-  const [test, setTest] = useState();
-
   const onChange = (event) => {
-    if (event.target.checked) {
-      setTest(work.id);
-      sendToBeDeletedWork(test);
-    }
+    onSendToBeDeletedWork(id);
   };
 
   const onClickHandler = () => {

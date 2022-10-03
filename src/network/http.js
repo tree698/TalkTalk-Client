@@ -16,6 +16,7 @@ export default class HttpClient {
     try {
       data = await res.json();
     } catch (error) {
+      // console.log 삭제 필요?????
       console.error(error);
     }
 
