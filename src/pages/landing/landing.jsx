@@ -16,7 +16,7 @@ const Landing = ({ onSignUp, onLogIn, workService }) => {
   };
   return (
     <div className={styles.landing}>
-      <Heading />
+      <Heading workService={workService} />
       {signUp ? (
         <SignUp
           onSignUp={onSignUp}

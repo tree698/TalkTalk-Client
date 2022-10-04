@@ -4,6 +4,15 @@ export default class WorkService {
     this.tokenStorage = tokenStorage;
   }
 
+  async showWorks(limit, offset) {
+    const query = `?limit=${limit}&offset=${offset}`;
+    return this.http.fetch(`/work/carousel${query}`, {
+      method: 'GET',
+      type: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
+    });
+  }
+
   async getWorks(limit, offset, username) {
     const query = username
       ? `?username=${username}&limit=${limit}&offset=${offset}`
