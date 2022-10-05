@@ -5,12 +5,12 @@ import Tweets from '../../component/tweets/tweets';
 
 import styles from './talk.module.css';
 
-const Talk = ({ selectedWork }) => {
+const Talk = ({ selectedWork, tweetService }) => {
   return (
     <div className={styles.talk}>
       <Header addHome={true} addUpload={true} />
       <SelectedWork selectedWork={selectedWork} />
-      <Tweets />
+      <Tweets tweetService={tweetService} />
     </div>
   );
 };

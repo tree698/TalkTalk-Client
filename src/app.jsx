@@ -8,7 +8,7 @@ import Home from './pages/home/home';
 import Talk from './pages/talk/talk';
 import Upload from './pages/upload/upload';
 
-const App = ({ workService }) => {
+const App = ({ workService, tweetService }) => {
   const [selectedWork, setSelectedWork] = useState();
 
   const handleSelectedWork = useCallback((work) => {
@@ -24,7 +24,12 @@ const App = ({ workService }) => {
             <Home workService={workService} onClickWork={handleSelectedWork} />
           }
         />
-        <Route path="/talk" element={<Talk selectedWork={selectedWork} />} />
+        <Route
+          path="/talk"
+          element={
+            <Talk selectedWork={selectedWork} tweetService={tweetService} />
+          }
+        />
         <Route path="/upload" element={<Upload workService={workService} />} />
       </Routes>
     </>
