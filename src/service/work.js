@@ -24,6 +24,15 @@ export default class WorkService {
     });
   }
 
+  async searchWorks(searchTerm) {
+    const query = `/search?searchTerm=${searchTerm}`;
+    return this.http.fetch(`/work${query}`, {
+      method: 'GET',
+      type: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
+    });
+  }
+
   async createWork(title, description, brush, originalName, fileName) {
     return this.http.fetch('/work', {
       method: 'POST',

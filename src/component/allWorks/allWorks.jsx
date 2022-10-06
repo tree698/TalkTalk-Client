@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import DisplayWork from '../displayWorks/displayWork';
+import SearchFeature from '../searchFeature/searchFeature';
 
 const AllWorks = ({ workService, onClickWork }) => {
   const pagination = {
@@ -31,13 +32,22 @@ const AllWorks = ({ workService, onClickWork }) => {
     setOffset(updateOffset);
   };
 
+  const searchTermHandler = (term) => {
+    workService.searchWorks(term).then(setWorks);
+  };
+
   return (
     <div>
-      {works.map((work) => (
-        <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
-      ))}
+      <SearchFeature onSendSearchTerm={searchTermHandler} />
+      <div>
+        {works.map((work) => (
+          <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
+        ))}
 
-      {lengthWork >= limit && <button onClick={clickHandler}>View More</button>}
+        {lengthWork >= limit && (
+          <button onClick={clickHandler}>View More</button>
+        )}
+      </div>
     </div>
   );
 };

@@ -10,7 +10,6 @@ import styles from './home.module.css';
 
 const Home = ({ workService, onClickWork }) => {
   const [addDeleteBtn, setAddDeleteBtn] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
 
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -24,28 +23,16 @@ const Home = ({ workService, onClickWork }) => {
     navigate(`/${user.username}`);
   };
 
-  const searchTermHandler = (term) => {
-    setSearchTerm(term);
-  };
-
   return (
     <div>
       <Header addUpload={true} />
-      <ActionBtn
-        onSendSearchTerm={searchTermHandler}
-        onAllWorks={onAllWorks}
-        onMyWorks={onMyWorks}
-      />
+      <ActionBtn onAllWorks={onAllWorks} onMyWorks={onMyWorks} />
       <h1>Home Page</h1>
       <Routes>
         <Route
           path="/"
           element={
-            <AllWorks
-              workService={workService}
-              onClickWork={onClickWork}
-              searchTerm={searchTerm}
-            />
+            <AllWorks workService={workService} onClickWork={onClickWork} />
           }
         />
         <Route

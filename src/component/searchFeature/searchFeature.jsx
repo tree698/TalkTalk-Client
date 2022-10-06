@@ -1,12 +1,9 @@
 import React from 'react';
-import { useRef } from 'react';
 import { useState } from 'react';
 import styles from './searchFeature.module.css';
 
 const SearchFeature = ({ onSendSearchTerm }) => {
   const [searchTerm, setSearchTerm] = useState('');
-
-  const inputRef = useRef();
 
   const onChange = (event) => {
     const term = event.currentTarget.value;
@@ -23,12 +20,7 @@ const SearchFeature = ({ onSendSearchTerm }) => {
 
   return (
     <form onSubmit={searchHandler}>
-      <input
-        ref={inputRef}
-        type="text"
-        onChange={onChange}
-        value={searchTerm}
-      />
+      <input type="text" onChange={onChange} value={searchTerm} />
     </form>
   );
 };
