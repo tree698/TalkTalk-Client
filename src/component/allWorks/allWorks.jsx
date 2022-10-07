@@ -13,6 +13,7 @@ const AllWorks = ({ workService, onClickWork }) => {
   const [limit, setLimit] = useState(pagination.limit);
   const [offset, setOffset] = useState(pagination.offset);
   const [lengthWork, setLengthWork] = useState(pagination.limit);
+  const [searchTerm, setSearchTerm] = useState(false);
 
   useEffect(() => {
     workService.getWorks(limit, offset).then(setWorks);
@@ -33,6 +34,7 @@ const AllWorks = ({ workService, onClickWork }) => {
   };
 
   const searchTermHandler = (term) => {
+    setSearchTerm(true);
     workService.searchWorks(term).then(setWorks);
   };
 

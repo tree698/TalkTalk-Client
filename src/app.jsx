@@ -11,21 +11,24 @@ import Upload from './pages/upload/upload';
 const App = ({ workService, tweetService }) => {
   const [selectedWork, setSelectedWork] = useState();
 
-  const handleSelectedWork = useCallback((work) => {
-    setSelectedWork(work);
-  }, []);
+  const handleSelectedWork = useCallback(
+    (work) => {
+      setSelectedWork(work);
+    },
+    [selectedWork]
+  );
 
   return (
     <>
       <Routes>
         <Route
-          path="*"
+          path="/*"
           element={
             <Home workService={workService} onClickWork={handleSelectedWork} />
           }
         />
         <Route
-          path="/talk"
+          path="/talk/*"
           element={
             <Talk selectedWork={selectedWork} tweetService={tweetService} />
           }
