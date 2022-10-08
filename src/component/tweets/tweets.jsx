@@ -20,13 +20,24 @@ const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
       .then((tweets) => setTweets([...tweets]))
       .catch(onError);
 
-    // const stopSync = tweetService.onSync(tweet => onCreated(tweet));
+    // const stopSync = tweetService.onSync((tweet) => onCreated(tweet));
     // return () => stopSync();
   }, [tweetService, username, user]);
 
   const onCreated = (tweet) => {
     setTweets((tweets) => [tweet, ...tweets]);
   };
+
+  const onDelete = (tweetId) => {
+    tweetService
+      .deleteTweet(tweetId)
+      .then(() =>
+        setTweets((tweets) => tweets.filter((tweet) => tweet.id !== tweetId))
+      )
+      .catch((error) => setError(error.toString()));
+  };
+
+  const onUsernameClick = (tweet) => navigate(`/talk/:${tweet.username}`);
 
   const onError = (error) => {
     setError(error.toString());
@@ -42,10 +53,16 @@ const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
       {tweets.length === 0 && <p>No Tweets Yet</p>}
       <ul>
         {tweets.map((tweet) => (
-          <TweetCard key={tweet.id} tweet={tweet} />
+          <TweetCard
+            key={tweet.id}
+            tweet={tweet}
+            owner={tweet.username === user.username}
+            onDelete={onDelete}
+            onUsernameClick={onUsernameClick}
+          />
         ))}
       </ul>
-      <NewTweetForm />
+      <NewTweetForm tweetService={tweetService} onError={onError} />
     </div>
   );
 };

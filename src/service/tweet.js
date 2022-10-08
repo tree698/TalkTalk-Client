@@ -9,13 +9,15 @@ export default class TweetService {
     const query = username ? `?username=${username}` : '';
     return this.http.fetch(`/tweets${query}`, {
       method: 'GET',
+      type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),
     });
   }
 
-  async postTweet(text) {
+  async createTweet(text) {
     return this.http.fetch(`/tweets`, {
       method: 'POST',
+      type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),
       body: JSON.stringify({ text }),
     });
@@ -24,6 +26,7 @@ export default class TweetService {
   async deleteTweet(tweetId) {
     return this.http.fetch(`/tweets/${tweetId}`, {
       method: 'DELETE',
+      type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),
     });
   }
