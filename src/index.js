@@ -9,7 +9,7 @@ import HttpClient from './network/http';
 import AuthService from './service/auth';
 import WorkService from './service/work';
 import TweetService from './service/tweet';
-import { Socket } from 'socket.io-client';
+import Socket from './network/socket';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const authErrorEventBus = new AuthErrorEventBus();

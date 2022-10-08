@@ -9,7 +9,9 @@ const NewTweetForm = ({ tweetService, onError }) => {
     event.preventDefault();
     tweetService
       .createTweet(tweet)
-      .then(() => setTweet(''))
+      .then((created) => {
+        setTweet('');
+      })
       .catch(onError);
   };
 
