@@ -24,9 +24,9 @@ export default class WorkService {
     });
   }
 
-  async searchWorks(searchTerm) {
-    const query = `/search?searchTerm=${searchTerm}`;
-    return this.http.fetch(`/work${query}`, {
+  async searchWorks(limit, offset, searchTerm) {
+    const query = `?limit=${limit}&offset=${offset}&searchTerm=${searchTerm}`;
+    return this.http.fetch(`/work/search${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),

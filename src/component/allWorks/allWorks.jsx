@@ -13,7 +13,6 @@ const AllWorks = ({ workService, onClickWork }) => {
   const [limit, setLimit] = useState(pagination.limit);
   const [offset, setOffset] = useState(pagination.offset);
   const [lengthWork, setLengthWork] = useState(pagination.limit);
-  const [searchTerm, setSearchTerm] = useState(false);
 
   useEffect(() => {
     workService.getWorks(limit, offset).then(setWorks);
@@ -34,8 +33,10 @@ const AllWorks = ({ workService, onClickWork }) => {
   };
 
   const searchTermHandler = (term) => {
-    setSearchTerm(true);
-    workService.searchWorks(term).then(setWorks);
+    workService.searchWorks(limit, pagination.offset, term).then((work) => {
+      setLengthWork(work.length);
+      setWorks(work);
+    });
   };
 
   return (
@@ -46,7 +47,7 @@ const AllWorks = ({ workService, onClickWork }) => {
           <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
         ))}
 
-        {lengthWork >= limit && (
+        {lengthWork === limit && (
           <button onClick={clickHandler}>View More</button>
         )}
       </div>

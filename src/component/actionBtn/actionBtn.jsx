@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './actionBtn.module.css';
 
-const ActionBtn = ({ onSendSearchTerm, onAllWorks, onMyWorks }) => {
+const ActionBtn = ({ onAllWorks, onMyWorks }) => {
   return (
     <div>
       <button onClick={onAllWorks}>All Works</button>
