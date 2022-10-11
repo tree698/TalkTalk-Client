@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './tweetUser.module.css';
+import styles from './selectTweet.module.css';
 
-const TweetUser = ({ onAllTweets, onMyTweets }) => {
+const SelectTweet = ({ onAllTweets, onMyTweets }) => {
   return (
     <div>
       <button onClick={onAllTweets}>All Tweets</button>
@@ -10,4 +10,4 @@ const TweetUser = ({ onAllTweets, onMyTweets }) => {
   );
 };
 
-export default TweetUser;
+export default SelectTweet;

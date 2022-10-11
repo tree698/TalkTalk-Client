@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import NewTweetForm from '../newTweetForm/newTweetForm';
 import TweetCard from '../tweetCard/tweetCard';
-import TweetUser from '../tweetUser/tweetUser';
+import SelectTweet from '../selectTweet/selectTweet';
 import styles from './tweets.module.css';
 
 const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
@@ -48,7 +48,7 @@ const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
 
   return (
     <div>
-      <TweetUser onAllTweets={onAllTweets} onMyTweets={onMyTweets} />
+      <SelectTweet onAllTweets={onAllTweets} onMyTweets={onMyTweets} />
       {error && <p>{error}</p>}
       {tweets.length === 0 && <p>No Tweets Yet</p>}
       <ul>
