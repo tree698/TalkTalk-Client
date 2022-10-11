@@ -6,7 +6,7 @@ import styles from './myWorks.module.css';
 
 const MyWorks = ({ workService, onClickWork, addDeleteBtn }) => {
   const pagination = {
-    limit: 200,
+    limit: 100,
     offset: 0,
   };
 

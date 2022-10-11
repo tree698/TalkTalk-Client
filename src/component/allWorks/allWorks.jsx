@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import DisplayWork from '../displayWorks/displayWork';
 import SearchFeature from '../searchFeature/searchFeature';
 
-const AllWorks = ({ workService, onClickWork }) => {
+const AllWorks = ({ workService, onClickWork, onSendSearchTerm }) => {
   const pagination = {
     limit: 8,
     offset: 0,
@@ -21,9 +21,9 @@ const AllWorks = ({ workService, onClickWork }) => {
 
   const clickHandler = () => {
     updateOffset();
-    workService.getWorks(limit, offset).then((data) => {
-      setLengthWork(data.length);
-      setWorks([...works, ...data]);
+    workService.getWorks(limit, offset).then((work) => {
+      setLengthWork(work.length);
+      setWorks([...works, ...work]);
     });
   };
 
@@ -32,16 +32,9 @@ const AllWorks = ({ workService, onClickWork }) => {
     setOffset(updateOffset);
   };
 
-  const searchTermHandler = (term) => {
-    workService.searchWorks(limit, pagination.offset, term).then((work) => {
-      setLengthWork(work.length);
-      setWorks(work);
-    });
-  };
-
   return (
     <div>
-      <SearchFeature onSendSearchTerm={searchTermHandler} />
+      <SearchFeature onSendSearchTerm={onSendSearchTerm} />
       <div>
         {works.map((work) => (
           <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
