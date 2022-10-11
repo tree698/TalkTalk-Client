@@ -1,7 +1,16 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './selectedWork.module.css';
 
 const SelectedWork = ({ selectedWork }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!selectedWork) {
+      navigate('/');
+    }
+  });
+
   const baseURL = process.env.REACT_APP_BASE_URL;
   return (
     <>
