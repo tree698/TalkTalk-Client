@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import NewTweetForm from '../newTweetForm/newTweetForm';
 import TweetCard from '../tweetCard/tweetCard';
-import SelectTweet from '../selectTweet/selectTweet';
 import styles from './tweets.module.css';
 
-const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
+const Tweets = ({ tweetService, username }) => {
   const [tweets, setTweets] = useState([]);
   const [error, setError] = useState('');
 
@@ -37,7 +36,7 @@ const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
       .catch((error) => setError(error.toString()));
   };
 
-  const onUsernameClick = (tweet) => navigate(`/talk/:${tweet.username}`);
+  const onUsernameClick = (tweet) => navigate(`/talk/${tweet.username}`);
 
   const onError = (error) => {
     setError(error.toString());
@@ -48,7 +47,6 @@ const Tweets = ({ tweetService, onAllTweets, onMyTweets, username }) => {
 
   return (
     <div>
-      <SelectTweet onAllTweets={onAllTweets} onMyTweets={onMyTweets} />
       {error && <p>{error}</p>}
       {tweets.length === 0 && <p>No Tweets Yet</p>}
       <ul>
