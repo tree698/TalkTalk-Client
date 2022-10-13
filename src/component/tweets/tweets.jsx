@@ -6,7 +6,7 @@ import NewTweetForm from '../newTweetForm/newTweetForm';
 import TweetCard from '../tweetCard/tweetCard';
 import styles from './tweets.module.css';
 
-const Tweets = ({ tweetService, username }) => {
+const Tweets = ({ tweetService, username, selectedWork }) => {
   const [tweets, setTweets] = useState([]);
   const [error, setError] = useState('');
 
@@ -14,10 +14,11 @@ const Tweets = ({ tweetService, username }) => {
   const { user } = useAuth();
 
   useEffect(() => {
-    tweetService
-      .getTweets(username)
-      .then((tweets) => setTweets([...tweets]))
-      .catch(onError);
+    selectedWork &&
+      tweetService
+        .getTweets(username, selectedWork.id)
+        .then((tweets) => setTweets([...tweets]))
+        .catch(onError);
 
     const stopSync = tweetService.onSync((tweet) => onCreated(tweet));
     return () => stopSync();
@@ -60,7 +61,11 @@ const Tweets = ({ tweetService, username }) => {
           />
         ))}
       </ul>
-      <NewTweetForm tweetService={tweetService} onError={onError} />
+      <NewTweetForm
+        tweetService={tweetService}
+        onError={onError}
+        selectedWork={selectedWork}
+      />
     </div>
   );
 };

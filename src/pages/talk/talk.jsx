@@ -13,13 +13,10 @@ const Talk = ({ selectedWork, tweetService }) => {
   const { user } = useAuth();
 
   const onAllTweets = () => {
-    console.log('yes');
     navigate('/talk');
   };
 
   const onMyTweets = () => {
-    console.log('yes');
-    console.log(user.username);
     navigate(`/talk/${user.username}`);
   };
 
@@ -34,13 +31,21 @@ const Talk = ({ selectedWork, tweetService }) => {
         <Route
           path="/"
           element={
-            <AllTweets tweetService={tweetService} onAllTweets={onAllTweets} />
+            <AllTweets
+              tweetService={tweetService}
+              selectedWork={selectedWork}
+              onAllTweets={onAllTweets}
+            />
           }
         />
         <Route
           path="/:username"
           element={
-            <MyTweets tweetService={tweetService} onMyTweets={onMyTweets} />
+            <MyTweets
+              tweetService={tweetService}
+              selectedWork={selectedWork}
+              onMyTweets={onMyTweets}
+            />
           }
         />
       </Routes>

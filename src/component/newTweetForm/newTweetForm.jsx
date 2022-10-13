@@ -2,17 +2,18 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './newTweetForm.module.css';
 
-const NewTweetForm = ({ tweetService, onError }) => {
+const NewTweetForm = ({ tweetService, onError, selectedWork }) => {
   const [tweet, setTweet] = useState('');
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    tweetService
-      .createTweet(tweet)
-      .then((created) => {
-        setTweet('');
-      })
-      .catch(onError);
+    selectedWork &&
+      tweetService
+        .createTweet(tweet, selectedWork.id)
+        .then((created) => {
+          setTweet('');
+        })
+        .catch(onError);
   };
 
   const onChange = (event) => {

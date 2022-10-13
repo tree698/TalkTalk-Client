@@ -5,8 +5,10 @@ export default class TweetService {
     this.socket = socket;
   }
 
-  async getTweets(username) {
-    const query = username ? `?username=${username}` : '';
+  async getTweets(username, workId) {
+    const query = username
+      ? `?username=${username}&workId=${workId}`
+      : `?workId=${workId}`;
     return this.http.fetch(`/tweets${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
@@ -14,8 +16,9 @@ export default class TweetService {
     });
   }
 
-  async createTweet(text) {
-    return this.http.fetch(`/tweets`, {
+  async createTweet(text, workId) {
+    const query = `?workId=${workId}`;
+    return this.http.fetch(`/tweets${query}`, {
       method: 'POST',
       type: { 'Content-Type': 'application/json' },
       headers: this.getHeaders(),

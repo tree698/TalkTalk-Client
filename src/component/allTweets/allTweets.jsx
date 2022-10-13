@@ -2,11 +2,11 @@ import React from 'react';
 import Tweets from '../tweets/tweets';
 import styles from './allTweets.module.css';
 
-const AllTweets = ({ tweetService }) => {
+const AllTweets = ({ tweetService, selectedWork }) => {
   return (
     <div>
       <h1>All Tweets</h1>
-      <Tweets tweetService={tweetService} />
+      <Tweets tweetService={tweetService} selectedWork={selectedWork} />
     </div>
   );
 };
