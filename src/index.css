@@ -1,5 +1,83 @@
 :root {
+  /* Color */
   --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-pink: #fe918d;
+  --color-dark-pink: #ff6863;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-super-light-grey: #ddd9d9;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
+
+  --color-background: #efefef;
+  --color-background-outer: #ecf1f4;
+  --color-background-inner: #f2f4f6;
+
+  --color-font-dark: #2d2d2d;
+  --color-font-light: #565656;
+  --color-font: #475258;
+  --color-font-blue: #0c90e4;
+
+  --color-button: #0c90e4;
+  --color-button-hover: #565656;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* size */
+  --size-border-radius-big: 12px;
+  --size-border-radius-btn: 4px;
+
+  /* Animation */
+  --animation-duration: 300ms;
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-font-dark);
+  margin: 16px 0px;
+}
+
+h2 {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-font-dark);
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-font-dark);
+  margin: 8px 0;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-font-dark);
+  margin: 4px 0;
+}
+
+/* Universal tags */
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -9,9 +87,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: default;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-font-light);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
