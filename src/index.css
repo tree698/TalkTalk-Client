@@ -26,12 +26,26 @@
   --color-button: #0c90e4;
   --color-button-hover: #565656;
 
-  /* Font size */
-  --font-large: 48px;
+  /* Font size - mobile */
+  --font-large: 30px;
+  --font-medium: 18px;
+  --font-regular: 12px;
+  --font-small: 11px;
+  --font-micro: 9px;
+
+  /* Font size - tablet */
+  /* --font-large: 40px;
+  --font-medium: 24px;
+  --font-regular: 15px;
+  --font-small: 13px;
+  --font-micro: 11px; */
+
+  /* Font size - desktop*/
+  /* --font-large: 48px;
   --font-medium: 28px;
   --font-regular: 18px;
   --font-small: 16px;
-  --font-micro: 14px;
+  --font-micro: 14px; */
 
   /* Font weight */
   --weight-bold: 700;
