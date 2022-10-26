@@ -14,17 +14,20 @@
   --color-orange: #feb546;
   --color-black: #000000;
 
-  --color-background: #efefef;
-  --color-background-outer: #ecf1f4;
-  --color-background-inner: #f2f4f6;
-
   --color-font-dark: #2d2d2d;
   --color-font-light: #565656;
   --color-font: #475258;
   --color-font-blue: #0c90e4;
 
+  /* --color-background: #efefef;
+  --color-background-outer: #ecf1f4;
+  --color-background-inner: #f2f4f6;
   --color-button: #0c90e4;
-  --color-button-hover: #565656;
+  --color-button-hover: #565656; */
+
+  --color-background: #faf8fe;
+  --color-button-purple-dark: #7345fc;
+  --color-button-purple: #7a87ee;
 
   /* Font size - mobile */
   --font-large: 30px;
@@ -53,6 +56,7 @@
   --weight-regular: 400;
 
   /* size */
+  --size-border-radius-Superbig: 28px;
   --size-border-radius-big: 12px;
   --size-border-radius-btn: 4px;
 
@@ -114,6 +118,7 @@ button {
   outline: 0;
   border: 0;
   cursor: pointer;
+  color: var(--color-font-dark);
 }
 
 a {
