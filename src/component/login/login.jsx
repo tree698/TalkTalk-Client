@@ -5,8 +5,8 @@ import styles from './login.module.css';
 const LogIn = ({ onLogIn, onSignUpClick }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [text, setText] = useState('');
-  const [isAlert, setIsAlert] = useState(false);
+  // const [text, setText] = useState('');
+  // const [isAlert, setIsAlert] = useState(false);
 
   const onClick = () => {
     onSignUpClick();
@@ -18,8 +18,9 @@ const LogIn = ({ onLogIn, onSignUpClick }) => {
   };
 
   const setError = (error) => {
-    setText(error.toString());
-    setIsAlert(true);
+    // setText(error.toString());
+    // setIsAlert(true);
+    window.alert(error.toString());
   };
 
   const onChange = (event) => {
@@ -44,7 +45,7 @@ const LogIn = ({ onLogIn, onSignUpClick }) => {
             SIGN UP
           </button>
         </div>
-        {text && <p>{text}</p>}
+        {/* {text && <p>{text}</p>} */}
         <h1 className={styles.title}>Welcome Back</h1>
         <p className={styles.subTitle}>Login your account</p>
         <form className={styles.login__form} onSubmit={onSubmit}>
