@@ -6,9 +6,10 @@ const Heading = ({ workService }) => {
   return (
     <div className={styles.heading}>
       <h1 className={styles.title}>Talk & Talk</h1>
-      <p className={styles.description}>
-        Upload your Procrate works. <br /> Then, enjoy communicating with others
-      </p>
+      <h3 className={styles.description}>
+        Upload your artistics paintings. <br />
+        Then, enjoy talking with others.
+      </h3>
       <div>
         <Carousel workService={workService} />
       </div>
