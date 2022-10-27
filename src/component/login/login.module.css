@@ -9,7 +9,7 @@
 
 .login {
   width: 100%;
-  max-width: 310px;
+  max-width: 64%;
   text-align: center;
 }
 
@@ -93,9 +93,12 @@
     --font-micro: 11px;
   }
 
+  .container {
+    flex: 1 1 40%;
+  }
+
   .login {
     width: 100%;
-    max-width: 260px;
     text-align: left;
   }
 
@@ -133,7 +136,6 @@
 
   .login {
     width: 100%;
-    max-width: 500px;
   }
 
   .signup__container {
