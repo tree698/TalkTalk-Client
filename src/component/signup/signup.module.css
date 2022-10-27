@@ -33,7 +33,7 @@
 .form__input::placeholder,
 .form__input__photo::placeholder {
   font-size: var(--font-regular);
-  color: var(--color-font-blue);
+  color: var(--color-light-grey);
 }
 
 .form__input__photo {
