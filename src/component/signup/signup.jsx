@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Banner from '../banner/banner';
 import FileUpload from '../fileUpload/fileUpload';
 import styles from './signup.module.css';
 
@@ -10,7 +11,6 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
   const [email, setEmail] = useState('');
   const [photo, setPhoto] = useState('');
   const [text, setText] = useState('');
-  const [isAlert, setIsAlert] = useState(false);
 
   const onClick = () => {
     onLogInClick();
@@ -26,7 +26,6 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
 
   const setError = (error) => {
     setText(error.toString());
-    setIsAlert(true);
   };
 
   const onChange = (event) => {
@@ -52,7 +51,7 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
     <div className={styles.container}>
       <div className={styles.signup}>
         <h1 className={styles.title}>Create an account</h1>
-        {/* {text && <p>{text}</p>} */}
+        <Banner text={text} />
         <form className={styles.signup_form} onSubmit={onSubmit}>
           <input
             name="username"
