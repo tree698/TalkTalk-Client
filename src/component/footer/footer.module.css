@@ -1,0 +1,78 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px 20px 30px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+}
+
+.github {
+  font-size: 30px;
+  margin-left: 14px;
+  color: var(--color-button);
+  transition: all var(--animation-duration) ease;
+}
+
+.github:hover {
+  transform: rotate(360deg) scale(1.08);
+  color: var(--color-dark-pink);
+}
+
+.email,
+.right {
+  font-size: var(--font-regular);
+  color: var(--color-font-dark);
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+
+  .footer {
+    margin: 0 60px 30px 60px;
+  }
+
+  .github {
+    font-size: 37px;
+    margin-left: 17px;
+  }
+
+  .github:hover {
+    transform: rotate(360deg) scale(1.12);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    /* Font size */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .footer {
+    margin: 0 80px 40px 80px;
+  }
+
+  .github {
+    font-size: 44px;
+    margin-left: 20px;
+  }
+
+  .github:hover {
+    transform: rotate(360deg) scale(1.16);
+  }
+}
