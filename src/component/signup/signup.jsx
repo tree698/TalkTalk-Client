@@ -49,46 +49,62 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
   };
 
   return (
-    <div className={styles.signup}>
-      <h1 className={styles.title}>Create an account</h1>
-      {text && <p>{text}</p>}
-      <form className={styles.signup_form} onSubmit={onSubmit}>
-        <input
-          name="username"
-          type="text"
-          value={username}
-          onChange={onChange}
-          className={styles.form_input}
-          placeholder="username"
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          value={password}
-          onChange={onChange}
-          className={styles.form_input}
-          placeholder="password"
-          required
-        />
-        <input
-          name="email"
-          type="email"
-          value={email}
-          onChange={onChange}
-          className={styles.form_input}
-          placeholder="email"
-          required
-        />
+    <div className={styles.container}>
+      <div className={styles.signup}>
+        <h1 className={styles.title}>Create an account</h1>
+        {/* {text && <p>{text}</p>} */}
+        <form className={styles.signup_form} onSubmit={onSubmit}>
+          <input
+            name="username"
+            type="text"
+            value={username}
+            onChange={onChange}
+            className={styles.form__input}
+            placeholder="Username"
+            required
+          />
+          <input
+            name="email"
+            type="email"
+            value={email}
+            onChange={onChange}
+            className={styles.form__input}
+            placeholder="Email"
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            value={password}
+            onChange={onChange}
+            className={styles.form__input}
+            placeholder="Password"
+            required
+          />
+          <input
+            name="photo"
+            disabled={true}
+            className={styles.form__input__photo}
+            placeholder="Photo (* optional)"
+          />
 
-        <FileUpload workService={workService} liftFile={liftFile} />
+          <FileUpload
+            workService={workService}
+            liftFile={liftFile}
+            photo={photo}
+          />
 
-        <button className={styles.loginBtn} type="submit">
-          Create account
-        </button>
-      </form>
-      <p>Already have an account?</p>
-      <button onClick={onClick}>Log in</button>
+          <button className={styles.signupBtn} type="submit">
+            Create account
+          </button>
+        </form>
+        <div className={styles.login__container}>
+          <p>Already have an account?</p>
+          <button className={styles.loginBtn} onClick={onClick}>
+            Log in
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
