@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Banner from '../../component/banner/banner';
 import FileUpload from '../../component/fileUpload/fileUpload';
+import Footer from '../../component/footer/footer';
 import Header from '../../component/header/header';
 import styles from './upload.module.css';
 
@@ -12,7 +14,6 @@ const Upload = ({ workService }) => {
   const [fileName, setFileName] = useState('');
   const [originalName, setOriginalName] = useState('');
   const [text, setText] = useState('');
-  // const [isAlert, setIsAlert] = useState(false);
 
   const baseURL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
@@ -42,7 +43,6 @@ const Upload = ({ workService }) => {
 
   const setError = (error) => {
     setText(error.toString());
-    // setIsAlert(true);
   };
 
   const liftFile = (file) => {
@@ -56,49 +56,83 @@ const Upload = ({ workService }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header addHome={true} />
-      <h1>Upload Page</h1>
-      {text && <p>{text}</p>}
-      <FileUpload workService={workService} liftFile={liftFile} />
-      <form onSubmit={onSubmit} className={styles.form}>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={onChange}
-          className={styles.title}
-          placeholder="title"
-          required
-        />
-        <textarea
-          name="description"
-          value={description}
-          onChange={onChange}
-          className={styles.description}
-          cols="30"
-          rows="5"
-          placeholder="description"
-        ></textarea>
-        <input
-          type="text"
-          name="brush"
-          value={brush}
-          onChange={onChange}
-          className={styles.brush}
-          placeholder="brush"
-        />
+      <Banner text={text} />
 
-        <button type="submit" className={styles.submitBtn}>
-          Submit
-        </button>
-      </form>
+      <div className={styles.upload}>
+        <div className={styles.fileUpload}>
+          {/* <FileUpload workService={workService} liftFile={liftFile} /> */}
+          <div className={styles.display}>
+            <img
+              src={`${baseURL}/uploaded_images/${fileName}`}
+              className={styles.uploadedImg}
+              alt=""
+            />
+            <p>Uploaded file: {originalName}</p>
+            <button
+              type="button"
+              className={styles.cancelBtn}
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+        <form onSubmit={onSubmit} className={styles.form}>
+          <label htmlFor="title" className={styles.form__label}>
+            Title
+          </label>{' '}
+          <br />
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={onChange}
+            className={styles.form__input}
+            placeholder="Title"
+            id="title"
+            required
+          />
+          <br />
+          <label htmlFor="description" className={styles.form__label}>
+            Description
+          </label>
+          <br />
+          <textarea
+            name="description"
+            value={description}
+            onChange={onChange}
+            className={styles.form__input}
+            cols="30"
+            rows="3"
+            placeholder="Description"
+            id="description"
+          ></textarea>
+          <br />
+          <label htmlFor="brush" className={styles.form__label}>
+            Brush
+          </label>{' '}
+          <br />
+          <input
+            type="text"
+            name="brush"
+            value={brush}
+            onChange={onChange}
+            className={styles.form__input}
+            placeholder="Brush"
+            id="brush"
+          />
+          <br />
+          <button type="submit" className={styles.submitBtn}>
+            Submit
+          </button>
+        </form>
+      </div>
 
-      <img src={`${baseURL}/uploaded_images/${fileName}`} alt="" />
-      <p>{originalName}</p>
-      <button type="button" className={styles.cancelBtn} onClick={handleCancel}>
-        Cancel
-      </button>
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 };

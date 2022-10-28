@@ -1,0 +1,121 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.upload {
+  width: 100%;
+  max-width: 310px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.form__label {
+  color: var(--color-font-dark);
+  font-size: var(--font-regular);
+}
+
+.form__input {
+  width: 100%;
+  padding: 8px 5px;
+  outline: none;
+  border: 1px solid var(--color-super-light-grey);
+  border-radius: var(--size-border-radius-btn);
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-size: var(--font-regular);
+}
+
+.form__input::placeholder {
+  font-size: var(--font-regular);
+  color: var(--color-super-light-grey);
+  font-style: italic;
+}
+
+.submitBtn {
+  width: 100%;
+  color: var(--color-white);
+  padding: 10px 0;
+  margin-top: 8px;
+  font-size: var(--font-medium);
+  background-color: var(--color-button-purple-dark);
+  border-radius: var(--size-border-radius-Superbig);
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+.submitBtn:hover {
+  font-weight: var(--weight-bold);
+  background-color: var(--color-button-purple);
+  border: 1px solid var(--color-super-light-grey);
+  transform: scale(1.06);
+}
+
+.footer {
+  margin: 0 0 10px 10px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    /* Font size - tablet */
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+
+  .upload {
+    max-width: 688px;
+  }
+
+  .form__input {
+    padding: 14px 8px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+
+  .submitBtn {
+    padding: 18px 0;
+    margin-top: 22px;
+  }
+
+  .footer {
+    margin: 0 0 16px 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    /* Font size - tablet */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .upload {
+    max-width: 900px;
+  }
+
+  .form__input {
+    padding: 18px 12px;
+    margin-top: 12px;
+    margin-bottom: 22px;
+  }
+
+  .submitBtn {
+    padding: 22px 0;
+    margin-top: 26px;
+  }
+
+  .footer {
+    margin: 0 0 22px 22px;
+  }
+}
