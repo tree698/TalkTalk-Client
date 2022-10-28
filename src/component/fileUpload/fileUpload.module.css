@@ -1,46 +1,15 @@
 .container {
   width: 100%;
-  /* padding: 10px; */
+  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: 3px dotted var(--color-white);
-  border-radius: var(--size-border-radius-btn);
-  background-color: var(--color-blue);
-}
-
-.dropZone,
-.displayZone {
-  width: 50%;
-  padding: 14px;
-}
-
-.dropZone {
-  border-right: 3px dotted var(--color-white);
+  border-radius: var(--size-border-radius-big);
 }
 
 .message {
-  color: var(--color-white);
+  color: var(--color-font-dark);
   font-size: var(--font-regular);
 }
-
-.photo {
-  width: 100%;
-}
-
-.icon {
-  color: var(--color-white);
-  font-size: var(--font-regular);
-}
-
-/* @media screen and (min-width: 768px) {
-  .container {
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .container {
-  }
-} */
