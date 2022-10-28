@@ -22,10 +22,23 @@ const Header = ({ addHome, addUpload }) => {
   };
 
   return (
-    <div>
-      {addHome && <button onClick={onGoToHome}>home</button>}
-      {addUpload && <button onClick={onGoToUpload}>upload</button>}
-      <button onClick={onLogout}>Logout</button>
+    <div className={styles.header}>
+      <div className={styles.container}>
+        <img className={styles.logo} src="logo.png" alt="" />
+        {addHome && (
+          <button className={styles.btn} onClick={onGoToHome}>
+            Home
+          </button>
+        )}
+        {addUpload && (
+          <button className={styles.btn} onClick={onGoToUpload}>
+            Upload
+          </button>
+        )}
+      </div>
+      <button className={styles.logoutBtn} onClick={onLogout}>
+        Logout
+      </button>
     </div>
   );
 };
