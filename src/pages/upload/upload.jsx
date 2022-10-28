@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -61,14 +63,24 @@ const Upload = ({ workService }) => {
       <Banner text={text} />
 
       <div className={styles.upload}>
-        <div className={styles.fileUpload}>
-          {/* <FileUpload workService={workService} liftFile={liftFile} /> */}
-          <div className={styles.display}>
-            <img
-              src={`${baseURL}/uploaded_images/${fileName}`}
-              className={styles.uploadedImg}
-              alt=""
-            />
+        <h2 className={styles.title}>Upload your painting</h2>
+        <div className={styles.display}>
+          <div className={styles.fileUpload__wrap}>
+            <FileUpload workService={workService} liftFile={liftFile} />
+          </div>
+          <div className={styles.image__wrap}>
+            {fileName ? (
+              <img
+                src={`${baseURL}/uploaded_images/${fileName}`}
+                className={styles.image}
+                alt=""
+              />
+            ) : (
+              <FontAwesomeIcon icon={faPlus} className={styles.plusIcon} />
+            )}
+          </div>
+
+          {/* <div className={styles.display}>
             <p>Uploaded file: {originalName}</p>
             <button
               type="button"
@@ -77,8 +89,9 @@ const Upload = ({ workService }) => {
             >
               Cancel
             </button>
-          </div>
+          </div> */}
         </div>
+
         <form onSubmit={onSubmit} className={styles.form}>
           <label htmlFor="title" className={styles.form__label}>
             Title
