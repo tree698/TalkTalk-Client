@@ -48,7 +48,7 @@ const LogIn = ({ onLogIn, onSignUpClick }) => {
         <p className={styles.subTitle}>Login your account</p>
         <form className={styles.login__form} onSubmit={onSubmit}>
           <div className={styles.input__container}>
-            <label for="username" className={styles.form__label}>
+            <label htmlFor="username" className={styles.form__label}>
               Username
             </label>
             <br />
@@ -63,7 +63,7 @@ const LogIn = ({ onLogIn, onSignUpClick }) => {
               required
             />
             <br />
-            <label for="password" className={styles.form__label}>
+            <label htmlFor="password" className={styles.form__label}>
               Password
             </label>
             <br />
