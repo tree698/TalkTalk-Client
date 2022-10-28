@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useState } from 'react';
 import Banner from '../banner/banner';
 import FileUpload from '../fileUpload/fileUpload';
@@ -87,11 +86,16 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
             placeholder="Photo (* optional)"
           />
 
-          <FileUpload
-            workService={workService}
-            liftFile={liftFile}
-            photo={photo}
-          />
+          <div className={styles.display}>
+            <div className={styles.fileUpload__wrap}>
+              <FileUpload workService={workService} liftFile={liftFile} />
+            </div>
+            {photo && (
+              <p className={styles.message}>
+                Successfully uploaded your photo!
+              </p>
+            )}
+          </div>
 
           <button className={styles.signupBtn} type="submit">
             Create account
