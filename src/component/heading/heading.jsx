@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from '../carousel/carousel';
+import Footer from '../footer/footer';
 import styles from './heading.module.css';
 
 const Heading = ({ workService }) => {
@@ -14,6 +15,9 @@ const Heading = ({ workService }) => {
         <div>
           <Carousel workService={workService} />
         </div>
+      </div>
+      <div className={styles.footer}>
+        <Footer />
       </div>
     </div>
   );

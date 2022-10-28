@@ -2,6 +2,7 @@
   flex: 1 1 50%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -14,6 +15,12 @@
 
 .description {
   margin-bottom: 30px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
 }
 
 @media screen and (min-width: 768px) {

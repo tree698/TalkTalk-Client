@@ -11,11 +11,7 @@ const Footer = (props) => (
           tree698@gmail.com
         </a>
       </address>
-      <a
-        href="https://github.com/tree698"
-        className={styles.githubLinker}
-        target="_blank"
-      >
+      <a href="https://github.com/tree698/TalkTalk-Client" target="_blank">
         <FontAwesomeIcon icon={faGithub} className={styles.github} />
       </a>
     </div>

@@ -1,9 +1,6 @@
 .footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 30px 20px 30px;
 }
 
 .contact {
@@ -12,9 +9,9 @@
 }
 
 .github {
-  font-size: 30px;
+  font-size: 20px;
   margin-left: 14px;
-  color: var(--color-button);
+  color: var(--color-font-blue);
   transition: all var(--animation-duration) ease;
 }
 
@@ -39,12 +36,8 @@
     --font-micro: 11px;
   }
 
-  .footer {
-    margin: 0 60px 30px 60px;
-  }
-
   .github {
-    font-size: 37px;
+    font-size: 28px;
     margin-left: 17px;
   }
 
@@ -63,12 +56,8 @@
     --font-micro: 14px;
   }
 
-  .footer {
-    margin: 0 80px 40px 80px;
-  }
-
   .github {
-    font-size: 44px;
+    font-size: 34px;
     margin-left: 20px;
   }
 
