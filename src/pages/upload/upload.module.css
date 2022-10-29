@@ -83,17 +83,17 @@
   color: var(--color-white);
   padding: 10px 0;
   margin-top: 30px;
-  font-size: var(--font-medium);
-  background-color: var(--color-button-purple-dark);
+  font-size: var(--font-regular);
+  background-color: var(--color-dark-grey);
   border-radius: var(--size-border-radius-Superbig);
   transition: all var(--animation-duration) ease-in-out;
 }
 
 .submitBtn:hover {
   font-weight: var(--weight-bold);
-  background-color: var(--color-button-purple);
+  background-color: var(--color-blue);
   border: 1px solid var(--color-super-light-grey);
-  transform: scale(1.06);
+  transform: scale(1.02);
 }
 
 .footer {
