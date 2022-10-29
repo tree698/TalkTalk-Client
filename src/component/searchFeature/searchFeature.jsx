@@ -19,8 +19,21 @@ const SearchFeature = ({ onSendSearchTerm }) => {
   };
 
   return (
-    <form onSubmit={searchHandler}>
-      <input type="text" onChange={onChange} value={searchTerm} />
+    <form onSubmit={searchHandler} className={styles.container}>
+      <input
+        type="text"
+        onChange={onChange}
+        value={searchTerm}
+        className={styles.input}
+        placeholder="Search..."
+      />
+      <button className={styles.button}>
+        <img
+          src="search-super.png"
+          className={styles.search}
+          alt="Search Icon"
+        />
+      </button>
     </form>
   );
 };

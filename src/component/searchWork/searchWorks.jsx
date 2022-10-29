@@ -38,7 +38,7 @@ const SearchWork = ({ workService, onClickWork, searchTerm }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {works.map((work) => (
         <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
       ))}

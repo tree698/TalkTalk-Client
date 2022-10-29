@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/authContext';
+import Banner from '../banner/banner';
 import DisplayWork from '../displayWorks/displayWork';
 import styles from './myWorks.module.css';
 
@@ -47,18 +48,22 @@ const MyWorks = ({ workService, onClickWork, addDeleteBtn }) => {
   };
 
   return (
-    <div>
-      {error && <p>{error}</p>}
-      <button onClick={onClickDeleteBtn}>Delete</button>
-      {works.map((work) => (
-        <DisplayWork
-          key={work.id}
-          work={work}
-          onClickWork={onClickWork}
-          addDeleteBtn={addDeleteBtn}
-          onSendToBeDeletedWork={onSendToBeDeletedWork}
-        />
-      ))}
+    <div className={styles.container}>
+      <button onClick={onClickDeleteBtn} className={styles.deleteBtn}>
+        Delete checked paintings
+      </button>
+      <Banner text={error} />
+      <div className={styles.works}>
+        {works.map((work) => (
+          <DisplayWork
+            key={work.id}
+            work={work}
+            onClickWork={onClickWork}
+            addDeleteBtn={addDeleteBtn}
+            onSendToBeDeletedWork={onSendToBeDeletedWork}
+          />
+        ))}
+      </div>
     </div>
   );
 };

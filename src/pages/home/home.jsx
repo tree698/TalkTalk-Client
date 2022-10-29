@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import ActionBtn from '../../component/actionBtn/actionBtn';
 import AllWorks from '../../component/allWorks/allWorks';
+import Footer from '../../component/footer/footer';
 import Header from '../../component/header/header';
 import MyWorks from '../../component/myWorks/myWorks';
 import SearchWork from '../../component/searchWork/searchWorks';
@@ -31,42 +32,51 @@ const Home = ({ workService, onClickWork }) => {
   };
 
   return (
-    <div>
-      <Header addUpload={true} />
-      <ActionBtn onAllWorks={onAllWorks} onMyWorks={onMyWorks} />
-      <h1>Home Page</h1>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <AllWorks
-              workService={workService}
-              onClickWork={onClickWork}
-              onSendSearchTerm={onSearchTermHandler}
+    <div className={styles.container}>
+      <div>
+        <Header addUpload={true} />
+        <div className={styles.home}>
+          <h2 className={styles.title}>Choose a painting</h2>
+          <div className={styles.actionBtn}>
+            <ActionBtn onAllWorks={onAllWorks} onMyWorks={onMyWorks} />
+          </div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <AllWorks
+                  workService={workService}
+                  onClickWork={onClickWork}
+                  onSendSearchTerm={onSearchTermHandler}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/search"
-          element={
-            <SearchWork
-              workService={workService}
-              onClickWork={onClickWork}
-              searchTerm={searchTerm}
+            <Route
+              path="/search"
+              element={
+                <SearchWork
+                  workService={workService}
+                  onClickWork={onClickWork}
+                  searchTerm={searchTerm}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/:username"
-          element={
-            <MyWorks
-              workService={workService}
-              onClickWork={onClickWork}
-              addDeleteBtn={addDeleteBtn}
+            <Route
+              path="/:username"
+              element={
+                <MyWorks
+                  workService={workService}
+                  onClickWork={onClickWork}
+                  addDeleteBtn={addDeleteBtn}
+                />
+              }
             />
-          }
-        />
-      </Routes>
+          </Routes>
+        </div>
+      </div>
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 };

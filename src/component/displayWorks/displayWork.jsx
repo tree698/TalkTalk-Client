@@ -23,18 +23,29 @@ const DisplayWork = ({
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {addDeleteBtn && (
-        <input name="delete" id="delete" onChange={onChange} type="checkbox" />
-      )}
-      <button onClick={onClickHandler}>
-        <img
-          style={{ width: '30%' }}
-          src={`${baseURL}/uploaded_images/${work.fileName}`}
-          alt=""
+        <input
+          className={styles.deleteBox}
+          name="delete"
+          id="delete"
+          onChange={onChange}
+          type="checkbox"
         />
-        <p>{work.title}</p>
-        <p>{work.usesrname}</p>
+      )}
+      <button onClick={onClickHandler} className={styles.workBtn}>
+        <div className={styles.painting__wrap}>
+          <img
+            src={`${baseURL}/uploaded_images/${work.fileName}`}
+            alt="user painting"
+            className={styles.painting}
+          />
+        </div>
+
+        <div className={styles.metaInfo}>
+          <p className={styles.info__title}>{work.title}</p>
+          <p className={styles.info__username}>By {work.username}</p>
+        </div>
       </button>
     </div>
   );
