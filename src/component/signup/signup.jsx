@@ -19,7 +19,10 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     onSignUp(username, password, email, photo)
-      .then((user) => onLogInClick())
+      .then((user) => {
+        window.alert('Welcome! Successfully signed up.');
+        onLogInClick();
+      })
       .catch(setError);
   };
 
@@ -85,7 +88,6 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
             className={styles.form__input__photo}
             placeholder="Photo (* optional)"
           />
-
           <div className={styles.display}>
             <div className={styles.fileUpload__wrap}>
               <FileUpload workService={workService} liftFile={liftFile} />

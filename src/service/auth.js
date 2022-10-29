@@ -15,7 +15,8 @@ export default class AuthService {
       }),
       type: { 'Content-Type': 'application/json' },
     });
-    this.tokenStorage.saveToken(data.token);
+    // signup 후 자동 로그인 방지
+    // this.tokenStorage.saveToken(data.token);
     return data;
   }
 
