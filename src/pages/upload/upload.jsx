@@ -79,18 +79,19 @@ const Upload = ({ workService }) => {
               <FontAwesomeIcon icon={faPlus} className={styles.plusIcon} />
             )}
           </div>
-
-          {/* <div className={styles.display}>
-            <p>Uploaded file: {originalName}</p>
+        </div>
+        {fileName && (
+          <div className={styles.confirmDisplay}>
+            <p className={styles.message}>Successfully uploaded!</p>
             <button
               type="button"
               className={styles.cancelBtn}
               onClick={handleCancel}
             >
-              Cancel
+              Want to cancel?
             </button>
-          </div> */}
-        </div>
+          </div>
+        )}
 
         <form onSubmit={onSubmit} className={styles.form}>
           <label htmlFor="title" className={styles.form__label}>
