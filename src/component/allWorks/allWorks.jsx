@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import Banner from '../banner/banner';
 import DisplayWork from '../displayWorks/displayWork';
 import SearchFeature from '../searchFeature/searchFeature';
 import styles from './allWorks.module.css';
@@ -14,6 +15,7 @@ const AllWorks = ({ workService, onClickWork, onSendSearchTerm }) => {
   const [limit, setLimit] = useState(pagination.limit);
   const [offset, setOffset] = useState(pagination.offset);
   const [lengthWork, setLengthWork] = useState(pagination.limit);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     workService.getWorks(limit, offset).then(setWorks);
@@ -22,10 +24,13 @@ const AllWorks = ({ workService, onClickWork, onSendSearchTerm }) => {
 
   const clickHandler = () => {
     updateOffset();
-    workService.getWorks(limit, offset).then((work) => {
-      setLengthWork(work.length);
-      setWorks([...works, ...work]);
-    });
+    workService
+      .getWorks(limit, offset)
+      .then((work) => {
+        setLengthWork(work.length);
+        setWorks([...works, ...work]);
+      })
+      .catch((error) => setError(error.toString()));
   };
 
   const updateOffset = () => {
@@ -38,6 +43,7 @@ const AllWorks = ({ workService, onClickWork, onSendSearchTerm }) => {
       <div className={styles.search}>
         <SearchFeature onSendSearchTerm={onSendSearchTerm} />
       </div>
+      <Banner text={error} />
       <div className={styles.works}>
         {works.map((work) => (
           <DisplayWork key={work.id} work={work} onClickWork={onClickWork} />
