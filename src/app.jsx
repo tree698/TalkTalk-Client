@@ -1,7 +1,8 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './app.module.css';
 
 import Home from './pages/home/home';
@@ -10,6 +11,9 @@ import Upload from './pages/upload/upload';
 
 const App = ({ workService, tweetService }) => {
   const [selectedWork, setSelectedWork] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => navigate('/'), []);
 
   const handleSelectedWork = useCallback(
     (work) => {
