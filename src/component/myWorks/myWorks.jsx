@@ -53,6 +53,7 @@ const MyWorks = ({ workService, onClickWork, addDeleteBtn }) => {
         Delete checked paintings
       </button>
       <Banner text={error} />
+      {works.length === 0 && <p>Not yet uploaded your painting</p>}
       <div className={styles.works}>
         {works.map((work) => (
           <DisplayWork
