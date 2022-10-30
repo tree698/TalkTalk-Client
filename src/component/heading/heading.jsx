@@ -7,12 +7,17 @@ const Heading = ({ workService }) => {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <h1 className={styles.title}>Talk & Talk</h1>
-        <h3 className={styles.description}>
-          Upload your artistics paintings. <br />
-          Then, enjoy talking with others.
-        </h3>
-        <div>
+        <div className={styles.intro}>
+          <div className={styles.logo__wrap}>
+            <img src="logo.png" className={styles.logo} alt="logo" />
+          </div>
+          <div className={styles.title__description}>
+            <h1 className={styles.title}>TalkTalk</h1>
+            <h3 className={styles.description}>Enjoy talking with others.</h3>
+          </div>
+        </div>
+
+        <div className={styles.carousel}>
           <Carousel workService={workService} />
         </div>
       </div>
