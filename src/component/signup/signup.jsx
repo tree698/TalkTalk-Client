@@ -54,6 +54,22 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
       <div className={styles.signup}>
         <h1 className={styles.title}>Create an account</h1>
         <Banner text={text} />
+
+        <input
+          name="photo"
+          disabled={true}
+          className={styles.form__input__photo}
+          placeholder="Photo (optional)"
+        />
+        <div className={styles.display}>
+          <div className={styles.fileUpload__wrap}>
+            <FileUpload workService={workService} liftFile={liftFile} />
+          </div>
+          {photo && (
+            <p className={styles.message}>Successfully uploaded your photo!</p>
+          )}
+        </div>
+
         <form className={styles.signup_form} onSubmit={onSubmit}>
           <input
             name="username"
@@ -61,7 +77,7 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
             value={username}
             onChange={onChange}
             className={styles.form__input}
-            placeholder="Username"
+            placeholder="Username (* Required)"
             required
           />
           <input
@@ -70,7 +86,7 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
             value={email}
             onChange={onChange}
             className={styles.form__input}
-            placeholder="Email"
+            placeholder="Email (* Required)"
             required
           />
           <input
@@ -79,25 +95,9 @@ const SignUp = ({ onSignUp, onLogInClick, workService }) => {
             value={password}
             onChange={onChange}
             className={styles.form__input}
-            placeholder="Password"
+            placeholder="Password (* Required)"
             required
           />
-          <input
-            name="photo"
-            disabled={true}
-            className={styles.form__input__photo}
-            placeholder="Photo (* optional)"
-          />
-          <div className={styles.display}>
-            <div className={styles.fileUpload__wrap}>
-              <FileUpload workService={workService} liftFile={liftFile} />
-            </div>
-            {photo && (
-              <p className={styles.message}>
-                Successfully uploaded your photo!
-              </p>
-            )}
-          </div>
 
           <button className={styles.signupBtn} type="submit">
             Create account

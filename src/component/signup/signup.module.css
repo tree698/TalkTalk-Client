@@ -16,8 +16,8 @@
   font-size: var(--font-medium);
 }
 
-.form__input,
-.form__input__photo {
+.form__input__photo,
+.form__input {
   width: 100%;
   padding: 10px 5px;
   outline: none;
@@ -27,14 +27,18 @@
   background-color: var(--color-background);
 }
 
-.form__input::placeholder,
-.form__input__photo::placeholder {
+.form__input__photo::placeholder,
+.form__input::placeholder {
   font-size: var(--font-regular);
   color: var(--color-font-dark);
 }
 
 .form__input__photo {
   border: none;
+}
+
+.display {
+  margin-bottom: 8px;
 }
 
 .fileUpload__wrap {
@@ -109,8 +113,8 @@
     font-size: 40px;
   }
 
-  .form__input,
-  .form__input__photo {
+  .form__input__photo,
+  .form__input {
     margin-bottom: 14px;
   }
 
@@ -158,6 +162,10 @@
 
   .form__input__photo {
     margin-bottom: 6px;
+  }
+
+  .display {
+    margin-bottom: 14px;
   }
 
   .fileUpload__wrap {
