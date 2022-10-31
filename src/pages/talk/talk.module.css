@@ -1,4 +1,63 @@
-.talk {
+.container {
+  width: 100vw;
+  height: 100vh;
+
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.talk {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectedWork,
+.tweet {
+  flex: 1 1 50%;
+}
+
+.tweet {
+  background-color: lightgreen;
+}
+
+.footer {
+  margin: 10px;
+  margin-top: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+
+  .talk {
+    flex-direction: row;
+  }
+
+  .footer {
+    margin: 16px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .footer {
+    margin: 24px;
+    margin-top: 28px;
+  }
 }

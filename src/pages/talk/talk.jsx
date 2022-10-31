@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import AllTweets from '../../component/allTweets/allTweets';
+import Footer from '../../component/footer/footer';
 import Header from '../../component/header/header';
 import MyTweets from '../../component/myTweets/myTweets';
 import SelectedWork from '../../component/selectedWork/selectedWork';
@@ -21,34 +22,43 @@ const Talk = ({ selectedWork, tweetService }) => {
   };
 
   return (
-    <div className={styles.talk}>
+    <div className={styles.container}>
       <Header addHome={true} addUpload={true} />
-      <SelectedWork selectedWork={selectedWork} />
 
-      <SelectTweet onAllTweets={onAllTweets} onMyTweets={onMyTweets} />
+      <div className={styles.talk}>
+        <div className={styles.selectedWork}>
+          <SelectedWork selectedWork={selectedWork} />
+        </div>
+        <div className={styles.tweet}>
+          <SelectTweet onAllTweets={onAllTweets} onMyTweets={onMyTweets} />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <AllTweets
+                  tweetService={tweetService}
+                  selectedWork={selectedWork}
+                  onAllTweets={onAllTweets}
+                />
+              }
+            />
+            <Route
+              path="/:username"
+              element={
+                <MyTweets
+                  tweetService={tweetService}
+                  selectedWork={selectedWork}
+                  onMyTweets={onMyTweets}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </div>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <AllTweets
-              tweetService={tweetService}
-              selectedWork={selectedWork}
-              onAllTweets={onAllTweets}
-            />
-          }
-        />
-        <Route
-          path="/:username"
-          element={
-            <MyTweets
-              tweetService={tweetService}
-              selectedWork={selectedWork}
-              onMyTweets={onMyTweets}
-            />
-          }
-        />
-      </Routes>
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 };
