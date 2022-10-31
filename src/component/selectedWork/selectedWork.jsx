@@ -20,12 +20,31 @@ const SelectedWork = ({ selectedWork }) => {
           <img
             className={styles.img}
             src={`${baseURL}/uploaded_images/${selectedWork.fileName}`}
-            alt=""
+            alt="painting"
           />
-          <p>{selectedWork.title}</p>
-          <p>{selectedWork.username}</p>
-          <p>{selectedWork.brush}</p>
-          <p>{selectedWork.description}</p>
+          <div className={styles.divider} />
+          <ul className={styles.metaInfo}>
+            <li className={styles.info}>
+              <span className={styles.subTitle}>Title</span>
+              &ensp;
+              {selectedWork.title}
+            </li>
+            <li className={styles.info}>
+              <span className={styles.subTitle}>Username</span>
+              &ensp;
+              {selectedWork.username}
+            </li>
+            <li className={styles.info}>
+              <span className={styles.subTitle}>Brush</span>
+              &ensp;
+              {selectedWork.brush}
+            </li>
+            <li className={styles.info}>
+              <span className={styles.subTitle}>Say something</span>
+              &ensp;
+              {selectedWork.description}
+            </li>
+          </ul>
         </div>
       )}
     </>

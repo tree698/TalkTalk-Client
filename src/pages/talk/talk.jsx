@@ -28,6 +28,9 @@ const Talk = ({ selectedWork, tweetService }) => {
       <div className={styles.talk}>
         <div className={styles.selectedWork}>
           <SelectedWork selectedWork={selectedWork} />
+          <div className={styles.footer}>
+            <Footer />
+          </div>
         </div>
         <div className={styles.tweet}>
           <SelectTweet onAllTweets={onAllTweets} onMyTweets={onMyTweets} />
@@ -54,10 +57,6 @@ const Talk = ({ selectedWork, tweetService }) => {
             />
           </Routes>
         </div>
-      </div>
-
-      <div className={styles.footer}>
-        <Footer />
       </div>
     </div>
   );
