@@ -8,11 +8,11 @@ const SelectTweet = ({ onAllTweets, onMyTweets }) => {
     <div className={styles.container}>
       <button className={styles.allTweets} onClick={onAllTweets}>
         <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
-        All Tweets
+        All Messages
       </button>
       <button className={styles.myTweets} onClick={onMyTweets}>
         <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
-        My Tweets
+        My Messages
       </button>
     </div>
   );

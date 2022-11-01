@@ -8,11 +8,11 @@ const ActionBtn = ({ onAllWorks, onMyWorks }) => {
     <div className={styles.container}>
       <button className={styles.allworks} onClick={onAllWorks}>
         <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
-        All Works
+        All Paintings
       </button>
       <button className={styles.myworks} onClick={onMyWorks}>
         <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
-        My Works
+        My Paintings
       </button>
     </div>
   );
