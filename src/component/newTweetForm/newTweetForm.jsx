@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { useState } from 'react';
 import styles from './newTweetForm.module.css';
@@ -21,16 +23,19 @@ const NewTweetForm = ({ tweetService, onError, selectedWork }) => {
   };
 
   return (
-    <form action="" onSubmit={onSubmit}>
+    <form action="" onSubmit={onSubmit} className={styles.container}>
       <input
         type="text"
-        placeholder="Enter your talk"
+        placeholder="Type a message"
         value={tweet}
         required
         autoFocus
         onChange={onChange}
+        className={styles.input}
       />
-      <button type="submit">Post</button>
+      <button className={styles.post} type="submit">
+        <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} />
+      </button>
     </form>
   );
 };
