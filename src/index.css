@@ -19,11 +19,15 @@
   --color-font: #475258;
   --color-font-blue: #0c90e4;
 
-  /* --color-background: #efefef;
+  --color-background: #efefef;
   --color-background-outer: #ecf1f4;
   --color-background-inner: #f2f4f6;
   --color-button: #0c90e4;
-  --color-button-hover: #565656; */
+  --color-button-hover: #565656;
+
+  --color-chatting-bg-outer: #d7dbe2;
+  --color-chatting-bg-inner: #f5f7fa;
+  --color-chatting-message: #4e426d;
 
   --color-background: #faf8fe;
   --color-button-purple-dark: #7345fc;
