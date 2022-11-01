@@ -34,7 +34,9 @@ const Home = ({ workService, onClickWork }) => {
   return (
     <div className={styles.container}>
       <div>
-        <Header addUpload={true} />
+        <div className={styles.header}>
+          <Header addUpload={true} />
+        </div>
         <div className={styles.home}>
           <h2 className={styles.title}>Choose a painting</h2>
           <div className={styles.actionBtn}>

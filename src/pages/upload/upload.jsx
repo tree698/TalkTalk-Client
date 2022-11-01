@@ -59,7 +59,9 @@ const Upload = ({ workService }) => {
 
   return (
     <div className={styles.container}>
-      <Header addHome={true} />
+      <div className={styles.header}>
+        <Header addHome={true} />
+      </div>
       <Banner text={text} />
 
       <div className={styles.upload}>

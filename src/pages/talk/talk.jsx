@@ -23,7 +23,9 @@ const Talk = ({ selectedWork, tweetService }) => {
 
   return (
     <div className={styles.container}>
-      <Header addHome={true} addUpload={true} />
+      <div className={styles.header}>
+        <Header addHome={true} addUpload={true} />
+      </div>
 
       <div className={styles.talk}>
         <div className={styles.selectedWork}>

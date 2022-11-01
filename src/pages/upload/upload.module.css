@@ -6,10 +6,18 @@
   flex-direction: column;
 }
 
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .upload {
   width: 100%;
   max-width: 310px;
   height: 100%;
+  padding-top: 42px;
 
   display: flex;
   flex-direction: column;
@@ -126,7 +134,8 @@
 }
 
 .footer {
-  margin: 0 0 10px 10px;
+  margin: 10px;
+  margin-top: 14px;
 }
 
 @media screen and (min-width: 768px) {
@@ -140,6 +149,7 @@
 
   .upload {
     max-width: 688px;
+    padding-top: 78px;
   }
 
   .title {
@@ -176,7 +186,8 @@
   }
 
   .footer {
-    margin: 0 0 16px 16px;
+    margin: 16px;
+    margin-top: 20px;
   }
 }
 
@@ -191,6 +202,7 @@
 
   .upload {
     max-width: 900px;
+    padding-top: 94px;
   }
 
   .title {
@@ -228,6 +240,7 @@
   }
 
   .footer {
-    margin: 0 0 22px 22px;
+    margin: 24px;
+    margin-top: 28px;
   }
 }

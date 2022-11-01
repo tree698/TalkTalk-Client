@@ -7,9 +7,17 @@
   justify-content: space-between;
 }
 
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .home {
   max-width: 310px;
   margin: auto;
+  padding-top: 42px;
   text-align: center;
 }
 
@@ -37,6 +45,7 @@
 
   .home {
     max-width: 688px;
+    padding-top: 78px;
   }
 
   .title {
@@ -64,6 +73,7 @@
 
   .home {
     max-width: 1200px;
+    padding-top: 94px;
   }
 
   .title {
