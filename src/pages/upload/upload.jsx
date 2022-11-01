@@ -109,21 +109,6 @@ const Upload = ({ workService }) => {
             required
           />
           <br />
-          <label htmlFor="description" className={styles.form__label}>
-            Description
-          </label>
-          <br />
-          <textarea
-            name="description"
-            value={description}
-            onChange={onChange}
-            className={styles.form__input}
-            cols="30"
-            rows="3"
-            placeholder="Description"
-            id="description"
-          ></textarea>
-          <br />
           <label htmlFor="brush" className={styles.form__label}>
             Brush
           </label>{' '}
@@ -137,6 +122,21 @@ const Upload = ({ workService }) => {
             placeholder="Brush"
             id="brush"
           />
+          <br />
+          <label htmlFor="description" className={styles.form__label}>
+            Say something
+          </label>
+          <br />
+          <textarea
+            name="description"
+            value={description}
+            onChange={onChange}
+            className={styles.form__input}
+            cols="30"
+            rows="3"
+            placeholder="say something"
+            id="description"
+          ></textarea>
           <br />
           <button type="submit" className={styles.submitBtn}>
             Submit
