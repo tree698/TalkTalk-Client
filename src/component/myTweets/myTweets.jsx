@@ -7,13 +7,14 @@ const MyTweets = ({ tweetService, selectedWork }) => {
   const { username } = useParams();
 
   return (
-    <div>
-      <h1>My Tweets</h1>
-      <Tweets
-        tweetService={tweetService}
-        username={username}
-        selectedWork={selectedWork}
-      />
+    <div className={styles.outer}>
+      <div className={styles.inner}>
+        <Tweets
+          tweetService={tweetService}
+          username={username}
+          selectedWork={selectedWork}
+        />
+      </div>
     </div>
   );
 };

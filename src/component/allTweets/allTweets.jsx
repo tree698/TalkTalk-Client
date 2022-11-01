@@ -4,9 +4,10 @@ import styles from './allTweets.module.css';
 
 const AllTweets = ({ tweetService, selectedWork }) => {
   return (
-    <div>
-      <h1>All Tweets</h1>
-      <Tweets tweetService={tweetService} selectedWork={selectedWork} />
+    <div className={styles.outer}>
+      <div className={styles.inner}>
+        <Tweets tweetService={tweetService} selectedWork={selectedWork} />
+      </div>
     </div>
   );
 };
