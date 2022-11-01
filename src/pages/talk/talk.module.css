@@ -19,10 +19,6 @@
   flex: 1 1 50%;
 }
 
-.tweet {
-  background-color: var(--color-background);
-}
-
 .footer {
   position: fixed;
   bottom: 10px;

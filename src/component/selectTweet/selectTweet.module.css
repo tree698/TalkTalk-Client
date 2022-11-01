@@ -1,0 +1,77 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.allTweets,
+.myTweets {
+  width: 42%;
+  padding: 7px 0;
+  padding-left: 14px;
+  font-size: var(--font-regular);
+  text-align: left;
+
+  border: 1px solid var(--color-super-light-grey);
+  border-radius: var(--size-border-radius-btn);
+
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+
+  transition: all var(--animation-duration) ease-in;
+}
+
+.allTweets:hover,
+.myTweets:hover {
+  color: var(--color-white);
+  border: none;
+  background-color: var(--color-blue);
+  transform: scale(1.04);
+}
+
+.chevron {
+  font-size: var(--font-regular);
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+
+  .allTweets,
+  .myTweets {
+    /* margin-top: 40px; */
+    padding: 10px 0;
+    padding-left: 16px;
+  }
+
+  .chevron {
+    margin-right: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .allTweets,
+  .myTweets {
+    padding: 12px 0;
+    padding-left: 22px;
+  }
+
+  .chevron {
+    margin-right: 20px;
+  }
+}

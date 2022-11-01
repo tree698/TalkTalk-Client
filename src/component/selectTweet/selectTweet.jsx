@@ -1,11 +1,19 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import styles from './selectTweet.module.css';
 
 const SelectTweet = ({ onAllTweets, onMyTweets }) => {
   return (
-    <div>
-      <button onClick={onAllTweets}>All Tweets</button>
-      <button onClick={onMyTweets}>My Tweets</button>
+    <div className={styles.container}>
+      <button className={styles.allTweets} onClick={onAllTweets}>
+        <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
+        All Tweets
+      </button>
+      <button className={styles.myTweets} onClick={onMyTweets}>
+        <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
+        My Tweets
+      </button>
     </div>
   );
 };
