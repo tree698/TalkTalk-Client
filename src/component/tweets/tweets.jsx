@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
+import Banner from '../banner/banner';
 import NewTweetForm from '../newTweetForm/newTweetForm';
 import TweetCard from '../tweetCard/tweetCard';
 import styles from './tweets.module.css';
@@ -47,10 +48,14 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
   };
 
   return (
-    <div>
-      {error && <p>{error}</p>}
-      {tweets.length === 0 && <p>No Tweets Yet</p>}
-      <ul>
+    <div className={styles.container}>
+      <Banner text={error} />
+
+      {tweets.length === 0 && (
+        <h2 className={styles.message}>No Messages Yet ...</h2>
+      )}
+
+      <ul className={styles.tweets}>
         {tweets.map((tweet) => (
           <TweetCard
             key={tweet.id}
@@ -61,11 +66,14 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
           />
         ))}
       </ul>
-      <NewTweetForm
-        tweetService={tweetService}
-        onError={onError}
-        selectedWork={selectedWork}
-      />
+
+      <div className={styles.newTweetForm}>
+        <NewTweetForm
+          tweetService={tweetService}
+          onError={onError}
+          selectedWork={selectedWork}
+        />
+      </div>
     </div>
   );
 };
