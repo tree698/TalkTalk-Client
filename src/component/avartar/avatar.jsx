@@ -1,17 +1,18 @@
 import React from 'react';
+import styles from './avatar.module.css';
 
 const Avatar = ({ photo, username }) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
 
   return (
-    <div>
+    <div className={styles.container}>
       {!!photo ? (
         <img
-          style={{ width: '30px' }}
+          className={styles.image}
           src={`${baseURL}/uploaded_images/${photo}`}
         />
       ) : (
-        <div>{username.charAt(0)}</div>
+        <div className={styles.noImage}>{username.charAt(0)}</div>
       )}
     </div>
   );
