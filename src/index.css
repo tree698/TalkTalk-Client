@@ -26,8 +26,8 @@
   --color-button-hover: #565656;
 
   --color-chatting-bg-outer: #d7dbe2;
-  --color-chatting-bg-inner: #f5f7fa;
-  --color-chatting-message: #4e426d;
+  --color-chatting-bg-message: #f5f7fa;
+  --color-chatting-message-owner: #4e426d;
 
   --color-background: #faf8fe;
   --color-button-purple-dark: #7345fc;
