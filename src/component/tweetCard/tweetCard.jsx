@@ -7,21 +7,50 @@ const TweetCard = ({ tweet, owner, onDelete, onUsernameClick }) => {
   const { id, text, createdAt, userId, username, photo } = tweet;
 
   return (
-    <li>
-      <section>
-        <Avatar photo={photo} username={username} />
-        <div>
-          <span onClick={() => onUsernameClick(tweet)}>{username}</span>
-          <span> · {parseDate(createdAt)}</span>
-          <p>{text}</p>
-        </div>
-      </section>
-      {owner && (
+    <div className={owner && `${styles.owner}`}>
+      <li className={styles.container}>
+        <section className={styles.tweetCard}>
+          <div className={owner && `${styles.photoOrder}`}>
+            <Avatar photo={photo} username={username} />
+          </div>
+          <div className={owner ? `${styles.tweetOwner}` : `${styles.tweet}`}>
+            <div className={styles.nameAndTime}>
+              <p
+                className={
+                  owner
+                    ? `${styles.name} ${styles.colorOwner}`
+                    : `${styles.name}`
+                }
+                onClick={() => onUsernameClick(tweet)}
+              >
+                {username}
+              </p>
+              <p
+                className={
+                  owner
+                    ? `${styles.time} ${styles.colorOwner}`
+                    : `${styles.time}`
+                }
+              >
+                {parseDate(createdAt)}
+              </p>
+            </div>
+            <p
+              className={
+                owner ? `${styles.text} ${styles.colorOwner}` : `${styles.text}`
+              }
+            >
+              {text}
+            </p>
+          </div>
+        </section>
+        {/* {owner && (
         <div>
           <button onClick={() => onDelete(id)}>x</button>
         </div>
-      )}
-    </li>
+      )} */}
+      </li>
+    </div>
   );
 };
 

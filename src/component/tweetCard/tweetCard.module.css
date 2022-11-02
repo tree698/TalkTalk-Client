@@ -1,0 +1,56 @@
+.owner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  width: 80%;
+  padding: 8px;
+}
+
+.tweetCard {
+  width: 100%;
+  display: flex;
+}
+
+.photoOrder {
+  order: 1;
+  margin-left: 12px;
+}
+
+.tweet,
+.tweetOwner {
+  width: 100%;
+  margin-left: 12px;
+  padding: 12px;
+}
+
+.tweet {
+  background-color: var(--color-chatting-bg-message);
+  border-radius: 0 var(--size-border-radius-Superbig)
+    var(--size-border-radius-Superbig) var(--size-border-radius-Superbig);
+}
+
+.tweetOwner {
+  background-color: var(--color-chatting-message-owner);
+  border-radius: var(--size-border-radius-Superbig) 0
+    var(--size-border-radius-Superbig) var(--size-border-radius-Superbig);
+}
+
+.nameAndTime {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name,
+.time {
+  font-size: var(--font-micro);
+}
+
+.text {
+  font-weight: var(--weight-semi-bold);
+}
+
+.colorOwner {
+  color: var(--color-white);
+}
