@@ -13,5 +13,5 @@
   width: 90%;
   height: 90%;
   background-color: var(--color-white);
-  border-radius: 52px;
+  border-radius: 0 0 52px 52px;
 }
