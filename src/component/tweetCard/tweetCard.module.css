@@ -5,7 +5,7 @@
 
 .container {
   width: 80%;
-  padding: 8px;
+  padding: 3px;
 }
 
 .tweetCard {
@@ -15,14 +15,18 @@
 
 .photoOrder {
   order: 1;
-  margin-left: 12px;
+  margin-left: 6px;
 }
 
 .tweet,
 .tweetOwner {
   width: 100%;
-  margin-left: 12px;
-  padding: 12px;
+  margin-left: 6px;
+  padding: 4px 14px;
+}
+
+.tweetOwner {
+  margin-left: 0;
 }
 
 .tweet {
@@ -43,8 +47,10 @@
 }
 
 .name,
-.time {
+.time,
+.text {
   font-size: var(--font-micro);
+  margin-top: 0;
 }
 
 .text {
@@ -53,4 +59,69 @@
 
 .colorOwner {
   color: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+
+  .container {
+    padding: 6px;
+  }
+
+  .photoOrder {
+    margin-left: 8px;
+  }
+
+  .tweet,
+  .tweetOwner {
+    margin-left: 8px;
+    padding: 10px;
+  }
+
+  .name,
+  .time {
+    font-size: var(--font-micro);
+  }
+
+  .name,
+  .time,
+  .text {
+    margin-top: 0;
+  }
+
+  .text {
+    font-size: var(--font-regular);
+    font-weight: var(--weight-semi-bold);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  .photoOrder {
+    order: 1;
+    margin-left: 12px;
+  }
+
+  .tweet,
+  .tweetOwner {
+    margin-left: 12px;
+    padding: 12px;
+  }
 }

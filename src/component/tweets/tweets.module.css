@@ -1,27 +1,74 @@
 .container {
   width: 100%;
   height: 100%;
-  max-height: 640px;
+  max-height: 290px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .message {
-  margin: auto;
+  margin: 30% auto;
   color: var(--color-dark-pink);
 }
 
 .tweets {
-  padding: 20px 10px;
   overflow-y: auto;
 }
 
 .newTweetForm {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 10px;
 
   display: flex;
   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+  .container {
+    max-height: 600px;
+  }
+
+  .tweets {
+    padding: 20px 10px;
+  }
+
+  .newTweetForm {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .container {
+    max-height: 830px;
+  }
+
+  .tweets {
+    padding: 24px 14px;
+    overflow-y: auto;
+  }
+
+  .newTweetForm {
+    width: 100%;
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -25,14 +25,19 @@
   margin: auto;
 }
 
-.selectedWork,
+.selectedWork {
+  flex: 1 1 44%;
+}
+
 .tweets {
-  flex: 1 1 50%;
+  flex: 1 1 56%;
 }
 
 .tweets {
   display: flex;
   flex-direction: column;
+
+  padding-top: 20px;
 }
 
 .tweet {
@@ -66,7 +71,13 @@
     flex-direction: row;
   }
 
+  .selectedWork,
   .tweets {
+    flex: 1 1 50%;
+  }
+
+  .tweets {
+    padding-top: 0;
     margin-left: 14px;
   }
 }
