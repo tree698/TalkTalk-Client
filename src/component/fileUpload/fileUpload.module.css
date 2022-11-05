@@ -1,4 +1,4 @@
-.container {
+.dropZone {
   width: 100%;
   height: 100%;
 
@@ -12,4 +12,112 @@
 .message {
   color: var(--color-font-dark);
   font-size: var(--font-regular);
+}
+
+.loading {
+  position: absolute;
+  top: 21%;
+  left: 50%;
+  transform: translateX(-80px);
+}
+
+.loading__animation {
+  position: relative;
+  width: 160px;
+  height: 30px;
+  line-height: 30px;
+  color: var(--color-white);
+  font-family: 'Indie Flower', cursive;
+  font-size: var(--font-regular);
+  text-align: center;
+  font-weight: 900;
+  background-color: var(--color-button-purple-dark);
+  border-radius: var(--size-border-radius-btn);
+}
+
+.loading__animation:before {
+  content: '';
+  width: 0;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-button-purple);
+  border-radius: var(--size-border-radius-btn) 0 0 var(--size-border-radius-btn);
+  -webkit-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  -webkit-animation: loader 6s ease-in-out infinite;
+  animation: loader 6s ease-in-out infinite;
+}
+
+@-webkit-keyframes loader {
+  0% {
+    width: 0px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 100%;
+    opacity: 0.7;
+  }
+}
+
+@keyframes loader {
+  0% {
+    width: 0px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 100%;
+    opacity: 0.7;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-regular: 15px;
+    --font-small: 13px;
+    --font-micro: 11px;
+  }
+
+  .loading {
+    transform: translateX(-130px);
+  }
+
+  .loading__animation {
+    width: 260px;
+    height: 50px;
+    line-height: 50px;
+    font-size: var(--font-medium);
+  }
+
+  .loading__animation:before {
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+
+  .loading {
+    transform: translateX(-200px);
+  }
+
+  .loading__animation {
+    width: 400px;
+    height: 80px;
+    line-height: 80px;
+    font-size: var(--font-medium);
+  }
+
+  .loading__animation:before {
+    height: 80px;
+  }
 }
