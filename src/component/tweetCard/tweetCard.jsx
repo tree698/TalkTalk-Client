@@ -7,10 +7,10 @@ const TweetCard = ({ tweet, owner, onDelete, onUsernameClick }) => {
   const { id, text, createdAt, userId, username, photo } = tweet;
 
   return (
-    <div className={owner && `${styles.owner}`}>
+    <div className={owner ? `${styles.owner}` : undefined}>
       <li className={styles.container}>
         <section className={styles.tweetCard}>
-          <div className={owner && `${styles.photoOrder}`}>
+          <div className={owner ? `${styles.photoOrder}` : undefined}>
             <Avatar photo={photo} username={username} />
           </div>
           <div className={owner ? `${styles.tweetOwner}` : `${styles.tweet}`}>
