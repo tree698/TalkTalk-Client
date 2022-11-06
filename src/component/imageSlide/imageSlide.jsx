@@ -1,5 +1,5 @@
 import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import styles from './imageSlide.module.css';
 import { useState } from 'react';
@@ -19,16 +19,24 @@ const ImageSlide = ({ workService }) => {
   }, [workService]);
 
   return (
-    <Carousel>
-      {works.map((work) => (
-        <div>
-          <img
-            style={{ width: '30%' }}
-            src={`${baseURL}/uploaded_images/${work.fileName}`}
-          />
-        </div>
-      ))}
-    </Carousel>
+    <>
+      <p>Recently, added paintings</p>
+      <Carousel
+        className={styles.carousel}
+        autoPlay={true}
+        infiniteLoop={true}
+        interval="2500"
+      >
+        {works.map((work) => (
+          <div key={work.id} className={styles.image__container}>
+            <img
+              className={styles.image}
+              src={`${baseURL}/uploaded_images/${work.fileName}`}
+            />
+          </div>
+        ))}
+      </Carousel>
+    </>
   );
 };
 export default ImageSlide;

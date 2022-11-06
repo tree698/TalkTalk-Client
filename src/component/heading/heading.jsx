@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousel from '../carousel/carousel';
 import Footer from '../footer/footer';
 import ImageSlide from '../imageSlide/imageSlide';
 import styles from './heading.module.css';
@@ -19,7 +18,6 @@ const Heading = ({ workService }) => {
         </div>
 
         <div className={styles.carousel}>
-          {/* <Carousel workService={workService} /> */}
           <ImageSlide workService={workService} />
         </div>
       </div>

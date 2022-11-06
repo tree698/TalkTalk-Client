@@ -1,0 +1,45 @@
+.carousel {
+  width: 260px;
+  margin: 0 auto;
+}
+
+.image__container {
+  width: 260px;
+  height: 195px;
+}
+
+.image {
+  width: 260px;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel {
+    width: 340px;
+    margin: 0 auto;
+  }
+
+  .image__container {
+    width: 340px;
+    height: 255px;
+  }
+
+  .image {
+    width: 340px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .carousel {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  .image__container {
+    width: 700px;
+    height: 530px;
+  }
+
+  .image {
+    width: 700px;
+  }
+}
