@@ -28,9 +28,12 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
   const onCreated = (tweet) => {
     setTweets((tweets) => [tweet, ...tweets]);
 
-    // 인식을 못한다!!
-    const tweetBox = document.querySelector('.tweets');
-    tweetBox.scrollTo(0, tweetBox.scrollHeight);
+    const tweetBox = document.querySelector('#tweets');
+
+    // console.log(tweetBox.getBoundingClientRect());
+    // console.log(tweetBox.clientHeight);
+    // tweetBox.scrollTo(0, tweetBox.clientHeight);
+    tweetBox.scrollTo(0, 0);
   };
 
   const onDelete = (tweetId) => {
@@ -59,7 +62,7 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
         <h2 className={styles.message}>No Messages Yet ...</h2>
       )}
 
-      <ul className={styles.tweets}>
+      <ul className={styles.tweets} id="tweets">
         {tweets.map((tweet) => (
           <TweetCard
             key={tweet.id}
