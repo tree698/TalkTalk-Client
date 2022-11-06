@@ -27,6 +27,10 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
 
   const onCreated = (tweet) => {
     setTweets((tweets) => [tweet, ...tweets]);
+
+    // 인식을 못한다!!
+    const tweetBox = document.querySelector('.tweets');
+    tweetBox.scrollTo(0, tweetBox.scrollHeight);
   };
 
   const onDelete = (tweetId) => {

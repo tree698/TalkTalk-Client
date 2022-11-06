@@ -1,16 +1,17 @@
 .container {
   width: 100%;
   height: 100%;
-  max-height: 290px;
+
+  position: relative;
 
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
 
 .message {
-  margin: 30% auto;
   color: var(--color-dark-pink);
+  margin: auto;
 }
 
 .tweets {
@@ -33,9 +34,6 @@
     --font-small: 13px;
     --font-micro: 11px;
   }
-  .container {
-    max-height: 600px;
-  }
 
   .tweets {
     padding: 20px 10px;
@@ -55,13 +53,8 @@
     --font-micro: 14px;
   }
 
-  .container {
-    max-height: 830px;
-  }
-
   .tweets {
     padding: 24px 14px;
-    overflow-y: auto;
   }
 
   .newTweetForm {
