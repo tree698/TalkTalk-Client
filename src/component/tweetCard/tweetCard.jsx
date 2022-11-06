@@ -15,7 +15,7 @@ const TweetCard = ({ tweet, owner, onDelete, onUsernameClick }) => {
           </div>
           <div className={owner ? `${styles.tweetOwner}` : `${styles.tweet}`}>
             <div className={styles.nameAndTime}>
-              <p
+              <button
                 className={
                   owner
                     ? `${styles.name} ${styles.colorOwner}`
@@ -24,7 +24,7 @@ const TweetCard = ({ tweet, owner, onDelete, onUsernameClick }) => {
                 onClick={() => onUsernameClick(tweet)}
               >
                 {username}
-              </p>
+              </button>
               <p
                 className={
                   owner
