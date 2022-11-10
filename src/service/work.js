@@ -1,7 +1,6 @@
 export default class WorkService {
-  constructor(http, tokenStorage) {
+  constructor(http) {
     this.http = http;
-    this.tokenStorage = tokenStorage;
   }
 
   async showWorks(limit, offset) {
@@ -9,7 +8,6 @@ export default class WorkService {
     return this.http.fetch(`/work/carousel${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
     });
   }
 
@@ -20,7 +18,6 @@ export default class WorkService {
     return this.http.fetch(`/work${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
     });
   }
 
@@ -29,7 +26,6 @@ export default class WorkService {
     return this.http.fetch(`/work/search${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
     });
   }
 
@@ -37,7 +33,6 @@ export default class WorkService {
     return this.http.fetch('/work', {
       method: 'POST',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
       body: JSON.stringify({
         title,
         description,
@@ -54,7 +49,6 @@ export default class WorkService {
 
     return this.http.fetch('/work/image', {
       method: 'POST',
-      headers: this.getHeaders(),
       body: formData,
     });
   }
@@ -63,12 +57,6 @@ export default class WorkService {
     return this.http.fetch(`/work/${workId}`, {
       method: 'DELETE',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
     });
-  }
-
-  getHeaders() {
-    const token = this.tokenStorage.getToken();
-    return { Authorization: `Bearer ${token}` };
   }
 }

@@ -11,13 +11,10 @@ const ImageSlide = ({ workService }) => {
     offset: 0,
   };
   const baseURL = process.env.REACT_APP_BASE_URL;
-
   const [works, setWorks] = useState([]);
-
   useEffect(() => {
     workService.showWorks(pagination.limit, pagination.offset).then(setWorks);
   }, [workService]);
-
   return (
     <>
       <p>Recently, added paintings</p>

@@ -1,7 +1,6 @@
 export default class TweetService {
-  constructor(http, tokenStorage, socket) {
+  constructor(http, socket) {
     this.http = http;
-    this.tokenStorage = tokenStorage;
     this.socket = socket;
   }
 
@@ -12,7 +11,6 @@ export default class TweetService {
     return this.http.fetch(`/tweets${query}`, {
       method: 'GET',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
     });
   }
 
@@ -21,7 +19,6 @@ export default class TweetService {
     return this.http.fetch(`/tweets${query}`, {
       method: 'POST',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
       body: JSON.stringify({ text }),
     });
   }
@@ -30,15 +27,7 @@ export default class TweetService {
     return this.http.fetch(`/tweets/${tweetId}`, {
       method: 'DELETE',
       type: { 'Content-Type': 'application/json' },
-      headers: this.getHeaders(),
     });
-  }
-
-  getHeaders() {
-    const token = this.tokenStorage.getToken();
-    return {
-      Authorization: `Bearer ${token}`,
-    };
   }
 
   onSync(callback) {

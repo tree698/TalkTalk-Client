@@ -11,6 +11,7 @@ export default class HttpClient {
         ...options.headers,
         ...options.type,
       },
+      credentials: 'include',
     });
     let data;
     try {
