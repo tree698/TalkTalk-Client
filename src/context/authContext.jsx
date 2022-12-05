@@ -21,10 +21,8 @@ export function AuthProvider({
   workService,
 }) {
   const [user, setUser] = useState(undefined);
-
   useImperativeHandle(tokenRef, () => (user ? user.token : undefined));
 
-  // 필요 한가??
   useEffect(() => {
     authErrorEventBus.listen((err) => {
       setUser(undefined);
