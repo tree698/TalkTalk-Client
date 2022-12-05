@@ -44,11 +44,11 @@ const TweetCard = ({ tweet, owner, onDelete, onUsernameClick }) => {
             </p>
           </div>
         </section>
-        {owner && (
+        {/* {owner && (
           <div>
             <button onClick={() => onDelete(id)}>x</button>
           </div>
-        )}
+        )} */}
       </li>
     </div>
   );

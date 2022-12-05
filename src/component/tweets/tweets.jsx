@@ -28,22 +28,21 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
   const onCreated = (tweet) => {
     setTweets((tweets) => [tweet, ...tweets]);
 
-    const tweetBox = document.querySelector('#tweets');
-
+    // const tweetBox = document.querySelector('#tweets');
     // console.log(tweetBox.getBoundingClientRect());
     // console.log(tweetBox.clientHeight);
     // tweetBox.scrollTo(0, tweetBox.clientHeight);
-    tweetBox.scrollTo(0, 0);
+    // tweetBox.scrollTo(0, 0);
   };
 
-  const onDelete = (tweetId) => {
-    tweetService
-      .deleteTweet(tweetId)
-      .then(() =>
-        setTweets((tweets) => tweets.filter((tweet) => tweet.id !== tweetId))
-      )
-      .catch((error) => setError(error.toString()));
-  };
+  // const onDelete = (tweetId) => {
+  //   tweetService
+  //     .deleteTweet(tweetId)
+  //     .then(() =>
+  //       setTweets((tweets) => tweets.filter((tweet) => tweet.id !== tweetId))
+  //     )
+  //     .catch((error) => setError(error.toString()));
+  // };
 
   const onUsernameClick = (tweet) => navigate(`/talk/${tweet.username}`);
 
@@ -68,7 +67,7 @@ const Tweets = ({ tweetService, username, selectedWork }) => {
             key={tweet.id}
             tweet={tweet}
             owner={tweet.username === user.username}
-            onDelete={onDelete}
+            // onDelete={onDelete}
             onUsernameClick={onUsernameClick}
           />
         ))}
