@@ -37,4 +37,12 @@ export default class AuthService {
       type: { 'Content-Type': 'application/json' },
     });
   }
+
+  async csrfToken() {
+    const res = await this.http.fetch('/auth/csrf-token', {
+      method: 'GET',
+      type: { 'Conent-Type': 'application/json' },
+    });
+    return res.csrfToken;
+  }
 }

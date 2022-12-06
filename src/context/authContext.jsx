@@ -13,6 +13,7 @@ import styles from './authContext.module.css';
 
 const AuthContext = createContext({});
 const tokenRef = createRef();
+const csrfRef = createRef();
 
 export function AuthProvider({
   authService,
@@ -21,13 +22,19 @@ export function AuthProvider({
   workService,
 }) {
   const [user, setUser] = useState(undefined);
+  const [csrfToken, setCsrfToken] = useState(undefined);
   useImperativeHandle(tokenRef, () => (user ? user.token : undefined));
+  useImperativeHandle(csrfRef, () => csrfToken);
 
   useEffect(() => {
     authErrorEventBus.listen((err) => {
       setUser(undefined);
     });
   }, [authErrorEventBus]);
+
+  useEffect(() => {
+    authService.csrfToken().then(setCsrfToken).catch(console.error);
+  }, [authService]);
 
   useEffect(() => {
     authService.me().then(setUser).catch(console.error);
@@ -80,4 +87,5 @@ export class AuthErrorEventBus {
 
 export default AuthContext;
 export const fetchToken = () => tokenRef.current;
+export const fetchCsrfToken = () => csrfRef.current;
 export const useAuth = () => useContext(AuthContext);

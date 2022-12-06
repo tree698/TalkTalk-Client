@@ -7,6 +7,7 @@ import {
   AuthErrorEventBus,
   AuthProvider,
   fetchToken,
+  fetchCsrfToken,
 } from './context/authContext';
 import HttpClient from './network/http';
 import AuthService from './service/auth';
@@ -16,7 +17,9 @@ import Socket from './network/socket';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const authErrorEventBus = new AuthErrorEventBus();
-const httpClient = new HttpClient(baseURL, authErrorEventBus);
+const httpClient = new HttpClient(baseURL, authErrorEventBus, () =>
+  fetchCsrfToken()
+);
 const authService = new AuthService(httpClient);
 const workService = new WorkService(httpClient);
 const socketClient = new Socket(baseURL, () => fetchToken());
