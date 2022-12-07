@@ -1,41 +1,40 @@
+import axios from 'axios';
+
 export default class HttpClient {
   constructor(baseURL, authErrorEventBus, getCsrfToken) {
-    this.baseURL = baseURL;
     this.authErrorEventBus = authErrorEventBus;
     this.getCsrfToken = getCsrfToken;
+    this.client = axios.create({
+      baseURL: baseURL,
+      withCredentials: true,
+    });
   }
 
   async fetch(url, options) {
-    const res = await fetch(`${this.baseURL}${url}`, {
-      ...options,
+    const { method, body, type } = options;
+    const req = {
+      url,
+      method,
+      data: body,
       headers: {
-        ...options.type,
+        ...type,
         'talktalk-csrf-token': this.getCsrfToken(),
       },
-      credentials: 'include',
-    });
-    let data;
+    };
+
     try {
-      data = await res.json();
-    } catch (error) {
-      // console.log 삭제 필요?????
-      console.error(error);
-    }
-
-    if (res.status > 299 || res.status < 200) {
-      const message =
-        data && data.message
-          ? data.message
-          : 'Something went wrong! Try again!';
-      const error = new Error(message);
-
-      // 해결한 건가??
-      if (res.status === 401) {
-        this.authErrorEventBus.notify(error);
-        // return;
+      const res = await this.client(req);
+      return res.data;
+    } catch (err) {
+      if (err.response) {
+        const data = err.response.data;
+        const message =
+          data && data.message
+            ? data.message
+            : 'Something went wrong! Try again!';
+        throw new Error(message);
       }
-      throw error;
+      throw new Error('connection error');
     }
-    return data;
   }
 }
