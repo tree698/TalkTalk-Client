@@ -17,35 +17,33 @@
 .talk {
   width: 100%;
   max-width: 310px;
-  height: 100%;
-  padding-top: 54px;
+  height: 80%;
 
   display: flex;
   flex-direction: column;
   margin: auto;
 }
 
-.selectedWork {
-  flex: 1 1 44%;
-}
-
+.selectedWork,
 .tweets {
-  flex: 1 1 56%;
+  flex: 1 1 50%;
+  height: 50%;
 }
 
 .tweets {
   display: flex;
   flex-direction: column;
-
   padding-top: 20px;
+}
+
+.selectTweet {
+  height: 10%;
 }
 
 .tweet {
   width: 100%;
-  flex: 100%;
+  height: 80%;
   margin: auto;
-  padding-top: 20px;
-  padding-bottom: 60px;
 }
 
 .footer {
@@ -64,21 +62,24 @@
   }
 
   .talk {
-    width: 100%;
+    width: 94%;
     max-width: 760px;
-    height: 60%;
-    padding-top: 0;
+    height: 70%;
     flex-direction: row;
   }
 
   .selectedWork,
   .tweets {
-    flex: 1 1 50%;
+    height: 100%;
   }
 
   .tweets {
     padding-top: 0;
     margin-left: 14px;
+  }
+
+  .tweet {
+    height: 90%;
   }
 }
 
@@ -94,7 +95,6 @@
   .talk {
     width: 100%;
     max-width: 1200px;
-    height: 70%;
   }
 
   .tweets {

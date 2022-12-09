@@ -10,7 +10,7 @@
 }
 
 .message {
-  color: var(--color-dark-pink);
+  color: var(--color-grey);
   margin: auto;
 }
 
@@ -35,10 +35,6 @@
     --font-micro: 11px;
   }
 
-  .tweets {
-    /* padding: 20px 10px; */
-  }
-
   .newTweetForm {
     margin-top: 20px;
   }
@@ -51,10 +47,6 @@
     --font-regular: 18px;
     --font-small: 16px;
     --font-micro: 14px;
-  }
-
-  .tweets {
-    /* padding: 24px 14px; */
   }
 
   .newTweetForm {

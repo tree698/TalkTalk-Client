@@ -22,7 +22,9 @@ const SelectedWork = ({ selectedWork }) => {
             src={`${baseURL}/uploaded_images/${selectedWork.fileName}`}
             alt="painting"
           />
-          <div className={styles.divider} />
+          <div className={styles.divider__wrap}>
+            <span className={styles.divider} />
+          </div>
           <ul className={styles.metaInfo}>
             <li className={styles.info}>
               <span className={styles.subTitle}>Title</span>
