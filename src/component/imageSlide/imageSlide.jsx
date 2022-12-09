@@ -17,12 +17,13 @@ const ImageSlide = ({ workService }) => {
   }, [workService]);
   return (
     <>
-      <p>Recently, added paintings</p>
       <Carousel
         className={styles.carousel}
+        autoFocus={true}
         autoPlay={true}
-        infiniteLoop={true}
+        infiniteLoop
         interval="2500"
+        showStatus={false}
       >
         {works.map((work) => (
           <div key={work.id} className={styles.image__container}>
@@ -30,9 +31,11 @@ const ImageSlide = ({ workService }) => {
               className={styles.image}
               src={`${baseURL}/uploaded_images/${work.fileName}`}
             />
+            <p>{work.username}</p>
           </div>
         ))}
       </Carousel>
+      <h3>Recently, added paintings</h3>
     </>
   );
 };

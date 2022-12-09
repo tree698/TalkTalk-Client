@@ -13,7 +13,9 @@ const Heading = ({ workService }) => {
           </div>
           <div className={styles.title__description}>
             <h1 className={styles.title}>TalkTalk</h1>
-            <h3 className={styles.description}>Enjoy talking with others.</h3>
+            <h3 className={styles.description}>
+              Have Fun Talking With Others With Your Paintings
+            </h3>
           </div>
         </div>
 

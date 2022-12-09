@@ -9,7 +9,8 @@
 }
 
 .image {
-  width: 260px;
+  width: 100%;
+  border-radius: var(--size-border-radius-big);
 }
 
 @media screen and (min-width: 768px) {
@@ -22,24 +23,16 @@
     width: 340px;
     height: 255px;
   }
-
-  .image {
-    width: 340px;
-  }
 }
 
 @media screen and (min-width: 1024px) {
   .carousel {
-    width: 700px;
+    width: 800px;
     margin: 0 auto;
   }
 
   .image__container {
-    width: 700px;
-    height: 530px;
-  }
-
-  .image {
-    width: 700px;
+    width: 800px;
+    height: 600px;
   }
 }

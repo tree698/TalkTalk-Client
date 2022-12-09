@@ -64,7 +64,6 @@
 
   .heading {
     max-width: 100%;
-    text-align: center;
   }
 
   .intro {
@@ -72,15 +71,15 @@
   }
 
   .logo__wrap {
-    width: 80px;
+    width: 70px;
   }
 
   .title__description {
-    margin-left: 18px;
+    margin-left: 16px;
   }
 
   .description {
-    margin-top: 5px;
+    margin-top: 8px;
   }
 }
 
@@ -94,24 +93,19 @@
     --font-micro: 14px;
   }
 
-  .heading {
-    max-width: 100%;
-    text-align: center;
-  }
-
   .intro {
-    margin-bottom: 40px;
+    margin-bottom: 70px;
   }
 
   .logo__wrap {
-    width: 70px;
+    width: 100px;
   }
 
   .title__description {
-    margin-left: 14px;
+    margin-left: 24px;
   }
 
   .description {
-    margin-top: 4px;
+    margin-top: 12px;
   }
 }
