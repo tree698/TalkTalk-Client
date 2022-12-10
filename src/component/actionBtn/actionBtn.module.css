@@ -4,8 +4,7 @@
   justify-content: space-around;
 }
 
-.allworks,
-.myworks {
+.works {
   width: 46%;
   padding: 7px 0;
   padding-left: 14px;
@@ -23,8 +22,7 @@
   transition: all var(--animation-duration) ease-in;
 }
 
-.allworks:hover,
-.myworks:hover {
+.works:hover {
   color: var(--color-white);
   border: none;
   background-color: var(--color-blue);
@@ -45,8 +43,7 @@
     --font-micro: 11px;
   }
 
-  .allworks,
-  .myworks {
+  .works {
     padding: 12px 0;
     padding-left: 18px;
   }
@@ -65,8 +62,7 @@
     --font-micro: 14px;
   }
 
-  .allworks,
-  .myworks {
+  .works {
     padding: 16px 0;
     padding-left: 22px;
   }

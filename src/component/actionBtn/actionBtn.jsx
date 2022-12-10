@@ -6,11 +6,11 @@ import styles from './actionBtn.module.css';
 const ActionBtn = ({ onAllWorks, onMyWorks }) => {
   return (
     <div className={styles.container}>
-      <button className={styles.allworks} onClick={onAllWorks}>
+      <button className={styles.works} onClick={onAllWorks}>
         <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
         All Paintings
       </button>
-      <button className={styles.myworks} onClick={onMyWorks}>
+      <button className={styles.works} onClick={onMyWorks}>
         <FontAwesomeIcon icon={faChevronRight} className={styles.chevron} />
         My Paintings
       </button>
