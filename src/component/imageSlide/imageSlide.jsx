@@ -1,9 +1,11 @@
 import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import { Carousel } from 'react-responsive-carousel';
 import styles from './imageSlide.module.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Carousel from 'react-material-ui-carousel';
+import { Paper, Button } from '@mui/material';
 
 const ImageSlide = ({ workService }) => {
   const pagination = {
@@ -17,7 +19,18 @@ const ImageSlide = ({ workService }) => {
   }, [workService]);
   return (
     <>
-      <Carousel
+      <Carousel>
+        {works.map((work) => (
+          <div key={work.id} className={styles.image__container}>
+            <img
+              className={styles.image}
+              src={`${baseURL}/uploaded_images/${work.fileName}`}
+            />
+            <p>{work.username}</p>
+          </div>
+        ))}
+      </Carousel>
+      {/* <Carousel
         className={styles.carousel}
         autoFocus={true}
         autoPlay={true}
@@ -34,7 +47,7 @@ const ImageSlide = ({ workService }) => {
             <p>{work.username}</p>
           </div>
         ))}
-      </Carousel>
+      </Carousel> */}
       <h3>Recently, added paintings</h3>
     </>
   );
