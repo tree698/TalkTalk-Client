@@ -1,6 +1,6 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import { retryConfig } from '../../config';
+import { retryConfig } from '../config';
 
 export default class HttpClient {
   constructor(baseURL, authErrorEventBus, getCsrfToken, config = retryConfig) {
@@ -44,7 +44,7 @@ export default class HttpClient {
         const message =
           data && data.message
             ? data.message
-            : 'Something went wrong! Try again later!';
+            : 'Something went wrong! Try again!';
         throw new Error(message);
       }
       throw new Error('connection error');
