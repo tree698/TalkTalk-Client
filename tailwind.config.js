@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         brand: '#0c90e4',
       },
+      rotate: {
+        '17': '17deg',
+      },
     },
   },
   plugins: [],
