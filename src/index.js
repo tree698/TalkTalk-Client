@@ -11,9 +11,9 @@ import Upload from './pages/Upload';
 import AllWorks from './pages/AllWorks';
 import SearchWorks from './pages/SearchWorks';
 import MyWorks from './pages/MyWorks';
-import Signup from './components/Signup';
-import Login from './components/Login';
-import Landing from './components/Landing';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Landing from './pages/Landing';
 
 const router = createBrowserRouter([
   {
