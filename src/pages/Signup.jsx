@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import Banner from '../components/Banner';
 import { FileUpload } from '../components/FileUpload';
+import Button from '../components/ui/Button';
 
 export default function Signup() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState('');
+  const [signupInfo, setSignupInfo] = useState({
+    username: '',
+    password: '',
+    email: '',
+  });
   const [photo, setPhoto] = useState();
   const [text, setText] = useState();
 
@@ -17,7 +20,7 @@ export default function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     authService
-      .signup(username, password, email, photo)
+      .signup(signupInfo.username, signupInfo.password, signupInfo.email, photo)
       .then(() => {
         setText('Successfully signed up. Please, login.');
         setTimeout(() => {
@@ -27,19 +30,9 @@ export default function Signup() {
       .catch((err) => setText(`Oops, ${err.toString()}`));
   };
 
-  const handleChange = (event) => {
-    const {
-      target: { name, value },
-    } = event;
-    switch (name) {
-      case 'username':
-        return setUsername(value);
-      case 'password':
-        return setPassword(value);
-      case 'email':
-        return setEmail(value);
-      default:
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSignupInfo({ ...signupInfo, [name]: value });
   };
 
   return (
@@ -51,7 +44,7 @@ export default function Signup() {
           <input
             name="username"
             type="text"
-            value={username ?? ''}
+            value={signupInfo.username ?? ''}
             onChange={handleChange}
             placeholder="Username (* Required)"
             required
@@ -59,7 +52,7 @@ export default function Signup() {
           <input
             name="email"
             type="email"
-            value={email ?? ''}
+            value={signupInfo.email ?? ''}
             onChange={handleChange}
             placeholder="Email (* Required)"
             required
@@ -67,7 +60,7 @@ export default function Signup() {
           <input
             name="password"
             type="password"
-            value={password ?? ''}
+            value={signupInfo.password ?? ''}
             onChange={handleChange}
             placeholder="Password (* Required)"
             required
@@ -81,7 +74,7 @@ export default function Signup() {
 
         <div>
           <p>Already have an account?</p>
-          <button onClick={() => navigate('/login')}>Log in</button>
+          <Button text="Login" onClick={() => navigate('/login')} />
         </div>
       </div>
     </div>
