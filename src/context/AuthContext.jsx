@@ -7,7 +7,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import Landing from '../components/Landing';
 
 const AuthContext = createContext();
 const tokenRef = createRef();
@@ -50,9 +49,7 @@ export function AuthContextProvider({
   );
 
   return (
-    <AuthContext.Provider value={context}>
-      {user ? children : <Landing />}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
   );
 }
 
@@ -66,7 +63,7 @@ export class AuthErrorEventBus {
   }
 }
 
-export default AuthContext;
+// export default AuthContext;
 export const fetchToken = () => tokenRef.current;
 export const fetchCsrfToken = () => csrfRef.current;
 export function useAuthContext() {

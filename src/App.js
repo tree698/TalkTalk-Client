@@ -11,8 +11,6 @@ import WorkService from './service/work';
 import TweetService from './service/tweet';
 import Socket from './network/socket';
 import { retryConfig } from './config.js';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const authErrorEventBus = new AuthErrorEventBus();
@@ -35,9 +33,7 @@ function App() {
       tweetService={tweetService}
       workService={workService}
     >
-      <Navbar />
       <Outlet />
-      <Footer />
     </AuthContextProvider>
   );
 }

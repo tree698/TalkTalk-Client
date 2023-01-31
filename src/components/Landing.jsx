@@ -1,13 +1,12 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Heading from './Heading';
-import Signup from './Signup';
 
 export default function Landing() {
   return (
     <>
-      <div>Landing</div>
       <Heading />
-      <Signup />
+      <Outlet />
     </>
   );
 }

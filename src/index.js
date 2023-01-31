@@ -11,6 +11,9 @@ import Upload from './pages/Upload';
 import AllWorks from './pages/AllWorks';
 import SearchWorks from './pages/SearchWorks';
 import MyWorks from './pages/MyWorks';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Landing from './components/Landing';
 
 const router = createBrowserRouter([
   {
@@ -20,15 +23,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <Landing />,
         children: [
-          { path: '/allworks', element: <AllWorks /> },
-          { path: '/searchwork', element: <SearchWorks /> },
-          { path: '/mywork', element: <MyWorks /> },
+          { index: true, element: <Signup /> },
+          { index: true, path: 'signup', element: <Signup /> },
+          { path: 'login', element: <Login /> },
         ],
       },
-      { path: '/talk', element: <Talk /> },
-      { path: '/upload', element: <Upload /> },
+      {
+        path: '/home',
+        element: <Home />,
+        children: [
+          {
+            path: '/home',
+            children: [
+              { index: true, element: <AllWorks /> },
+              { index: true, path: 'allworks', element: <AllWorks /> },
+              { path: 'searchworks', element: <SearchWorks /> },
+              { path: 'myworks', element: <MyWorks /> },
+            ],
+          },
+          { path: 'talk', element: <Talk /> },
+          { path: 'upload', element: <Upload /> },
+        ],
+      },
     ],
   },
 ]);
