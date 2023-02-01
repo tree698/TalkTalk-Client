@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from 'react-material-ui-carousel';
 import { useQuery } from '@tanstack/react-query';
 import { useAuthContext } from '../context/ApiContext';
 import { paginationForCarousel } from '../config';
@@ -15,14 +16,18 @@ export default function ImageSlide() {
   return (
     <>
       <h2>Recently, uploaded paintings</h2>
-      {/* <Carousel>
-        {images.map((work) => (
-          <div key={work.id}>
-              <img src={`${baseURL}/uploaded_images/${work.fileName}`} />
-            <h3>By {work.username}</h3>
-          </div>
-        ))}
-      </Carousel> */}
+      <Carousel>
+        {images &&
+          images.map((image) => (
+            <div key={image.id}>
+              <img
+                style={{ width: '200px' }}
+                src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${image.fileName}`}
+              />
+              <h3>By {image.username}</h3>
+            </div>
+          ))}
+      </Carousel>
       {error && <Banner text={`😰 An error has occurred: ${error.message}`} />}
     </>
   );
