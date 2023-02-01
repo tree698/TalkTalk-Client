@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../context/AuthContext';
+import { useAuthContext } from '../context/ApiContext';
 import Button from '../components/ui/Button';
 import Banner from '../components/Banner';
 

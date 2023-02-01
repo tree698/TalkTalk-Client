@@ -1,7 +1,7 @@
 import Dropzone from 'react-dropzone';
 import React from 'react';
 import { useState } from 'react';
-import { useAuthContext } from '../context/AuthContext';
+import { useAuthContext } from '../context/ApiContext';
 import Banner from './Banner';
 
 export const FileUpload = ({ sendPhoto }) => {

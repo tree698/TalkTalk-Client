@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <Landing />,
         children: [
           { index: true, element: <Signup /> },
-          { index: true, path: 'signup', element: <Signup /> },
+          { path: 'signup', element: <Signup /> },
           { path: 'login', element: <Login /> },
         ],
       },
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             path: '/home',
             children: [
               { index: true, element: <AllWorks /> },
-              { index: true, path: 'allworks', element: <AllWorks /> },
+              { path: 'allworks', element: <AllWorks /> },
               { path: 'searchworks', element: <SearchWorks /> },
               { path: 'myworks', element: <MyWorks /> },
             ],

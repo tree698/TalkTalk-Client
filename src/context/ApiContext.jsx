@@ -8,11 +8,11 @@ import {
   useState,
 } from 'react';
 
-const AuthContext = createContext();
+const ApiContext = createContext();
 const tokenRef = createRef();
 const csrfRef = createRef();
 
-export function AuthContextProvider({
+export function ApiProvider({
   authService,
   authErrorEventBus,
   tweetService,
@@ -48,9 +48,7 @@ export function AuthContextProvider({
     [user, authService, tweetService, workService]
   );
 
-  return (
-    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
-  );
+  return <ApiContext.Provider value={context}>{children}</ApiContext.Provider>;
 }
 
 export class AuthErrorEventBus {
@@ -67,5 +65,5 @@ export class AuthErrorEventBus {
 export const fetchToken = () => tokenRef.current;
 export const fetchCsrfToken = () => csrfRef.current;
 export function useAuthContext() {
-  return useContext(AuthContext);
+  return useContext(ApiContext);
 }
