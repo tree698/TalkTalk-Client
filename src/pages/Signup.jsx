@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../context/ApiContext';
+import { useApiContext } from '../context/ApiContext';
 import Banner from '../components/Banner';
 import { FileUpload } from '../components/FileUpload';
 import Button from '../components/ui/Button';
@@ -15,7 +15,7 @@ export default function Signup() {
   const [text, setText] = useState();
 
   const navigate = useNavigate();
-  const { authService } = useAuthContext();
+  const { authService } = useApiContext();
 
   const handleSubmit = (event) => {
     event.preventDefault();

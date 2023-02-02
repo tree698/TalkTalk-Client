@@ -1,12 +1,12 @@
 import Dropzone from 'react-dropzone';
 import React from 'react';
 import { useState } from 'react';
-import { useAuthContext } from '../context/ApiContext';
+import { useApiContext } from '../context/ApiContext';
 import Banner from './Banner';
 
 export const FileUpload = ({ sendPhoto }) => {
   const [success, setSuccess] = useState();
-  const { workService } = useAuthContext();
+  const { workService } = useApiContext();
 
   const dropHandler = async (file) => {
     const photo = await workService.uploadImage(file);

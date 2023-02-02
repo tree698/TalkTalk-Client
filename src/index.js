@@ -14,6 +14,8 @@ import MyWorks from './pages/MyWorks';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
+import Display from './pages/Display';
+import ProtectedRouter from './components/ProtectedRouter';
 
 const router = createBrowserRouter([
   {
@@ -32,10 +34,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <Home />,
+        element: (
+          <ProtectedRouter>
+            <Home />
+          </ProtectedRouter>
+        ),
         children: [
+          { index: true, element: <Display /> },
           {
-            path: '/home',
+            path: 'display',
+            element: <Display />,
             children: [
               { index: true, element: <AllWorks /> },
               { path: 'allworks', element: <AllWorks /> },

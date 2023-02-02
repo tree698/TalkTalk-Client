@@ -64,6 +64,6 @@ export class AuthErrorEventBus {
 // export default AuthContext;
 export const fetchToken = () => tokenRef.current;
 export const fetchCsrfToken = () => csrfRef.current;
-export function useAuthContext() {
+export function useApiContext() {
   return useContext(ApiContext);
 }

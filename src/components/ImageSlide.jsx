@@ -1,12 +1,12 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { useQuery } from '@tanstack/react-query';
-import { useAuthContext } from '../context/ApiContext';
+import { useApiContext } from '../context/ApiContext';
 import { paginationForCarousel } from '../config';
 import Banner from '../components/Banner';
 
 export default function ImageSlide() {
-  const { workService } = useAuthContext();
+  const { workService } = useApiContext();
   const { limit, offset } = paginationForCarousel;
   const { error, data: images } = useQuery(
     ['carousel'],

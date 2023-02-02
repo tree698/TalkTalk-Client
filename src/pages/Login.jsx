@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../context/ApiContext';
+import { useApiContext } from '../context/ApiContext';
 import Button from '../components/ui/Button';
 import Banner from '../components/Banner';
 
@@ -9,7 +9,7 @@ export default function Login() {
   const [text, setText] = useState('');
 
   const navigate = useNavigate();
-  const { authService } = useAuthContext();
+  const { authService } = useApiContext();
 
   const handleSubmit = (event) => {
     event.preventDefault();
