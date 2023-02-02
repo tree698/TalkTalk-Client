@@ -4,10 +4,22 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BsChatDots } from 'react-icons/bs';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { AiOutlineLogout } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
+import { useApiContext } from '../context/ApiContext';
 
 const ICONHOVER = 'hover:rotate-17 hover:text-brand';
 
 export default function Navbar() {
+  const { authService } = useApiContext();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (window.confirm('Do you want to log out?')) {
+      authService.logout();
+      navigate('/');
+    }
+  };
+
   return (
     <header className="flex justify-between border-b border-gray-300 p-5 ">
       <Link to="/home" className="flex items-center text-3xl text-brand gap-3">
@@ -24,9 +36,9 @@ export default function Navbar() {
         <Link to="/home/upload">
           <AiOutlineCloudUpload className={ICONHOVER} />
         </Link>
-        <p>
+        <button onClick={handleClick}>
           <AiOutlineLogout className={ICONHOVER} />
-        </p>
+        </button>
       </nav>
     </header>
   );
