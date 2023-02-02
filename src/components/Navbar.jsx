@@ -9,7 +9,7 @@ const ICONHOVER = 'hover:rotate-17 hover:text-brand';
 
 export default function Navbar() {
   return (
-    <header className="flex justify-between border-b border-gray-300 p-5 shadow-md">
+    <header className="flex justify-between border-b border-gray-300 p-5 ">
       <Link to="/home" className="flex items-center text-3xl text-brand gap-3">
         <img src="" alt="logo" />
         <h1 className="font-semibold">TalkTalk</h1>

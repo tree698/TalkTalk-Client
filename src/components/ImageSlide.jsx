@@ -8,7 +8,7 @@ import Banner from '../components/Banner';
 export default function ImageSlide() {
   const { workService } = useAuthContext();
   const { limit, offset } = paginationForCarousel;
-  const { isLoading, error, data: images } = useQuery(
+  const { error, data: images } = useQuery(
     ['carousel'],
     async () => await workService.showWorks(limit, offset)
   );
@@ -23,6 +23,7 @@ export default function ImageSlide() {
               <img
                 style={{ width: '200px' }}
                 src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${image.fileName}`}
+                alt={image.title}
               />
               <h3>By {image.username}</h3>
             </div>

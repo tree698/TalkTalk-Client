@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 import ImageSlide from './ImageSlide';
 
 export default function Heading() {
@@ -10,6 +11,7 @@ export default function Heading() {
         <h3>Have Fun Talking With Others With Your Paintings</h3>
       </div>
       <ImageSlide />
+      <Footer />
     </div>
   );
 }
