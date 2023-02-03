@@ -16,7 +16,7 @@ export default function ImageSlide() {
   return (
     <>
       <h2>Recently, uploaded paintings</h2>
-      <Carousel>
+      <Carousel autoPlay={false}>
         {images &&
           images.map((image) => (
             <div key={image.id}>

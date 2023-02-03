@@ -15,7 +15,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
 import Display from './pages/Display';
-import ProtectedRouter from './components/ProtectedRouter';
+import { ProtectedHome, ProtectedLanding } from './components/ProtectedRouter';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Landing />,
+        element: (
+          <ProtectedLanding>
+            <Landing />
+          </ProtectedLanding>
+        ),
         children: [
           { index: true, element: <Signup /> },
           { path: 'signup', element: <Signup /> },
@@ -35,9 +39,9 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: (
-          <ProtectedRouter>
+          <ProtectedHome>
             <Home />
-          </ProtectedRouter>
+          </ProtectedHome>
         ),
         children: [
           { index: true, element: <Display /> },
