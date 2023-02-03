@@ -21,21 +21,27 @@ export function ApiProvider({
 }) {
   const [user, setUser] = useState(undefined);
   const [csrfToken, setCsrfToken] = useState(undefined);
-  useImperativeHandle(tokenRef, () => (user ? user.token : undefined));
+  // useImperativeHandle(tokenRef, () => (user ? user.token : undefined));
   useImperativeHandle(csrfRef, () => csrfToken);
 
   useEffect(() => {
     authErrorEventBus.listen((err) => {
-      setUser(undefined);
+      setUser((prev) => undefined);
     });
   }, [authErrorEventBus]);
 
   useEffect(() => {
-    authService.csrfToken().then(setCsrfToken).catch(console.error);
+    authService
+      .csrfToken()
+      .then((csrfToken) => setCsrfToken((prev) => csrfToken))
+      .catch(console.error);
   }, [authService]);
 
   useEffect(() => {
-    authService.me().then(setUser).catch(console.error);
+    authService
+      .me()
+      .then((user) => setUser((prev) => user))
+      .catch(console.error);
   }, [authService]);
 
   const context = useMemo(

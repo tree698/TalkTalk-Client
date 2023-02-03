@@ -15,8 +15,7 @@ export default function Navbar() {
 
   const handleClick = () => {
     if (window.confirm('Do you want to log out?')) {
-      authService.logout();
-      navigate('/');
+      authService.logout().then(() => navigate('/'));
     }
   };
 
