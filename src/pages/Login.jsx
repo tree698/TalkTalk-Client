@@ -9,14 +9,12 @@ export default function Login() {
   const [text, setText] = useState('');
 
   const navigate = useNavigate();
-  const { authService } = useApiContext();
+  const { logIn } = useApiContext();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    authService
-      .login(loginInfo.username, loginInfo.password)
-      .then(() => navigate('/home'))
-      .catch((err) => setText(`Oops, ${err.toString()}`));
+    // 왜 then(() => navigate('/home')) 필요 없을까?
+    logIn(loginInfo.username, loginInfo.password);
   };
 
   const handleChange = (e) => {

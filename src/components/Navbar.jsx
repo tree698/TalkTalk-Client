@@ -10,12 +10,12 @@ import { useApiContext } from '../context/ApiContext';
 const ICONHOVER = 'hover:rotate-17 hover:text-brand';
 
 export default function Navbar() {
-  const { authService } = useApiContext();
-  const navigate = useNavigate();
+  const { logOut } = useApiContext();
 
   const handleClick = () => {
     if (window.confirm('Do you want to log out?')) {
-      authService.logout().then(() => navigate('/'));
+      // 왜 then(() => navigate('/'))가 필요 없지?
+      logOut();
     }
   };
 

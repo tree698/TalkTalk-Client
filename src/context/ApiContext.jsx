@@ -1,6 +1,7 @@
 import {
   createContext,
   createRef,
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -21,7 +22,7 @@ export function ApiProvider({
 }) {
   const [user, setUser] = useState(undefined);
   const [csrfToken, setCsrfToken] = useState(undefined);
-  // useImperativeHandle(tokenRef, () => (user ? user.token : undefined));
+  useImperativeHandle(tokenRef, () => (user ? user.token : undefined));
   useImperativeHandle(csrfRef, () => csrfToken);
 
   useEffect(() => {
@@ -44,14 +45,34 @@ export function ApiProvider({
       .catch(console.error);
   }, [authService]);
 
+  const signUp = useCallback(
+    async (username, password, email, url) =>
+      authService.signup(username, password, email, url),
+    [authService]
+  );
+
+  const logIn = useCallback(
+    async (username, password) =>
+      authService.login(username, password).then((user) => setUser(user)),
+    [authService]
+  );
+
+  const logOut = useCallback(
+    async () => authService.logout().then(() => setUser(undefined)),
+    [authService]
+  );
+
   const context = useMemo(
     () => ({
       user,
       authService,
       tweetService,
       workService,
+      signUp,
+      logIn,
+      logOut,
     }),
-    [user, authService, tweetService, workService]
+    [user, authService, tweetService, workService, signUp, logIn, logOut]
   );
 
   return <ApiContext.Provider value={context}>{children}</ApiContext.Provider>;
