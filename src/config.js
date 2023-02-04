@@ -7,3 +7,13 @@ export const paginationForCarousel = {
   limit: 4,
   offset: 0,
 };
+
+export const paginationForAllDrawings = {
+  limit: 8,
+  offset: 0,
+};
+
+export const paginationForMyDrawingsAndSearchedDrawings = {
+  limit: 100,
+  offset: 0,
+};

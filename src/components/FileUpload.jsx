@@ -2,7 +2,7 @@ import Dropzone from 'react-dropzone';
 import React from 'react';
 import { useState } from 'react';
 import { useApiContext } from '../context/ApiContext';
-import Banner from './Banner';
+import Banner from './ui/Banner';
 
 export const FileUpload = ({ sendPhoto }) => {
   const [success, setSuccess] = useState();

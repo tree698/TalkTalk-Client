@@ -4,7 +4,6 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BsChatDots } from 'react-icons/bs';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { AiOutlineLogout } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 
 const ICONHOVER = 'hover:rotate-17 hover:text-brand';
@@ -29,10 +28,10 @@ export default function Navbar() {
         <Link to="/home">
           <AiOutlineHome className={ICONHOVER} />
         </Link>
-        <Link to="/home/talk">
+        <Link to="/talk">
           <BsChatDots className={ICONHOVER} />
         </Link>
-        <Link to="/home/upload">
+        <Link to="/upload">
           <AiOutlineCloudUpload className={ICONHOVER} />
         </Link>
         <button onClick={handleClick}>

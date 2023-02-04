@@ -8,13 +8,12 @@ import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import Talk from './pages/Talk';
 import Upload from './pages/Upload';
-import AllWorks from './pages/AllWorks';
-import SearchWorks from './pages/SearchWorks';
-import MyWorks from './pages/MyWorks';
+import AllDrawings from './pages/AllDrawings';
+import SearchedDrawings from './pages/SearchedDrawings';
+import MyDrawings from './pages/MyDrawings';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
-import Display from './pages/Display';
 import { ProtectedHome, ProtectedLanding } from './components/ProtectedRouter';
 
 const router = createBrowserRouter([
@@ -44,21 +43,14 @@ const router = createBrowserRouter([
           </ProtectedHome>
         ),
         children: [
-          { index: true, element: <Display /> },
-          {
-            path: 'display',
-            element: <Display />,
-            children: [
-              { index: true, element: <AllWorks /> },
-              { path: 'allworks', element: <AllWorks /> },
-              { path: 'searchworks', element: <SearchWorks /> },
-              { path: 'myworks', element: <MyWorks /> },
-            ],
-          },
-          { path: 'talk', element: <Talk /> },
-          { path: 'upload', element: <Upload /> },
+          { index: true, element: <AllDrawings /> },
+          { path: 'alldrawings', element: <AllDrawings /> },
+          { path: 'searcheddrawings', element: <SearchedDrawings /> },
+          { path: 'mydrawings', element: <MyDrawings /> },
         ],
       },
+      { path: '/talk', element: <Talk /> },
+      { path: '/upload', element: <Upload /> },
     ],
   },
 ]);

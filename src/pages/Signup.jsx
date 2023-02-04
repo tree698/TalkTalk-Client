@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
-import Banner from '../components/Banner';
 import { FileUpload } from '../components/FileUpload';
 import Button from '../components/ui/Button';
+import Banner from '../components/ui/Banner';
 
 export default function Signup() {
   const [signupInfo, setSignupInfo] = useState({
@@ -20,7 +20,12 @@ export default function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     authService
-      .signup(signupInfo.username, signupInfo.password, signupInfo.email, photo)
+      .signup(
+        signupInfo.username,
+        signupInfo.password,
+        signupInfo.email,
+        photo.fileName
+      )
       .then(() => {
         setText('Successfully signed up. Please, login.');
         setTimeout(() => {

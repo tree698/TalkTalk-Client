@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 import Button from '../components/ui/Button';
-import Banner from '../components/Banner';
+import Banner from '../components/ui/Banner';
 
 export default function Login() {
   const [loginInfo, setLoginInfo] = useState({ username: '', password: '' });
-  const [text, setText] = useState('');
+  const [error, setError] = useState();
 
   const navigate = useNavigate();
   const { logIn } = useApiContext();
@@ -14,7 +14,9 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // 왜 then(() => navigate('/home')) 필요 없을까?
-    logIn(loginInfo.username, loginInfo.password);
+    logIn(loginInfo.username, loginInfo.password).catch((error) =>
+      setError((prev) => error.toString())
+    );
   };
 
   const handleChange = (e) => {
@@ -30,7 +32,7 @@ export default function Login() {
       </div>
 
       <h1>Welcome Back</h1>
-      <Banner text={text} />
+      <Banner text={error} />
       <p>Login your account</p>
 
       <form onSubmit={handleSubmit}>

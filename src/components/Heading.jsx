@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
-import ImageSlide from './ImageSlide';
+import ImageSlide from './DrawingSlide';
 
 export default function Heading() {
   return (

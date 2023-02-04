@@ -3,7 +3,7 @@ import Carousel from 'react-material-ui-carousel';
 import { useQuery } from '@tanstack/react-query';
 import { useApiContext } from '../context/ApiContext';
 import { paginationForCarousel } from '../config';
-import Banner from '../components/Banner';
+import Banner from './ui/Banner';
 
 export default function ImageSlide() {
   const { workService } = useApiContext();
