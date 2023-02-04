@@ -10,7 +10,7 @@ export default class TweetService {
     const query = username
       ? `?username=${username}&workId=${workId}`
       : `?workId=${workId}`;
-    return await this.http.fetch(`/tweet${query}`, {
+    return await this.http.fetch(`/tweets${query}`, {
       method: 'GET',
       type: CONTENT_TYPE,
     });
@@ -18,7 +18,7 @@ export default class TweetService {
 
   async createTweet(text, workId) {
     const query = `?workId=${workId}`;
-    return await this.http.fetch(`/tweet${query}`, {
+    return await this.http.fetch(`/tweets${query}`, {
       method: 'POST',
       body: JSON.stringify({ text }),
       type: CONTENT_TYPE,
@@ -26,7 +26,7 @@ export default class TweetService {
   }
 
   async deleteTweet(tweetId) {
-    return await this.http.fetch(`/tweet/${tweetId}`, {
+    return await this.http.fetch(`/tweets/${tweetId}`, {
       method: 'DELETE',
       type: CONTENT_TYPE,
     });

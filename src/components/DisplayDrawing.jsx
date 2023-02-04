@@ -6,7 +6,7 @@ export default function DisplayDrawing({
   checkboxForDelete,
   toBeDeletedId,
 }) {
-  const { id, fileName, title, username } = drawing;
+  const { id, fileName, title, username, brush, description } = drawing;
   const navigate = useNavigate();
 
   return (
@@ -19,11 +19,17 @@ export default function DisplayDrawing({
           type="checkbox"
         />
       )}
-      <button onClick={() => navigate('/talk', { state: { drawing } })}>
+      <button
+        onClick={() =>
+          navigate('/talk', {
+            state: { id, fileName, title, username, brush, description },
+          })
+        }
+      >
         <li>
           <img
             src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
-            alt={drawing.title}
+            alt={title}
           />
           <div>
             <p>{title}</p>
