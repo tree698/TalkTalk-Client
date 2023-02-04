@@ -1,20 +1,24 @@
+import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
-import React from 'react';
-import { useState } from 'react';
 import { useApiContext } from '../context/ApiContext';
 import Banner from './ui/Banner';
 
 export const FileUpload = ({ sendPhoto }) => {
   const [success, setSuccess] = useState();
+  const [error, setError] = useState();
   const { workService } = useApiContext();
 
   const dropHandler = async (file) => {
-    const photo = await workService.uploadImage(file);
-    sendPhoto(photo.fileName);
-    setSuccess('Successfully Uploaded!');
-    setTimeout(() => {
-      setSuccess(null);
-    }, 3000);
+    await workService
+      .uploadImage(file)
+      .then((photo) => {
+        sendPhoto(photo);
+        setSuccess('Successfully Uploaded!');
+        setTimeout(() => {
+          setSuccess(null);
+        }, 3000);
+      })
+      .catch((error) => setError((prev) => error.toString()));
   };
 
   return (
@@ -32,6 +36,7 @@ export const FileUpload = ({ sendPhoto }) => {
         )}
       </Dropzone>
       {success && <Banner text={success} />}
+      {error && <Banner text={error} />}
     </>
   );
 };
