@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 export function ProtectedHome({ children }) {
   const { user } = useApiContext();
-  console.log(user);
+
   if (!user) {
     return <Navigate to="/" replace />;
   }

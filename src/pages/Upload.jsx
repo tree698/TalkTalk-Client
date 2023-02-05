@@ -9,10 +9,7 @@ import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
 
 export default function Upload() {
-  // const [info, setInfo] = useState({ title: '', description: '', brush: '' });
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [brush, setBrush] = useState('');
+  const [info, setInfo] = useState({ title: '', description: '', brush: '' });
   const [fileName, setFileName] = useState('');
   const [originalName, setOriginalName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -33,11 +30,17 @@ export default function Upload() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefalut();
+    e.preventDefault();
     setIsLoading(true);
 
     workService
-      .createWork(title, description, brush, originalName, fileName)
+      .createWork(
+        info.title,
+        info.description,
+        info.brush,
+        originalName,
+        fileName
+      )
       .then(() => {
         setSuccess('Successfully Uploaded!');
         setTimeout(() => {
@@ -52,18 +55,8 @@ export default function Upload() {
   };
 
   const handleChange = (event) => {
-    const {
-      target: { name, value },
-    } = event;
-    switch (name) {
-      case 'title':
-        return setTitle(value);
-      case 'description':
-        return setDescription(value);
-      case 'brush':
-        return setBrush(value);
-      default:
-    }
+    const { name, value } = event.target;
+    setInfo((prev) => ({ ...info, [name]: value }));
   };
 
   return (
@@ -75,7 +68,7 @@ export default function Upload() {
         {fileName ? (
           <img
             src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
-            alt={title}
+            alt={info.title}
           />
         ) : (
           <AiOutlinePlus />
@@ -96,7 +89,7 @@ export default function Upload() {
         <input
           type="text"
           name="title"
-          value={title}
+          value={info.title}
           onChange={handleChange}
           placeholder="Title"
           id="title"
@@ -107,7 +100,7 @@ export default function Upload() {
         <input
           type="text"
           name="brush"
-          value={brush}
+          value={info.brush}
           onChange={handleChange}
           placeholder="(Optional) Brush"
           id="brush"
@@ -117,7 +110,7 @@ export default function Upload() {
         <br />
         <textarea
           name="description"
-          value={description}
+          value={info.description}
           onChange={handleChange}
           cols="30"
           rows="3"
