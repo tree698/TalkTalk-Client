@@ -5,16 +5,17 @@ import { BsChatDots } from 'react-icons/bs';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useApiContext } from '../context/ApiContext';
+import { useNavigate } from 'react-router-dom';
 
 const ICONHOVER = 'hover:rotate-17 hover:text-brand';
 
 export default function Navbar() {
   const { logOut } = useApiContext();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     if (window.confirm('Do you want to log out?')) {
-      // 왜 then(() => navigate('/'))가 필요 없지?
-      logOut();
+      logOut().then(() => navigate('/'));
     }
   };
 

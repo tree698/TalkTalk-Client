@@ -14,7 +14,12 @@ import MyDrawings from './pages/MyDrawings';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
-import { ProtectedHome, ProtectedLanding } from './components/ProtectedRouter';
+import {
+  ProtectedHome,
+  ProtectedLanding,
+  ProtectedRouter,
+  ProtectGoToLandingWithUser,
+} from './components/ProtectedRouter';
 
 const router = createBrowserRouter([
   {
@@ -25,9 +30,9 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <ProtectedLanding>
+          <ProtectGoToLandingWithUser>
             <Landing />
-          </ProtectedLanding>
+          </ProtectGoToLandingWithUser>
         ),
         children: [
           { index: true, element: <Signup /> },
@@ -38,9 +43,9 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: (
-          <ProtectedHome>
+          <ProtectedRouter>
             <Home />
-          </ProtectedHome>
+          </ProtectedRouter>
         ),
         children: [
           { index: true, element: <AllDrawings /> },
@@ -49,8 +54,22 @@ const router = createBrowserRouter([
           { path: 'mydrawings', element: <MyDrawings /> },
         ],
       },
-      { path: '/talk', element: <Talk /> },
-      { path: '/upload', element: <Upload /> },
+      {
+        path: '/talk',
+        element: (
+          <ProtectedRouter>
+            <Talk />
+          </ProtectedRouter>
+        ),
+      },
+      {
+        path: '/upload',
+        element: (
+          <ProtectedRouter>
+            <Upload />
+          </ProtectedRouter>
+        ),
+      },
     ],
   },
 ]);

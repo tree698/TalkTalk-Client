@@ -2,7 +2,7 @@ import React from 'react';
 import { useApiContext } from '../context/ApiContext';
 import { Navigate } from 'react-router-dom';
 
-export function ProtectedHome({ children }) {
+export function ProtectedRouter({ children }) {
   const { user } = useApiContext();
 
   if (!user) {
@@ -11,7 +11,7 @@ export function ProtectedHome({ children }) {
   return children;
 }
 
-export function ProtectedLanding({ children }) {
+export function ProtectGoToLandingWithUser({ children }) {
   const { user } = useApiContext();
   if (user) {
     return <Navigate to="/home" replace />;
