@@ -4,41 +4,60 @@ import { useApiContext } from '../context/ApiContext';
 import NewTweetForm from './NewTweetForm';
 import TweetCard from './TweetCard';
 import Banner from './ui/Banner';
+import Button from './ui/Button';
+import UsersInConversation from './UsersInConversation';
 
 export default function SelectedTweet() {
   const [tweets, setTweets] = useState([]);
+  const [selectedUsername, setSelectedUsersname] = useState(undefined);
   const [error, setError] = useState('');
 
   const { user, tweetService } = useApiContext();
   const {
-    state: { id, fileName, title, username, brush, description },
+    state: { id },
   } = useLocation();
-
-  const username2 = '';
 
   useEffect(() => {
     id &&
       tweetService
-        .getTweets(username2, id)
+        .getTweets(selectedUsername, id)
         .then((tweets) => setTweets([...tweets]))
         .catch((error) => {
           setError((prev) => error.toString());
           setTimeout(() => {
             setError('');
-          }, 10000);
+          }, 3000);
         });
 
     const stopSync = tweetService.onSync((tweet) => onCreated(tweet));
     return () => stopSync();
-  }, [tweetService, user]);
+  }, [tweetService, user, selectedUsername]);
 
   const onCreated = (tweet) => {
     setTweets((tweets) => [tweet, ...tweets]);
   };
 
+  const handleDelete = (tweetId) => {
+    tweetService
+      .deleteTweet(tweetId)
+      .then(() =>
+        setTweets((tweets) => tweets.filter((tweet) => tweet.id !== tweetId))
+      )
+      .catch((error) => setError(error.toString()));
+  };
+
+  const handleAvatarClick = (username) => {
+    setSelectedUsersname((prev) => username);
+  };
+
   return (
     <div>
       <Banner text={error} />
+      <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
+      <Button
+        text="All Talks"
+        onClick={() => setSelectedUsersname((prev) => undefined)}
+      />
       {tweets.length === 0 && <h2>No Messages Yet ...</h2>}
       <ul id="tweets">
         {tweets.map((tweet) => (
@@ -46,6 +65,8 @@ export default function SelectedTweet() {
             key={tweet.id}
             tweet={tweet}
             owner={tweet.username === user.username}
+            onAvatarClick={handleAvatarClick}
+            onDelete={handleDelete}
           />
         ))}
       </ul>

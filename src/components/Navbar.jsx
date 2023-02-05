@@ -29,9 +29,9 @@ export default function Navbar() {
         <Link to="/home">
           <AiOutlineHome className={ICONHOVER} />
         </Link>
-        <Link to="/talk">
+        {/* <Link to="/talk">
           <BsChatDots className={ICONHOVER} />
-        </Link>
+        </Link> */}
         <Link to="/upload">
           <AiOutlineCloudUpload className={ICONHOVER} />
         </Link>
