@@ -20,12 +20,15 @@ export default function Navbar() {
   };
 
   return (
-    <header className="flex justify-between border-b border-gray-300 p-5 ">
-      <Link to="/home" className="flex items-center text-3xl text-brand gap-3">
-        <img src="" alt="logo" />
-        <h1 className="font-semibold">TalkTalk</h1>
+    <header className="w-full flex justify-between border-b-2 border-gray-300 px-20 py-6 mx-auto">
+      <Link to="/home" className="flex items-center text-4xl gap-3">
+        <img
+          src="image/logo.png"
+          alt="logo"
+          className="w-2/6 hover:scale-105 hover:brightness-110"
+        />
       </Link>
-      <nav className="flex items-center text-3xl gap-8 font-semibold">
+      <nav className="flex items-center text-5xl gap-8 font-semibold">
         <Link to="/home">
           <AiOutlineHome className={ICONHOVER} />
         </Link>
