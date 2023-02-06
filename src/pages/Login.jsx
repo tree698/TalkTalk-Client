@@ -25,14 +25,14 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <section className="w-full basis-2/5 bg-background flex flex-col justify-center">
       <div>
         <p>Don't you have an account?</p>
         <button onClick={() => navigate('/signup')}>SIGN UP</button>
       </div>
 
       <h1>Welcome Back</h1>
-      <Banner text={error} />
+      {error && <Banner text={error} />}
       <p>Login your account</p>
 
       <form onSubmit={handleSubmit}>
@@ -64,6 +64,6 @@ export default function Login() {
         </div>
         <Button text="Login" />
       </form>
-    </div>
+    </section>
   );
 }

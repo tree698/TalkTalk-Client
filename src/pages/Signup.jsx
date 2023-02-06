@@ -42,45 +42,43 @@ export default function Signup() {
 
   return (
     <div>
-      <div>
-        <h1>Create an account</h1>
-        <Banner text={text} />
-        <form onSubmit={handleSubmit}>
-          <input
-            name="username"
-            type="text"
-            value={signupInfo.username ?? ''}
-            onChange={handleChange}
-            placeholder="Username (* Required)"
-            required
-          />
-          <input
-            name="email"
-            type="email"
-            value={signupInfo.email ?? ''}
-            onChange={handleChange}
-            placeholder="Email (* Required)"
-            required
-          />
-          <input
-            name="password"
-            type="password"
-            value={signupInfo.password ?? ''}
-            onChange={handleChange}
-            placeholder="Password (* Required)"
-            required
-          />
-          <input disabled={true} placeholder="Photo (optional)" />
-          <div>
-            <FileUpload sendPhoto={setPhoto} />
-          </div>
-          <button type="submit">Create account</button>
-        </form>
-
+      <h1>Create an account</h1>
+      {text && <Banner text={text} />}
+      <form onSubmit={handleSubmit}>
+        <input
+          name="username"
+          type="text"
+          value={signupInfo.username ?? ''}
+          onChange={handleChange}
+          placeholder="Username (* Required)"
+          required
+        />
+        <input
+          name="email"
+          type="email"
+          value={signupInfo.email ?? ''}
+          onChange={handleChange}
+          placeholder="Email (* Required)"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          value={signupInfo.password ?? ''}
+          onChange={handleChange}
+          placeholder="Password (* Required)"
+          required
+        />
+        <input disabled={true} placeholder="Photo (optional)" />
         <div>
-          <p>Already have an account?</p>
-          <Button text="Login" onClick={() => navigate('/login')} />
+          <FileUpload sendPhoto={setPhoto} />
         </div>
+        <button type="submit">Create account</button>
+      </form>
+
+      <div>
+        <p>Already have an account?</p>
+        <Button text="Login" onClick={() => navigate('/login')} />
       </div>
     </div>
   );
