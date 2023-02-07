@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
-import Button from '../components/ui/Button';
+// import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
 
 export default function Login() {
@@ -24,46 +24,66 @@ export default function Login() {
     setLoginInfo({ ...loginInfo, [name]: value });
   };
 
+  const INPUT_STYLE =
+    'w-full px-2 py-3 outline-none border border-gray-400 rounded mt-2 mb-5 placeholder:italic placeholder:text-slate-400 placeholder:text-lg';
+
   return (
-    <section className="w-full basis-2/5 bg-background flex flex-col justify-center">
-      <div>
-        <p>Don't you have an account?</p>
-        <button onClick={() => navigate('/signup')}>SIGN UP</button>
-      </div>
-
-      <h1>Welcome Back</h1>
-      {error && <Banner text={error} />}
-      <p>Login your account</p>
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <br />
-          <input
-            type="text"
-            name="username"
-            value={loginInfo.username ?? ''}
-            onChange={handleChange}
-            placeholder="Your username"
-            id="username"
-            required
-          />
-          <br />
-          <label htmlFor="password">Password</label>
-          <br />
-          <input
-            type="password"
-            name="password"
-            value={loginInfo.password ?? ''}
-            onChange={handleChange}
-            placeholder="Your password"
-            id="password"
-            required
-          />
-          <br />
+    <section className="w-full basis-1/2 lg:basis-2/5 bg-signupLoginBG flex justify-center items-center">
+      <div className="basis-3/5">
+        <div className="flex justify-end items-center">
+          <p className="text-base">Don't you have an account?</p>
+          <button
+            className="px-3 py-1 ml-4 text-base border border-gray-400 rounded-2xl hover:bg-accent hover:text-white hover:scale-105 transition-all ease-in delay-200"
+            onClick={() => navigate('/signup')}
+          >
+            SIGN UP
+          </button>
         </div>
-        <Button text="Login" />
-      </form>
+
+        <h1 className="font-bold mt-12 mb-3 text-3xl md:text-3xl lg:text-5xl">
+          Welcome Back
+        </h1>
+        {error && <Banner text={error} />}
+        <p className="text-base mb-8">Login your account</p>
+
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="username" className="text-lg">
+              Username
+            </label>
+            <br />
+            <input
+              type="text"
+              name="username"
+              value={loginInfo.username ?? ''}
+              onChange={handleChange}
+              placeholder="Your username"
+              id="username"
+              required
+              className={`${INPUT_STYLE}`}
+            />
+            <br />
+            <label htmlFor="password" className="text-lg">
+              Password
+            </label>
+            <br />
+            <input
+              type="password"
+              name="password"
+              value={loginInfo.password ?? ''}
+              onChange={handleChange}
+              placeholder="Your password"
+              id="password"
+              required
+              className={`${INPUT_STYLE}`}
+            />
+            <br />
+          </div>
+          <button className="w-full text-white bg-accent px-16 py-3 mt-4 text-2xl rounded-3xl transition ease-in delay-200 hover:font-bold hover:bg-slate-400 hover:scale-105">
+            Login
+          </button>
+        </form>
+      </div>
     </section>
   );
 }

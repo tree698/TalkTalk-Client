@@ -7,7 +7,8 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { useApiContext } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
 
-const ICONHOVER = 'hover:rotate-17 hover:text-brand';
+const ICONHOVER =
+  'hover:rotate-17 hover:text-brand transition-all ease-in delay-200';
 
 export default function Navbar() {
   const { logOut } = useApiContext();
@@ -26,9 +27,9 @@ export default function Navbar() {
     >
       <Link to="/home">
         <img
-          src="image/logo.png"
+          src="images/logo.png"
           alt="logo"
-          className="w-2/6 hover:scale-105 hover:brightness-110"
+          className="w-2/6 hover:scale-105 hover:brightness-110 transition-all ease-in delay-200"
         />
       </Link>
       <nav className="flex items-center text-2xl md:text-3xl lg:text-4xl gap-4 md:gap-6 lg:gap-8">

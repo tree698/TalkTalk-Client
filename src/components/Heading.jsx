@@ -3,9 +3,9 @@ import ImageSlide from './ImageSlide';
 
 export default function Heading() {
   return (
-    <section className="basis-3/5 flex flex-col justify-center p-4 pt-10">
+    <section className="w-full basis-1/2 bg-cover bg-headingBG lg:basis-3/5 flex flex-col justify-center p-4 pt-10">
       <img
-        src="image/logo.png"
+        src="images/logo.png"
         alt="logo"
         className="w-1/2 mx-auto md:w-[360px] lg:w-[400px]"
       />
