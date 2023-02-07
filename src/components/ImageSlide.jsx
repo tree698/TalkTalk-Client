@@ -5,6 +5,8 @@ import { useApiContext } from '../context/ApiContext';
 import { paginationForCarousel } from '../config';
 import Banner from './ui/Banner';
 import { formatAgo } from '../util/date';
+import { BsPersonCircle } from 'react-icons/bs';
+import { BiTime } from 'react-icons/bi';
 
 export default function ImageSlide() {
   const { workService } = useApiContext();
@@ -19,22 +21,31 @@ export default function ImageSlide() {
       <Carousel
         autoPlay={true}
         stopAutoPlayOnHover={true}
-        indicators={true}
+        indicators={false}
         animation="slide"
-        navButtonsAlwaysVisible={true}
+        navButtonsAlwaysVisible={false}
         className="w-3/6"
       >
         {images &&
           images.map((image) => (
-            <div>
+            <div
+              key={image.id}
+              className="w-full sm:h-[375px] md:h-[450px] lg:h-[600px]"
+            >
               <img
                 src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${image.fileName}`}
                 alt={image.title}
-                className="rounded-md"
+                style={{ width: '100%', height: 'auto', borderRadius: '3%' }}
               />
-              <div className="text-center text-2xl mt-6 text-gray-600">
-                <span className="">By {image.username}</span>
-                <span className="ml-4">{formatAgo(image.createdAt)}</span>
+              <div className="flex justify-center text-center text-2xl mt-5 text-gray-600">
+                <div className="flex justify-center items-center mr-8">
+                  <BsPersonCircle />
+                  <span className="ml-2">{image.username}</span>
+                </div>
+                <div className="flex justify-center items-center">
+                  <BiTime />
+                  <span className="ml-2">{formatAgo(image.createdAt)}</span>
+                </div>
               </div>
             </div>
           ))}
