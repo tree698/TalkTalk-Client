@@ -24,7 +24,7 @@ export default function ImageSlide() {
         indicators={false}
         animation="slide"
         navButtonsAlwaysVisible={false}
-        className="w-3/6"
+        className="w-[437px] md:w-[525px] lg:w-[700px]"
       >
         {images &&
           images.map((image) => (
@@ -37,7 +37,7 @@ export default function ImageSlide() {
                 alt={image.title}
                 style={{ width: '100%', height: 'auto', borderRadius: '3%' }}
               />
-              <div className="flex justify-center text-center text-2xl mt-5 text-gray-600">
+              <div className="flex justify-center text-center text-base md:text-lg lg:text-xl mt-5 text-gray-600">
                 <div className="flex justify-center items-center mr-8">
                   <BsPersonCircle />
                   <span className="ml-2">{image.username}</span>
