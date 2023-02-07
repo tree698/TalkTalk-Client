@@ -20,21 +20,21 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full flex justify-between border-b-2 border-gray-300 px-20 py-6 mx-auto">
-      <Link to="/home" className="flex items-center text-4xl gap-3">
+    <header
+      style={{ boxShadow: '0px 0px 12px 1px rgba(124, 121, 121, 1)' }}
+      className="w-full flex justify-between border-b-2 border-gray-300 mx-auto px-10 md:px-12 lg:px-14 py-1 md:py-2 lg:py-3 "
+    >
+      <Link to="/home">
         <img
           src="image/logo.png"
           alt="logo"
           className="w-2/6 hover:scale-105 hover:brightness-110"
         />
       </Link>
-      <nav className="flex items-center text-5xl gap-8 font-semibold">
+      <nav className="flex items-center text-2xl md:text-3xl lg:text-4xl gap-4 md:gap-6 lg:gap-8">
         <Link to="/home">
           <AiOutlineHome className={ICONHOVER} />
         </Link>
-        {/* <Link to="/talk">
-          <BsChatDots className={ICONHOVER} />
-        </Link> */}
         <Link to="/upload">
           <AiOutlineCloudUpload className={ICONHOVER} />
         </Link>
