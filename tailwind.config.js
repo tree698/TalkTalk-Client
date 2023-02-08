@@ -6,6 +6,10 @@ module.exports = {
       brand: '#0c90e4',
       accent: '#7345fc',
       white: '#ffffff',
+      black: '#000000',
+      darkGray: '#4d4d4d',
+      lightGray: '#7c7979',
+      superLightGray: '#ddd9d9',
       signupLoginBG: '#faf8fe',
     },
     backgroundImage: {

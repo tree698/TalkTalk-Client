@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 import { FileUpload } from '../components/FileUpload';
-import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
 
 export default function Signup() {
@@ -40,46 +39,70 @@ export default function Signup() {
     setSignupInfo({ ...signupInfo, [name]: value });
   };
 
-  return (
-    <div>
-      <h1>Create an account</h1>
-      {text && <Banner text={text} />}
-      <form onSubmit={handleSubmit}>
-        <input
-          name="username"
-          type="text"
-          value={signupInfo.username ?? ''}
-          onChange={handleChange}
-          placeholder="Username (* Required)"
-          required
-        />
-        <input
-          name="email"
-          type="email"
-          value={signupInfo.email ?? ''}
-          onChange={handleChange}
-          placeholder="Email (* Required)"
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          value={signupInfo.password ?? ''}
-          onChange={handleChange}
-          placeholder="Password (* Required)"
-          required
-        />
-        <input disabled={true} placeholder="Photo (optional)" />
-        <div>
-          <FileUpload sendPhoto={setPhoto} />
-        </div>
-        <button type="submit">Create account</button>
-      </form>
+  const INPUT_STYLE =
+    'w-full px-2 py-3 text-xl outline-none border-b border-superLightGray bg-signupLoginBG mb-3 placeholder:text-black placeholder:italic placeholder:text-lg';
 
-      <div>
-        <p>Already have an account?</p>
-        <Button text="Login" onClick={() => navigate('/login')} />
+  return (
+    <section className="w-full basis-1/2 lg:basis-2/5 bg-signupLoginBG flex justify-center items-center">
+      <div className="basis-4/6">
+        <h1 className="font-bold mb-10 text-3xl md:text-3xl lg:text-4xl text-center">
+          Create an account
+        </h1>
+        {text && <Banner text={text} />}
+        <form onSubmit={handleSubmit} className="w-full flex flex-col">
+          <input
+            name="username"
+            type="text"
+            value={signupInfo.username ?? ''}
+            onChange={handleChange}
+            placeholder="Username (* Required)"
+            required
+            className={`${INPUT_STYLE}`}
+          />
+          <input
+            name="email"
+            type="email"
+            value={signupInfo.email ?? ''}
+            onChange={handleChange}
+            placeholder="Email (* Required)"
+            required
+            className={`${INPUT_STYLE}`}
+          />
+          <input
+            name="password"
+            type="password"
+            value={signupInfo.password ?? ''}
+            onChange={handleChange}
+            placeholder="Password (* Required)"
+            required
+            className={`${INPUT_STYLE}`}
+          />
+          <input
+            disabled={true}
+            placeholder="Photo (optional)"
+            className="w-full px-2 py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-lg"
+          />
+          <div className="border border-superLightGray rounded-md flex justify-center items-center py-3">
+            <FileUpload sendPhoto={setPhoto} />
+          </div>
+          <button
+            type="submit"
+            className="w-full mt-12 mb-5 py-3 text-white bg-darkGray text-xl rounded-3xl transition-all ease-in-out delay-200 hover:font-bold hover:scale-105"
+          >
+            Create account
+          </button>
+        </form>
+
+        <div className="flex justify-center items-center text-lg">
+          <p className="mr-4">Already have an account?</p>
+          <button
+            onClick={() => navigate('/login')}
+            className="border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg hover:py-1 hover:px-3 transition-all ease-in-out delay-200"
+          >
+            Login
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
