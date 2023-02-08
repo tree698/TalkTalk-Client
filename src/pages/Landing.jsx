@@ -8,7 +8,9 @@ export default function Landing() {
     <section className="w-full h-screen flex flex-col md:flex-row">
       <Heading />
       <Outlet />
-      <Footer />
+      <div className="fixed bottom-3 left-3 flex flex-col text-sm md:text-sm lg:text-base">
+        <Footer />
+      </div>
     </section>
   );
 }

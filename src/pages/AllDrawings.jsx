@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { paginationForAllDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 import DisplayDrawing from '../components/DisplayDrawing';
-import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
+import ViewMore from '../components/ViewMore';
 
 export default function AllDrawings() {
   const { limit, offset: initialOffset } = paginationForAllDrawings;
@@ -20,7 +20,7 @@ export default function AllDrawings() {
       .then((drawings) => setDrawings((prev) => drawings))
       .catch((error) => setError((prev) => error.toString()));
     updateOffset(setOffset, limit, offset);
-  }, [workService]);
+  }, []);
 
   const handleClick = () => {
     updateOffset(setOffset, limit, offset);
@@ -34,18 +34,20 @@ export default function AllDrawings() {
   };
 
   return (
-    <>
+    <section className="flex flex-col items-center flex-1">
       <Banner text={error} />
-      <ul>
+      <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing key={drawing.id} drawing={drawing} />
           ))}
       </ul>
-      {lengthDrawings === limit && (
-        <Button text="View More" onClick={handleClick} />
-      )}
-    </>
+      <ViewMore
+        lengthDrawings={lengthDrawings}
+        limit={limit}
+        onButtonClick={handleClick}
+      />
+    </section>
   );
 }
 

@@ -13,7 +13,7 @@ body {
 }
 
 #root {
-  @apply w-full;
+  @apply w-full h-full;
 }
 
 code {

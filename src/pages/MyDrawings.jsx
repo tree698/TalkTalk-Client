@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DisplayDrawing from '../components/DisplayDrawing';
 import Banner from '../components/ui/Banner';
-import Button from '../components/ui/Button';
 import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 
@@ -44,11 +43,19 @@ export default function MyDrawings() {
   };
 
   return (
-    <>
+    <section className="flex-1">
       <Banner text={error} />
       {drawings.length === 0 && <Banner text="Not yet uploaded your drawing" />}
-      <Button text="Delete checked drawing" onClick={handleClick} />
-      <ul>
+      <div className="flex justify-center">
+        <button
+          onClick={handleClick}
+          className="w-[320px] py-2 mb-6 bg-brand text-xl text-white rounded-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+        >
+          Delete checked drawing
+        </button>
+      </div>
+
+      <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing
@@ -61,7 +68,7 @@ export default function MyDrawings() {
             />
           ))}
       </ul>
-    </>
+    </section>
   );
 }
 

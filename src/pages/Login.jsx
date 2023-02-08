@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
-// import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
 
 export default function Login() {
@@ -33,7 +32,7 @@ export default function Login() {
         <div className="flex justify-end items-center">
           <p className="text-base">Don't you have an account?</p>
           <button
-            className="px-5 py-1 ml-4 text-base border border-superLightGray rounded-xl hover:bg-accent hover:text-white hover:scale-110 transition-all ease-in delay-200"
+            className="px-5 py-1 ml-4 text-base border border-superLightGray rounded-xl hover:bg-accent hover:text-white hover:scale-110 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
             onClick={() => navigate('/signup')}
           >
             SIGN UP
@@ -79,7 +78,7 @@ export default function Login() {
             />
             <br />
           </div>
-          <button className="w-2/5 text-white bg-accent px-16 py-3 mt-4 text-2xl rounded-3xl transition-all ease-in delay-200 hover:font-bold hover:scale-105">
+          <button className="w-2/5 text-white bg-accent px-16 py-3 mt-4 text-2xl rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl">
             Login
           </button>
         </form>

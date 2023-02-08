@@ -24,12 +24,17 @@ export default function SearchedDrawings() {
   }, [searchTerm, workService]);
 
   return (
-    <ul>
+    <section className="flex-1">
       <Banner text={error} />
-      {drawings &&
-        drawings.map((drawing) => (
-          <DisplayDrawing key={drawing.id} drawing={drawing} />
-        ))}
-    </ul>
+      <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+        {drawings.length ? (
+          drawings.map((drawing) => (
+            <DisplayDrawing key={drawing.id} drawing={drawing} />
+          ))
+        ) : (
+          <Banner text="No matched drawings" />
+        )}
+      </ul>
+    </section>
   );
 }

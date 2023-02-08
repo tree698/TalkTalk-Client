@@ -35,9 +35,9 @@ const router = createBrowserRouter([
           </ProtectGoToLandingWithUser>
         ),
         children: [
-          { index: true, element: <Signup /> },
+          { index: true, element: <Login /> },
           { path: 'signup', element: <Signup /> },
-          { path: 'login', element: <Login /> },
+          { path: 'login', element: <Signup /> },
         ],
       },
       {

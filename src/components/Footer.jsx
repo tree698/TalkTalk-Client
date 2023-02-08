@@ -3,11 +3,11 @@ import { BsGithub } from 'react-icons/bs';
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-3 left-3 flex flex-col text-sm md:text-sm lg:text-base">
+    <footer className="ml-3 mb-3">
       <div className="flex items-center">
-        <address className="mr-4">
+        <address>
           <a
-            className="hover:text-slate-500 transition-all ease-in delay-200"
+            className="hover:text-brand hover:scale-105 transition-all delay-150 duration-300 ease-in-out"
             href="mailto:tree698@gmail.com"
           >
             tree698@gmail.com
@@ -18,7 +18,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          <BsGithub className="text-2xl hover:rotate-17 hover:scale-110 hover:hover:text-brand transition-all ease-in delay-200" />
+          <BsGithub className="ml-3 text-2xl hover:rotate-17 hover:scale-110 hover:hover:text-brand transition-all delay-150 duration-300 ease-in-out hover:shadow-xl" />
         </a>
       </div>
       <p>Chanwoo's portfolio@All Right Reserved</p>

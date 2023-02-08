@@ -5,7 +5,7 @@ import { useApiContext } from '../context/ApiContext';
 import { paginationForCarousel } from '../config';
 import Banner from './ui/Banner';
 import { formatAgo } from '../util/date';
-import { BsPersonCircle } from 'react-icons/bs';
+import { SlUserFollowing } from 'react-icons/sl';
 import { BiTime } from 'react-icons/bi';
 
 export default function ImageSlide() {
@@ -40,7 +40,7 @@ export default function ImageSlide() {
               />
               <div className="flex justify-center text-center text-base md:text-lg lg:text-xl mt-5 text-gray-600">
                 <div className="flex justify-center items-center mr-8">
-                  <BsPersonCircle />
+                  <SlUserFollowing />
                   <span className="ml-2">{image.username}</span>
                 </div>
                 <div className="flex justify-center items-center">

@@ -87,7 +87,7 @@ export default function Signup() {
           </div>
           <button
             type="submit"
-            className="w-full mt-12 mb-5 py-3 text-white bg-darkGray text-xl rounded-3xl transition-all ease-in-out delay-200 hover:font-bold hover:scale-105"
+            className="w-full mt-12 mb-5 py-3 text-white bg-darkGray text-xl rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
           >
             Create account
           </button>
@@ -97,7 +97,7 @@ export default function Signup() {
           <p className="mr-4">Already have an account?</p>
           <button
             onClick={() => navigate('/login')}
-            className="border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg hover:py-1 hover:px-3 transition-all ease-in-out delay-200"
+            className="border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg hover:py-1 hover:px-3 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
           >
             Login
           </button>
