@@ -28,16 +28,20 @@ export default function NewTweetForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex justify-between mb-2 text-xl">
       <input
         type="text"
-        placeholder="Type a message"
+        placeholder="Type a talk"
         value={tweet}
         required
         autoFocus
         onChange={(e) => setTweet((prev) => e.target.value)}
+        className="w-full px-3 my-3 py-3 border border-superLightGray outline-none rounded-md  placeholder:italic shadow-lg"
       />
-      <button type="submit">
+      <button
+        type="submit"
+        className="mx-3 text-2xl text-lightGray hover:scale-110 hover:text-brand transition-all delay-150 duration-300 ease-in-out"
+      >
         <FaRegPaperPlane />
       </button>
     </form>

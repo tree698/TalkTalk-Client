@@ -4,8 +4,8 @@ import { useApiContext } from '../context/ApiContext';
 import NewTweetForm from './NewTweetForm';
 import TweetCard from './TweetCard';
 import Banner from './ui/Banner';
-import Button from './ui/Button';
 import UsersInConversation from './UsersInConversation';
+import { BsChevronRight } from 'react-icons/bs';
 
 export default function SelectedTweet() {
   const [tweets, setTweets] = useState([]);
@@ -51,15 +51,21 @@ export default function SelectedTweet() {
   };
 
   return (
-    <div className="basis-1/2 flex-1 h-full border-2">
+    <div className="basis-1/2 h-full flex flex-col ml-8">
       <Banner text={error} />
       <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
-      <Button
-        text="All Talks"
+      <button
+        className="w-full my-3 text-xl text-center py-3 border border-superLightGray rounded-md shadow-inner hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
         onClick={() => setSelectedUsersname((prev) => undefined)}
-      />
+      >
+        <div className="flex items-center">
+          <BsChevronRight className="ml-7 mr-5" />
+          <p>All Talks</p>
+        </div>
+      </button>
+
       {tweets.length === 0 && <h2>No Messages Yet ...</h2>}
-      <ul id="tweets">
+      <ul className="flex-1 p-8 bg-signupLoginBG shadow-lg">
         {tweets.map((tweet) => (
           <TweetCard
             key={tweet.id}
@@ -70,10 +76,7 @@ export default function SelectedTweet() {
           />
         ))}
       </ul>
-
-      <div>
-        <NewTweetForm />
-      </div>
+      <NewTweetForm />
     </div>
   );
 }

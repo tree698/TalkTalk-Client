@@ -31,7 +31,7 @@ export default function UsersInConversation({ onAvatarClick }) {
   const STYLE_FOR_AVATAR = 'w-12 h-12 rounded-full mr-2';
 
   return (
-    <section className="flex items-center px-3 border-b border-superLightGray">
+    <section className="flex items-center px-3">
       <span className="w-12 h-12 text-center text-3xl text-white bg-brand p-1 rounded-2xl mr-4">
         {userInfo.length}
       </span>
