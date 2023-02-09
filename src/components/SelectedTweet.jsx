@@ -51,7 +51,7 @@ export default function SelectedTweet() {
   };
 
   return (
-    <div>
+    <div className="basis-2/5">
       <Banner text={error} />
       <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
       <Button

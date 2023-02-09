@@ -7,7 +7,7 @@ export default function SelectedDrawing() {
   } = useLocation();
 
   return (
-    <div>
+    <div className="basis-2/5">
       <img
         src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
         alt={title}
