@@ -149,7 +149,6 @@ export default function Upload() {
           </div>
         </form>
       </section>
-      3p
       <Footer />
     </section>
   );

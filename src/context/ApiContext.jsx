@@ -41,7 +41,7 @@ export function ApiProvider({
   useEffect(() => {
     authService
       .me()
-      .then((user) => setUser((prev) => user))
+      .then((user) => setUser((prev) => user.userInfo))
       .catch(console.error);
   }, [authService]);
 
@@ -53,7 +53,9 @@ export function ApiProvider({
 
   const logIn = useCallback(
     async (username, password) =>
-      authService.login(username, password).then((user) => setUser(user)),
+      authService
+        .login(username, password)
+        .then((user) => setUser(user.userInfo)),
     [authService]
   );
 
@@ -88,7 +90,6 @@ export class AuthErrorEventBus {
   }
 }
 
-// export default AuthContext;
 export const fetchToken = () => tokenRef.current;
 export const fetchCsrfToken = () => csrfRef.current;
 export function useApiContext() {

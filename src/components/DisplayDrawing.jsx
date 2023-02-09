@@ -1,14 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SlUserFollowing } from 'react-icons/sl';
+import LoggedInUser from './LoggedInUser';
 
 export default function DisplayDrawing({
   drawing,
   checkboxForDelete,
   toBeDeletedId,
 }) {
-  const { id, fileName, title, username, brush, description } = drawing;
+  const { id, fileName, title, username, brush, description, photo } = drawing;
   const navigate = useNavigate();
+
+  const STYLE_FOR_LOGGEDINUSER =
+    'flex items-center justify-center shrink-0 mt-3';
+  const STYLE_FOR_AVATAR = 'w-8 h-8 rounded-full mr-2';
+  const STYLE_FOR_USERNAME = 'hidden md:block text-sm';
 
   return (
     <section className="flex flex-col">
@@ -24,7 +29,7 @@ export default function DisplayDrawing({
       <li
         onClick={() =>
           navigate('/talk', {
-            state: { id, fileName, title, username, brush, description },
+            state: { id, fileName, title, username, brush, description, photo },
           })
         }
         className="list-none rounded-xl shadow-lg cursor-pointer hover:-translate-y-1 hover:brightness-125 transition-all delay-150 duration-300 ease-in-out"
@@ -36,10 +41,13 @@ export default function DisplayDrawing({
         />
         <div className="p-3 text-center">
           <p className="text-xl font-semibold">{title}</p>
-          <div className="flex justify-center items-center text-lightGray text-md mt-2">
-            <SlUserFollowing />
-            <p className="ml-2">{username}</p>
-          </div>
+          <LoggedInUser
+            photo={photo}
+            username={username}
+            styleForAvatar={STYLE_FOR_AVATAR}
+            styleForUsername={STYLE_FOR_USERNAME}
+            styleForLoggedInUser={STYLE_FOR_LOGGEDINUSER}
+          />
         </div>
       </li>
     </section>

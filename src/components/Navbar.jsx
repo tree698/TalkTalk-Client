@@ -5,12 +5,16 @@ import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useApiContext } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
+import LoggedInUser from './LoggedInUser';
 
-const ICONHOVER =
+const STYLE_FOR_ICON_HOVER =
   'hover:rotate-17 hover:text-brand transition-all delay-150 duration-300 ease-in-out hover:shadow-xl';
+const STYLE_FOR_LOGGEDINUSER = 'flex items-center shrink-0 mt-3';
+const STYLE_FOR_AVATAR = 'w-10 h-10 rounded-full mr-2';
+const STYLE_FOR_USERNAME = 'hidden md:block text-sm';
 
 export default function Navbar() {
-  const { logOut } = useApiContext();
+  const { user, logOut } = useApiContext();
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -33,13 +37,20 @@ export default function Navbar() {
       </Link>
       <nav className="flex items-center text-2xl md:text-3xl lg:text-4xl gap-4 md:gap-6 lg:gap-8">
         <Link to="/home">
-          <AiOutlineHome className={ICONHOVER} />
+          <AiOutlineHome className={STYLE_FOR_ICON_HOVER} />
         </Link>
         <Link to="/upload">
-          <AiOutlineCloudUpload className={ICONHOVER} />
+          <AiOutlineCloudUpload className={STYLE_FOR_ICON_HOVER} />
         </Link>
+        <LoggedInUser
+          photo={user.photo}
+          username={user.username}
+          styleForAvatar={STYLE_FOR_AVATAR}
+          styleForUsername={STYLE_FOR_USERNAME}
+          styleForLoggedInUser={STYLE_FOR_LOGGEDINUSER}
+        />
         <button onClick={handleClick}>
-          <AiOutlineLogout className={ICONHOVER} />
+          <AiOutlineLogout className={STYLE_FOR_ICON_HOVER} />
         </button>
       </nav>
     </header>
