@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { useQuery } from '@tanstack/react-query';
 import { useApiContext } from '../context/ApiContext';
@@ -7,6 +7,7 @@ import Banner from './ui/Banner';
 import { formatAgo } from '../util/date';
 import { SlUserFollowing } from 'react-icons/sl';
 import { BiTime } from 'react-icons/bi';
+import toast from 'react-hot-toast';
 
 export default function ImageSlide() {
   const { workService } = useApiContext();
@@ -15,6 +16,10 @@ export default function ImageSlide() {
     ['carousel'],
     async () => await workService.showWorks(limit, offset)
   );
+
+  useEffect(() => {
+    error && toast.error(error.message);
+  }, [error]);
 
   return (
     <section className="flex justify-center">
@@ -51,7 +56,6 @@ export default function ImageSlide() {
             </div>
           ))}
       </Carousel>
-      {error && <Banner text={`😰 An error has occurred: ${error.message}`} />}
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
 import { useApiContext } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
+import toast from 'react-hot-toast';
 
 export default function Upload() {
   const [info, setInfo] = useState({ title: '', description: '', brush: '' });
@@ -18,6 +19,18 @@ export default function Upload() {
 
   const { workService } = useApiContext();
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   isLoading && toast.success(isLoading);
+  // }, [isLoading]);
+
+  useEffect(() => {
+    success && toast.success(success);
+  }, [success]);
+
+  useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
 
   const handlePhoto = (photo) => {
     setFileName((prev) => photo.fileName);
@@ -91,8 +104,6 @@ export default function Upload() {
           {fileName && (
             <div>
               {isLoading && <Banner text="Loading..." />}
-              {success && <Banner text={success} />}
-              {error && <Banner text={error} />}
               <Button text="Want to cancel?" onClick={handleCancel} />
             </div>
           )}

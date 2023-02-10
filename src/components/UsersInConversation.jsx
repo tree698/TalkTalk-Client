@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 import Avatar from './Avatar';
-import Banner from './ui/Banner';
+import toast from 'react-hot-toast';
 
 export default function UsersInConversation({ onAvatarClick }) {
   const [userInfo, setUserInfo] = useState([]);
@@ -27,6 +27,10 @@ export default function UsersInConversation({ onAvatarClick }) {
         }, 3000);
       });
   }, [tweetService]);
+
+  useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
 
   const STYLE_FOR_AVATAR = 'w-12 h-12 rounded-full mr-2';
 
@@ -62,8 +66,4 @@ function removeDuplicatedUser(array) {
     result.push({ id: a.id, photo: a.photo, username: a.username });
   });
   return result;
-}
-
-{
-  /* <Banner text={error} /> */
 }

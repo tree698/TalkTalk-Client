@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
-import Banner from '../components/ui/Banner';
+import toast from 'react-hot-toast';
 
 export default function Login() {
   const [loginInfo, setLoginInfo] = useState({ username: '', password: '' });
@@ -9,6 +9,10 @@ export default function Login() {
 
   const navigate = useNavigate();
   const { logIn } = useApiContext();
+
+  useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -42,7 +46,6 @@ export default function Login() {
         <h1 className="font-bold mt-12 mb-3 text-3xl md:text-3xl lg:text-4xl">
           Welcome Back
         </h1>
-        {error && <Banner text={error} />}
         <p className="text-base mb-8">Login your account</p>
 
         <form onSubmit={handleSubmit}>

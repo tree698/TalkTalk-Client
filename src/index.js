@@ -15,11 +15,10 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
 import {
-  ProtectedHome,
-  ProtectedLanding,
   ProtectedRouter,
   ProtectGoToLandingWithUser,
 } from './components/ProtectedRouter';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +77,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster position="top-right" reverseOrder={false} limit="1" />
   </React.StrictMode>
 );
 

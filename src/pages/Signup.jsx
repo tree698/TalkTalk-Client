@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 import { FileUpload } from '../components/FileUpload';
-import Banner from '../components/ui/Banner';
+import toast from 'react-hot-toast';
 
 export default function Signup() {
   const [signupInfo, setSignupInfo] = useState({
@@ -11,10 +11,19 @@ export default function Signup() {
     email: '',
   });
   const [photo, setPhoto] = useState('');
-  const [text, setText] = useState('');
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
   const { authService } = useApiContext();
+
+  useEffect(() => {
+    success && toast.success(success);
+  }, [success]);
+
+  useEffect(() => {
+    error && toast.success(error);
+  }, [error]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,12 +35,12 @@ export default function Signup() {
         photo.fileName
       )
       .then(() => {
-        setText('Successfully signed up. Please, login.');
+        setSuccess('Successfully signed up. Please, login.');
         setTimeout(() => {
           navigate('/login');
         }, 3000);
       })
-      .catch((err) => setText(`Oops, ${err.toString()}`));
+      .catch((err) => setError(`Oops, ${err.toString()}`));
   };
 
   const handleChange = (e) => {
@@ -48,7 +57,6 @@ export default function Signup() {
         <h1 className="font-bold mb-10 text-3xl md:text-3xl lg:text-4xl text-center">
           Create an account
         </h1>
-        {text && <Banner text={text} />}
         <form onSubmit={handleSubmit} className="w-full flex flex-col">
           <input
             name="username"
@@ -82,16 +90,16 @@ export default function Signup() {
             placeholder="Photo (optional)"
             className="w-full px-2 py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-lg"
           />
-          <div className="border border-superLightGray rounded-md flex justify-center items-center py-3">
-            <FileUpload sendPhoto={setPhoto} />
-          </div>
-          <button
-            type="submit"
-            className="w-full mt-12 mb-5 py-3 text-white bg-darkGray text-xl rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
-          >
-            Create account
-          </button>
         </form>
+        <div className="border border-superLightGray rounded-md flex justify-center items-center py-3">
+          <FileUpload sendPhoto={setPhoto} />
+        </div>
+        <button
+          onClick={handleSubmit}
+          className="w-full mt-12 mb-5 py-3 text-white bg-darkGray text-xl rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
+        >
+          Create account
+        </button>
 
         <div className="flex justify-center items-center text-lg">
           <p className="mr-4">Already have an account?</p>

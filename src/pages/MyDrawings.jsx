@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import DisplayDrawing from '../components/DisplayDrawing';
-import Banner from '../components/ui/Banner';
 import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
+import Banner from '../components/ui/Banner';
+import toast from 'react-hot-toast';
 
 export default function MyDrawings() {
   const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
@@ -18,6 +19,14 @@ export default function MyDrawings() {
       .then((data) => setDrawings((prev) => data))
       .catch((error) => setError((prev) => error.toString()));
   }, [workService, user.username]);
+
+  useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
+
+  // useEffect(() => {
+  //   drawings.length === 0 && toast('Not yet uploaded your drawing');
+  // }, [drawings]);
 
   const handleClick = () => {
     const deleteId = screendToBeDeletedId(toBeDeletedId);
@@ -44,7 +53,7 @@ export default function MyDrawings() {
 
   return (
     <section className="flex-1">
-      <Banner text={error} />
+      {/* <Banner text={error} /> */}
       {drawings.length === 0 && <Banner text="Not yet uploaded your drawing" />}
       <div className="flex justify-center">
         <button

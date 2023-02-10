@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { paginationForAllDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 import DisplayDrawing from '../components/DisplayDrawing';
-import Banner from '../components/ui/Banner';
 import ViewMore from '../components/ViewMore';
+import toast from 'react-hot-toast';
 
 export default function AllDrawings() {
   const { limit, offset: initialOffset } = paginationForAllDrawings;
@@ -22,6 +22,10 @@ export default function AllDrawings() {
     updateOffset(setOffset, limit, offset);
   }, []);
 
+  useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
+
   const handleClick = () => {
     updateOffset(setOffset, limit, offset);
     workService //
@@ -35,7 +39,6 @@ export default function AllDrawings() {
 
   return (
     <section className="flex flex-col items-center flex-1">
-      <Banner text={error} />
       <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {drawings &&
           drawings.map((drawing) => (
