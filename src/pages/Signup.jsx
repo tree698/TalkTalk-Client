@@ -10,8 +10,8 @@ export default function Signup() {
     password: '',
     email: '',
   });
-  const [photo, setPhoto] = useState();
-  const [text, setText] = useState();
+  const [photo, setPhoto] = useState('');
+  const [text, setText] = useState('');
 
   const navigate = useNavigate();
   const { authService } = useApiContext();
