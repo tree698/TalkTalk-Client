@@ -14,6 +14,7 @@ module.exports = {
     },
     backgroundImage: {
       headingBG: `url('../public/images/heading.gif')`,
+      talkBG: `url('../public/images/talkBG.png')`,
     },
     extend: {
       rotate: {

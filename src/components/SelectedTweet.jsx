@@ -51,11 +51,11 @@ export default function SelectedTweet() {
   };
 
   return (
-    <div className="basis-1/2 h-full flex flex-col ml-8">
+    <div id="whole" className="basis-1/2 flex flex-col ml-8">
       <Banner text={error} />
       <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
       <button
-        className="w-full my-3 text-xl text-center py-3 border border-superLightGray rounded-md shadow-inner hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+        className="w-full my-3 text-xl text-center py-3 border border-superLightGray rounded-md shadow-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
         onClick={() => setSelectedUsersname((prev) => undefined)}
       >
         <div className="flex items-center">
@@ -65,7 +65,7 @@ export default function SelectedTweet() {
       </button>
 
       {tweets.length === 0 && <h2>No Messages Yet ...</h2>}
-      <ul className="flex-1 p-8 bg-signupLoginBG shadow-lg">
+      <ul className="h-[60vh] p-8 bg-talkBG bg-cover bg-no-repeat shadow-lg overflow-y-scroll">
         {tweets.map((tweet) => (
           <TweetCard
             key={tweet.id}
@@ -80,3 +80,7 @@ export default function SelectedTweet() {
     </div>
   );
 }
+
+// function calculateHeightOFChatting(percentage) {
+//   return document.body.clientHeight * percentage;
+// }

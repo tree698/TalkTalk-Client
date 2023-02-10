@@ -31,8 +31,8 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
       <div
         className={
           owner
-            ? 'ml-2 w-4/6 py-2 px-5 border border-superLightGray rounded-tl-2xl rounded-b-2xl bg-accent text-white'
-            : 'ml-2 w-4/6 py-2 px-5 border border-superLightGray rounded-tr-2xl rounded-b-2xl'
+            ? 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tl-2xl rounded-b-2xl bg-accent text-white'
+            : 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tr-2xl rounded-b-2xl'
         }
       >
         <div className="flex justify-between text-base mb-1">

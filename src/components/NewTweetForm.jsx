@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaRegPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 
@@ -9,7 +9,7 @@ export default function NewTweetForm() {
 
   const { tweetService } = useApiContext();
   const {
-    state: { id, fileName, title, username, brush, description },
+    state: { id },
   } = useLocation();
 
   const handleSubmit = async (event) => {
@@ -28,7 +28,10 @@ export default function NewTweetForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex justify-between mb-2 text-xl">
+    <form
+      onSubmit={handleSubmit}
+      className="flex justify-between items-center mb-2 text-xl"
+    >
       <input
         type="text"
         placeholder="Type a talk"
@@ -40,9 +43,9 @@ export default function NewTweetForm() {
       />
       <button
         type="submit"
-        className="mx-3 text-2xl text-lightGray hover:scale-110 hover:text-brand transition-all delay-150 duration-300 ease-in-out"
+        className="w-12 h-12 flex justify-center items-center rounded-full bg-brand ml-3 text-2xl text-white hover:scale-110 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
       >
-        <FaRegPaperPlane />
+        <FaPaperPlane className="" />
       </button>
     </form>
   );
