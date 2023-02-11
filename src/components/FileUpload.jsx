@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import Dropzone from 'react-dropzone';
-import { useApiContext } from '../context/ApiContext';
 import toast from 'react-hot-toast';
+import Dropzone from 'react-dropzone';
+import { MdDownloading } from 'react-icons/md';
+import { BsCheckLg } from 'react-icons/bs';
+import { useApiContext } from '../context/ApiContext';
+import Banner from './ui/Banner';
 
 export const FileUpload = ({ sendPhoto }) => {
-  const [success, setSuccess] = useState();
+  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const { workService } = useApiContext();
-
-  useEffect(() => {
-    success && toast.success(success);
-  }, [success]);
 
   useEffect(() => {
     error && toast.success(error);
   }, [error]);
 
   const dropHandler = async (file) => {
+    setIsLoading(true);
     await workService
       .uploadImage(file)
       .then((photo) => {
         sendPhoto(photo);
-        setSuccess('Your photo is successfully Uploaded!');
+        setIsLoading(false);
+        setSuccess(true);
         setTimeout(() => {
-          setSuccess(null);
+          setSuccess(false);
         }, 3000);
       })
       .catch((error) => setError((prev) => error.toString()));
@@ -37,7 +39,23 @@ export const FileUpload = ({ sendPhoto }) => {
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               <button>
-                Drag & Drop Here <br /> or Click Here
+                {isLoading && (
+                  <div className="flex items-center justify-center gap-2 text-xl">
+                    <MdDownloading className="text-xl" />
+                    <Banner text="Loading..." />
+                  </div>
+                )}
+                {success && (
+                  <div className="flex items-center justify-center gap-2 text-xl">
+                    <BsCheckLg className="text-xl" />
+                    <Banner text="Your image is successfully uploaded" />
+                  </div>
+                )}
+                {!success && !isLoading && (
+                  <p>
+                    Drag & Drop Here <br /> or Click Here
+                  </p>
+                )}
               </button>
             </div>
           </section>
@@ -46,3 +64,26 @@ export const FileUpload = ({ sendPhoto }) => {
     </>
   );
 };
+
+// {
+//   isLoading ? (
+//     <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+//       <MdDownloading className="text-3xl" />
+//       <Banner text="Loading..." />
+//     </div>
+//   ) : (
+//     'Drag & Drop Here <br /> or Click Here'
+//   );
+// }
+
+//   {isLoading && (
+//         <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+//           <MdDownloading className="text-3xl" />
+//           <Banner text="Loading..." />
+//         </div>
+//       )}
+// {success && <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+// <MdDownloading className="text-3xl" />
+// <Banner text="Your photo is successfully uploaded" />
+// </div>}
+// {!success && !isLoading && <p>Drag & Drop Here <br /> or Click Here</p>}

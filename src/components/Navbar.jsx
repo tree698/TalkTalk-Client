@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import LoggedInUser from './LoggedInUser';
 
 const STYLE_FOR_ICON_HOVER =
-  'hover:rotate-17 hover:text-brand transition-all delay-150 duration-300 ease-in-out hover:shadow-xl';
+  'hover:rotate-17 hover:text-brand transition-all delay-150 duration-300 ease-in-out';
 const STYLE_FOR_LOGGEDINUSER = 'flex items-center shrink-0 mt-3';
 const STYLE_FOR_AVATAR = 'w-10 h-10 rounded-full mr-2';
 const STYLE_FOR_USERNAME = 'hidden md:block text-sm';
@@ -32,7 +32,7 @@ export default function Navbar() {
         <img
           src="images/logo.png"
           alt="logo"
-          className="w-2/6 hover:scale-105 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
+          className="w-2/6 hover:scale-105 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
         />
       </Link>
       <nav className="flex items-center text-2xl md:text-3xl lg:text-4xl gap-4 md:gap-6 lg:gap-8">

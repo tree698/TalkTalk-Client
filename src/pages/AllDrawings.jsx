@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { MdDownloading } from 'react-icons/md';
 import { paginationForAllDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 import DisplayDrawing from '../components/DisplayDrawing';
 import ViewMore from '../components/ViewMore';
-import toast from 'react-hot-toast';
+import Banner from '../components/ui/Banner';
 
 export default function AllDrawings() {
   const { limit, offset: initialOffset } = paginationForAllDrawings;
@@ -12,12 +14,17 @@ export default function AllDrawings() {
   const [drawings, setDrawings] = useState([]);
   const [offset, setOffset] = useState(initialOffset);
   const [lengthDrawings, setLengthDrawings] = useState(limit);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setIsLoading(true);
     workService
       .getWorks(limit, offset)
-      .then((drawings) => setDrawings((prev) => drawings))
+      .then((drawings) => {
+        setDrawings((prev) => drawings);
+        setIsLoading(false);
+      })
       .catch((error) => setError((prev) => error.toString()));
     updateOffset(setOffset, limit, offset);
   }, []);
@@ -45,11 +52,19 @@ export default function AllDrawings() {
             <DisplayDrawing key={drawing.id} drawing={drawing} />
           ))}
       </ul>
-      <ViewMore
-        lengthDrawings={lengthDrawings}
-        limit={limit}
-        onButtonClick={handleClick}
-      />
+      {isLoading && (
+        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+          <MdDownloading className="text-3xl" />
+          <Banner text="Loading..." />
+        </div>
+      )}
+      {!isLoading && (
+        <ViewMore
+          lengthDrawings={lengthDrawings}
+          limit={limit}
+          onButtonClick={handleClick}
+        />
+      )}
     </section>
   );
 }

@@ -31,7 +31,7 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
       <div
         className={
           owner
-            ? 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tl-2xl rounded-b-2xl bg-accent text-white'
+            ? 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tl-2xl rounded-b-2xl bg-subBrand text-white'
             : 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tr-2xl rounded-b-2xl'
         }
       >
@@ -44,7 +44,7 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
           {owner && (
             <button
               onClick={() => onDelete(id)}
-              className="hover:scale-110 hover:rotate-17 hover:text-accent transition-all delay-150 duration-300 ease-in-out"
+              className="hover:scale-110 hover:rotate-17 hover:text-black transition-all delay-150 duration-300 ease-in-out"
             >
               <RiDeleteBin6Line />
             </button>
