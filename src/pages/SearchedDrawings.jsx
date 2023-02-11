@@ -6,6 +6,8 @@ import { useApiContext } from '../context/ApiContext';
 import Banner from '../components/ui/Banner';
 import toast from 'react-hot-toast';
 import { AiOutlinePicture } from 'react-icons/ai';
+import { useQuery } from '@tanstack/react-query';
+import { MdDownloading } from 'react-icons/md';
 
 export default function SearchedDrawings() {
   const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
@@ -13,17 +15,10 @@ export default function SearchedDrawings() {
   const {
     state: { searchTerm },
   } = useLocation();
-
-  const [drawings, setDrawings] = useState([]);
-  const [error, setError] = useState();
-
-  useEffect(() => {
-    searchTerm &&
-      workService
-        .searchWorks(limit, offset, searchTerm)
-        .then((drawings) => setDrawings((prev) => [...drawings]))
-        .catch((error) => setError((prev) => error.toString()));
-  }, [searchTerm, workService]);
+  const { isLoading, error, data: drawings } = useQuery(
+    ['searchedDrawings'],
+    () => workService.searchWorks(limit, offset, searchTerm)
+  );
 
   useEffect(() => {
     error && toast.error(error);
@@ -31,13 +26,19 @@ export default function SearchedDrawings() {
 
   return (
     <section className="flex-1">
+      {isLoading && (
+        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+          <MdDownloading className="text-3xl" />
+          <Banner text="Loading..." />
+        </div>
+      )}
       <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {drawings.length !== 0 &&
+        {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing key={drawing.id} drawing={drawing} />
           ))}
       </ul>
-      {drawings.length === 0 && (
+      {!drawings && (
         <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
           <AiOutlinePicture className="text-4xl" />
           <Banner text="No matched drawings" />

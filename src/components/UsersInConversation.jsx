@@ -1,47 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useLocation } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
+import { useQuery } from '@tanstack/react-query';
 import Avatar from './Avatar';
-import toast from 'react-hot-toast';
 
 export default function UsersInConversation({ onAvatarClick }) {
-  const [userInfo, setUserInfo] = useState([]);
-  const [error, setError] = useState('');
-
   const { tweetService } = useApiContext();
   const {
     state: { id },
   } = useLocation();
 
-  useEffect(() => {
-    tweetService
-      .getTweets('', id)
-      .then((tweets) => {
-        const removeDuplicate = removeDuplicatedUser(tweets);
-        setUserInfo((prev) => [...removeDuplicate]);
-      })
-      .catch((error) => {
-        setError((prev) => error.toString());
-        setTimeout(() => {
-          setError('');
-        }, 3000);
-      });
-  }, [id, tweetService]);
-
-  useEffect(() => {
-    error && toast.error(error);
-  }, [error]);
+  const { isLoading, error, data } = useQuery(['usersInConversation'], () =>
+    tweetService.getTweets('', id).then((data) => removeDuplicatedUser(data))
+  );
 
   const STYLE_FOR_AVATAR = 'w-12 h-12 rounded-full mr-2';
 
   return (
     <section className="flex items-center px-3">
       <span className="w-12 h-12 text-center text-3xl border-2 border-darkGray p-1 rounded-full mr-4">
-        {userInfo.length}
+        {calculateLength(data)}
       </span>
       <ul>
-        {userInfo &&
-          userInfo.map((user) => (
+        {data &&
+          data.map((user) => (
             <button key={user.id} onClick={() => onAvatarClick(user.username)}>
               <Avatar
                 photo={user.photo}
@@ -65,5 +48,11 @@ function removeDuplicatedUser(array) {
     photo.push(a.photo);
     result.push({ id: a.id, photo: a.photo, username: a.username });
   });
+  return result;
+}
+
+function calculateLength(data) {
+  let result = 0;
+  data.forEach((a) => (result += 1));
   return result;
 }
