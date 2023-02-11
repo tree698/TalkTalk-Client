@@ -4,6 +4,7 @@ import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 import Banner from '../components/ui/Banner';
 import toast from 'react-hot-toast';
+import { AiOutlinePicture } from 'react-icons/ai';
 
 export default function MyDrawings() {
   const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
@@ -23,10 +24,6 @@ export default function MyDrawings() {
   useEffect(() => {
     error && toast.error(error);
   }, [error]);
-
-  // useEffect(() => {
-  //   drawings.length === 0 && toast('Not yet uploaded your drawing');
-  // }, [drawings]);
 
   const handleClick = () => {
     const deleteId = screendToBeDeletedId(toBeDeletedId);
@@ -53,8 +50,6 @@ export default function MyDrawings() {
 
   return (
     <section className="flex-1">
-      {/* <Banner text={error} /> */}
-      {drawings.length === 0 && <Banner text="Not yet uploaded your drawing" />}
       <div className="flex justify-center">
         <button
           onClick={handleClick}
@@ -63,7 +58,12 @@ export default function MyDrawings() {
           Delete checked drawing
         </button>
       </div>
-
+      {drawings.length === 0 && (
+        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+          <AiOutlinePicture className="text-4xl" />
+          <Banner text="Not yet uploaded your drawing" />
+        </div>
+      )}
       <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {drawings &&
           drawings.map((drawing) => (

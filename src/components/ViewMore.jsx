@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './ui/Banner';
+import { BsCheckLg } from 'react-icons/bs';
 
 export default function ViewMore({ lengthDrawings, limit, onButtonClick }) {
   return (
@@ -12,7 +13,10 @@ export default function ViewMore({ lengthDrawings, limit, onButtonClick }) {
           View More
         </button>
       ) : (
-        <Banner text="No more drawings" />
+        <div className="flex items-center gap-4 mt-12 text-2xl">
+          <BsCheckLg />
+          <Banner text="No more drawings" />
+        </div>
       )}
     </div>
   );

@@ -6,6 +6,8 @@ import TweetCard from './TweetCard';
 import UsersInConversation from './UsersInConversation';
 import { BsChevronRight } from 'react-icons/bs';
 import toast from 'react-hot-toast';
+import Banner from './ui/Banner';
+import { GiNothingToSay } from 'react-icons/gi';
 
 export default function SelectedTweet() {
   const [tweets, setTweets] = useState([]);
@@ -66,8 +68,6 @@ export default function SelectedTweet() {
           <p>All Talks</p>
         </div>
       </button>
-
-      {/* {tweets.length === 0 && <h2>No Message Yet ...</h2>} */}
       <ul className="h-[60vh] p-8 bg-talkBG bg-cover bg-no-repeat shadow-lg overflow-y-scroll">
         {tweets.map((tweet) => (
           <TweetCard
@@ -78,6 +78,12 @@ export default function SelectedTweet() {
             onDelete={handleDelete}
           />
         ))}
+        {tweets.length === 0 && (
+          <div className="flex justify-center items-end gap-2 text-2xl">
+            <Banner text="No talk yet..." />
+            <GiNothingToSay className="text-6xl pb-2 text-lightGray" />
+          </div>
+        )}
       </ul>
       <NewTweetForm />
     </div>

@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar';
 import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
 import toast from 'react-hot-toast';
+import { MdDownloading } from 'react-icons/md';
 
 export default function Upload() {
   const [info, setInfo] = useState({ title: '', description: '', brush: '' });
@@ -19,10 +20,6 @@ export default function Upload() {
 
   const { workService } = useApiContext();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   isLoading && toast.success(isLoading);
-  // }, [isLoading]);
 
   useEffect(() => {
     success && toast.success(success);
@@ -45,7 +42,6 @@ export default function Upload() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-
     workService
       .createWork(
         info.title,
@@ -103,7 +99,12 @@ export default function Upload() {
         <div>
           {fileName && (
             <div>
-              {isLoading && <Banner text="Loading..." />}
+              {isLoading && (
+                <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+                  <MdDownloading className="text-3xl" />
+                  <Banner text="Loading..." />
+                </div>
+              )}
               <Button text="Want to cancel?" onClick={handleCancel} />
             </div>
           )}
