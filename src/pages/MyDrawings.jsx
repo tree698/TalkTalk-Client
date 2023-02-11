@@ -55,7 +55,7 @@ export default function MyDrawings() {
 
   return (
     <section className="flex-1">
-      {!isLoading && (
+      {!isLoading && drawings.length !== 0 && (
         <div className="flex justify-center">
           <button
             onClick={handleClick}

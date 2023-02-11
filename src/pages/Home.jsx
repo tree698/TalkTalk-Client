@@ -7,9 +7,13 @@ import ActionBtn from '../components/ActionBtn';
 export default function Home() {
   return (
     <section className="w-full h-full flex flex-col">
-      <Navbar />
+      <div className="w-full fixed top-0 left-0 bg-white">
+        <Navbar />
+      </div>
       <ActionBtn />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Footer />
     </section>
   );
