@@ -26,7 +26,7 @@ export default function UsersInConversation({ onAvatarClick }) {
           setError('');
         }, 3000);
       });
-  }, [tweetService]);
+  }, [id, tweetService]);
 
   useEffect(() => {
     error && toast.error(error);

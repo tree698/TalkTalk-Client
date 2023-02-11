@@ -33,7 +33,7 @@ export default function SelectedTweet() {
 
     const stopSync = tweetService.onSync((tweet) => onCreated(tweet));
     return () => stopSync();
-  }, [tweetService, user, selectedUsername]);
+  }, [id, tweetService, user, selectedUsername]);
 
   useEffect(() => {
     error && toast.error(error);
