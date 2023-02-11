@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import DisplayDrawing from '../components/DisplayDrawing';
-import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
-import { useApiContext } from '../context/ApiContext';
-import Banner from '../components/ui/Banner';
 import toast from 'react-hot-toast';
 import { AiOutlinePicture } from 'react-icons/ai';
+import { MdDownloading } from 'react-icons/md';
+import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
+import { useApiContext } from '../context/ApiContext';
+import DisplayDrawing from '../components/DisplayDrawing';
+import Banner from '../components/ui/Banner';
 
 export default function MyDrawings() {
-  const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
-  const { user, workService } = useApiContext();
-
   const [drawings, setDrawings] = useState([]);
   const [toBeDeletedId, setToBeDeletedId] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
+  const { user, workService } = useApiContext();
+  const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
 
   useEffect(() => {
+    setIsLoading(true);
     workService
       .getWorks(limit, offset, user.username)
-      .then((data) => setDrawings((prev) => data))
+      .then((data) => {
+        setDrawings((prev) => data);
+        setIsLoading(false);
+      })
       .catch((error) => setError((prev) => error.toString()));
   }, [workService, user.username]);
 
@@ -26,18 +31,18 @@ export default function MyDrawings() {
   }, [error]);
 
   const handleClick = () => {
-    const deleteId = screendToBeDeletedId(toBeDeletedId);
-    if (deleteId.length === 0) {
+    const deleteIds = screendToBeDeletedId(toBeDeletedId);
+    if (deleteIds.length === 0) {
       window.alert('Please, choose the works you want to delete!');
       return;
     }
     if (window.confirm('Do you really want to delete?')) {
-      deleteId.forEach((drawingId) =>
+      deleteIds.forEach((deleteId) =>
         workService
-          .deleteWork(drawingId)
+          .deleteWork(deleteId)
           .then(() => {
             const updatedDrawings = drawings.filter(
-              (drawing) => drawing.id !== drawingId
+              (drawing) => !deleteIds.includes(drawing.id)
             );
             setDrawings((prev) => updatedDrawings);
           })
@@ -50,15 +55,23 @@ export default function MyDrawings() {
 
   return (
     <section className="flex-1">
-      <div className="flex justify-center">
-        <button
-          onClick={handleClick}
-          className="w-[320px] py-2 mb-6 bg-brand text-xl text-white rounded-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
-        >
-          Delete checked drawing
-        </button>
-      </div>
-      {drawings.length === 0 && (
+      {!isLoading && (
+        <div className="flex justify-center">
+          <button
+            onClick={handleClick}
+            className="w-[320px] py-2 mb-6 bg-brand text-xl text-white rounded-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+          >
+            Delete checked drawing
+          </button>
+        </div>
+      )}
+      {isLoading && (
+        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
+          <MdDownloading className="text-3xl" />
+          <Banner text="Loading..." />
+        </div>
+      )}
+      {!isLoading && drawings.length === 0 && (
         <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
           <AiOutlinePicture className="text-4xl" />
           <Banner text="Not yet uploaded your drawing" />
