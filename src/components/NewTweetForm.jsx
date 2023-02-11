@@ -44,11 +44,11 @@ export default function NewTweetForm() {
         required
         autoFocus
         onChange={(e) => setTweet((prev) => e.target.value)}
-        className="w-full px-3 my-3 py-3 border border-superLightGray outline-none rounded-md  placeholder:italic shadow-lg"
+        className="w-full px-3 my-3 py-3 border-2 border-lightGray outline-none rounded-md placeholder:text-lightGray placeholder:italic shadow-lg"
       />
       <button
         type="submit"
-        className="w-12 h-12 flex justify-center items-center rounded-full bg-brand ml-3 text-2xl text-white hover:scale-110 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
+        className="w-12 h-12 flex justify-center items-center rounded-full ml-3 text-2xl text-white bg-lightGray hover:scale-110 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
       >
         <FaPaperPlane className="" />
       </button>

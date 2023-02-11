@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { MdDownloading } from 'react-icons/md';
+import { BsChevronRight } from 'react-icons/bs';
 import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 import DisplayDrawing from '../components/DisplayDrawing';
@@ -56,14 +57,13 @@ export default function MyDrawings() {
   return (
     <section className="flex-1">
       {!isLoading && drawings.length !== 0 && (
-        <div className="flex justify-center">
-          <button
-            onClick={handleClick}
-            className="w-[320px] py-2 mb-6 bg-brand text-xl text-white rounded-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
-          >
-            Delete checked drawing
-          </button>
-        </div>
+        <button
+          onClick={handleClick}
+          className="flex items-center justify-center mx-auto w-[400px] text-xl text-center py-3 my-5 bg-accent border text-white border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+        >
+          <BsChevronRight className=" mr-5" />
+          <p>Delete checked drawing</p>
+        </button>
       )}
       {isLoading && (
         <div className="flex items-center justify-center gap-4 mt-12 text-2xl">

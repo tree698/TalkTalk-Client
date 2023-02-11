@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     colors: {
       brand: '#0c90e4',
-      subBrand: '#0ca678',
+      subBrand: '#9775fa',
       accent: '#7345fc',
       white: '#ffffff',
       black: '#000000',

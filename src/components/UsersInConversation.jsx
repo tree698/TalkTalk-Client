@@ -36,7 +36,7 @@ export default function UsersInConversation({ onAvatarClick }) {
 
   return (
     <section className="flex items-center px-3">
-      <span className="w-12 h-12 text-center text-3xl text-white bg-brand p-1 rounded-2xl mr-4">
+      <span className="w-12 h-12 text-center text-3xl border-2 border-darkGray p-1 rounded-full mr-4">
         {userInfo.length}
       </span>
       <ul>

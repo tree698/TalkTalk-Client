@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { BsPlusLg } from 'react-icons/bs';
+import { BsChevronRight } from 'react-icons/bs';
+import { MdDownloading } from 'react-icons/md';
 import { useApiContext } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
 import { FileUpload } from '../components/FileUpload';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import Button from '../components/ui/Button';
 import Banner from '../components/ui/Banner';
-import toast from 'react-hot-toast';
-import { MdDownloading } from 'react-icons/md';
 
 export default function Upload() {
   const [info, setInfo] = useState({ title: '', description: '', brush: '' });
@@ -105,7 +105,13 @@ export default function Upload() {
                   <Banner text="Loading..." />
                 </div>
               )}
-              <Button text="Want to cancel?" onClick={handleCancel} />
+              <button
+                onClick={handleCancel}
+                className="flex items-center justify-center mx-auto w-[340px] text-xl text-center py-3 my-5 bg-accent border text-white border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+              >
+                <BsChevronRight className=" mr-5" />
+                <p>Want you to cancel it?</p>
+              </button>
             </div>
           )}
         </div>
