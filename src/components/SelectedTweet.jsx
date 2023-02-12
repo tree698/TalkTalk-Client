@@ -89,7 +89,3 @@ export default function SelectedTweet() {
     </div>
   );
 }
-
-// function calculateHeightOFChatting(percentage) {
-//   return document.body.clientHeight * percentage;
-// }

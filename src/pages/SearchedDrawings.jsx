@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import DisplayDrawing from '../components/DisplayDrawing';
-import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
-import { useApiContext } from '../context/ApiContext';
-import Banner from '../components/ui/Banner';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { AiOutlinePicture } from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { AiOutlinePicture } from 'react-icons/ai';
 import { MdDownloading } from 'react-icons/md';
+import DisplayDrawing from '../components/DisplayDrawing';
+import { useApiContext } from '../context/ApiContext';
+import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
+import Banner from '../components/ui/Banner';
 
 export default function SearchedDrawings() {
   const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
@@ -32,7 +32,7 @@ export default function SearchedDrawings() {
           <Banner text="Loading..." />
         </div>
       )}
-      <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+      <ul className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing key={drawing.id} drawing={drawing} />

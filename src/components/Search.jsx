@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { RxCross2 } from 'react-icons/rx';
 import { RxDividerVertical } from 'react-icons/rx';
-import { useNavigate } from 'react-router-dom';
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState('');

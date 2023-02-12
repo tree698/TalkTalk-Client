@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import Carousel from 'react-material-ui-carousel';
 import toast from 'react-hot-toast';
-import { formatAgo } from '../util/date';
 import { SlUserFollowing } from 'react-icons/sl';
 import { MdDownloading } from 'react-icons/md';
 import { BiTime } from 'react-icons/bi';
-import { useQuery } from '@tanstack/react-query';
+import { formatAgo } from '../util/date';
 import { useApiContext } from '../context/ApiContext';
 import { paginationForCarousel } from '../config';
 import Banner from './ui/Banner';

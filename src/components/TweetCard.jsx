@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatAgo } from '../util/date';
-import Avatar from './Avatar';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import Avatar from './Avatar';
 
 export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
   const { id, text, createdAt, username, photo } = tweet;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaPaperPlane } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
-import toast from 'react-hot-toast';
 
 export default function NewTweetForm() {
   const [tweet, setTweet] = useState('');

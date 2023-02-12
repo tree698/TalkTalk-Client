@@ -23,7 +23,7 @@ export default function UsersInConversation({ onAvatarClick }) {
       }),
     {
       enabled: !!'userInConversation',
-      refetchInterval: 2000,
+      refetchInterval: 1000,
     }
   );
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import LoggedInUser from './LoggedInUser';
 import { MdOutlineTitle } from 'react-icons/md';
 import { BsBrush } from 'react-icons/bs';
 import { BsChatLeftDots } from 'react-icons/bs';
+import LoggedInUser from './LoggedInUser';
 
 export default function SelectedDrawing() {
   const STYLE_FOR_LOGGEDINUSER =

@@ -64,26 +64,3 @@ export const FileUpload = ({ sendPhoto }) => {
     </>
   );
 };
-
-// {
-//   isLoading ? (
-//     <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-//       <MdDownloading className="text-3xl" />
-//       <Banner text="Loading..." />
-//     </div>
-//   ) : (
-//     'Drag & Drop Here <br /> or Click Here'
-//   );
-// }
-
-//   {isLoading && (
-//         <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-//           <MdDownloading className="text-3xl" />
-//           <Banner text="Loading..." />
-//         </div>
-//       )}
-// {success && <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-// <MdDownloading className="text-3xl" />
-// <Banner text="Your photo is successfully uploaded" />
-// </div>}
-// {!success && !isLoading && <p>Drag & Drop Here <br /> or Click Here</p>}

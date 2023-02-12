@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 import { FileUpload } from '../components/FileUpload';
-import toast from 'react-hot-toast';
 
 export default function Signup() {
   const [signupInfo, setSignupInfo] = useState({
@@ -105,7 +105,7 @@ export default function Signup() {
           <p className="mr-4">Already have an account?</p>
           <button
             onClick={() => navigate('/login')}
-            className="border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg hover:py-1 hover:px-3 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
+            className="border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg py-1 px-2 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
           >
             Login
           </button>

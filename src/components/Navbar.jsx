@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useApiContext } from '../context/ApiContext';
-import { useNavigate } from 'react-router-dom';
 import LoggedInUser from './LoggedInUser';
 
 const STYLE_FOR_ICON_HOVER =

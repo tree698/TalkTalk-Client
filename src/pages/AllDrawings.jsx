@@ -46,7 +46,7 @@ export default function AllDrawings() {
 
   return (
     <section className="flex flex-col items-center flex-1">
-      <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+      <ul className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing key={drawing.id} drawing={drawing} />

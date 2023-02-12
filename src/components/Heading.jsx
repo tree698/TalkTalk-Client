@@ -10,7 +10,7 @@ export default function Heading() {
         className="w-1/2 mx-auto md:w-[360px] lg:w-[400px]"
       />
       <h2 className="text-base text-center md:text-2xl lg:text-3xl my-3 md:my-6 lg:my-9">
-        Upload your drawing, then enjoy talking
+        Upload drawing, then enjoy talking
       </h2>
       <ImageSlide />
     </section>

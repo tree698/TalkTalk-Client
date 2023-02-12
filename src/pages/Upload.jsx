@@ -71,15 +71,15 @@ export default function Upload() {
   const INPUT_STYLE =
     'w-full px-2 py-3 text-xl outline-none rounded-md border border-superLightGray mb-3 placeholder:text-superLightGray placeholder:italic placeholder:text-lg';
   const FILE_UPLOAD_STYLE =
-    'h-[287px] flex items-center justify-center rounded-lg text-xl border-2 border-superLightGray shadow-inner shadow-xl';
+    'h-[378px] flex items-center justify-center rounded-lg text-xl border-2 border-superLightGray shadow-inner shadow-xl';
   const LABEL_STYLE = 'text-xl mb-2';
 
   return (
     <section className="w-full h-full flex flex-col">
       <Navbar />
-      <section className="flex-1 max-w-3xl w-full mx-auto">
+      <section className="flex-1 max-w-5xl w-full mx-auto">
         <div className="flex justify-center">
-          <h2 className="text-3xl font-semibold my-8">Upload your drawing</h2>
+          <h2 className="text-3xl font-semibold m-12">Upload your drawing</h2>
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           <div className={`${FILE_UPLOAD_STYLE}`}>
@@ -90,6 +90,7 @@ export default function Upload() {
               <img
                 src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
                 alt={info.title}
+                className="w-full h-full"
               />
             ) : (
               <BsPlusLg />
@@ -107,7 +108,7 @@ export default function Upload() {
               )}
               <button
                 onClick={handleCancel}
-                className="flex items-center justify-center mx-auto w-[340px] text-xl text-center py-3 my-5 bg-accent border text-white border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+                className="flex items-center justify-center mx-auto w-[400px] text-xl text-center py-3 m-10 border border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
               >
                 <BsChevronRight className=" mr-5" />
                 <p>Want you to cancel it?</p>

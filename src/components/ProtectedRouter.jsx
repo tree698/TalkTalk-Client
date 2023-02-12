@@ -1,6 +1,6 @@
 import React from 'react';
-import { useApiContext } from '../context/ApiContext';
 import { Navigate } from 'react-router-dom';
+import { useApiContext } from '../context/ApiContext';
 
 export function ProtectedRouter({ children }) {
   const { user } = useApiContext();

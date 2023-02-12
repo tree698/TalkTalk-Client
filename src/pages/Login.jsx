@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApiContext } from '../context/ApiContext';
 import toast from 'react-hot-toast';
+import { useApiContext } from '../context/ApiContext';
 
 export default function Login() {
   const [loginInfo, setLoginInfo] = useState({ username: '', password: '' });
@@ -16,7 +16,6 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // 왜 then(() => navigate('/home')) 필요 없을까?
     logIn(loginInfo.username, loginInfo.password).catch((error) =>
       setError((prev) => error.toString())
     );
