@@ -57,7 +57,7 @@ export default function SelectedTweet() {
   };
 
   return (
-    <div id="whole" className="basis-1/2 flex flex-col ml-8">
+    <div id="whole" className="basis-1/2 w-4/5 flex flex-col ml-8">
       <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
       <button
         className="w-full my-3 text-xl text-center py-3 text-darkLightGray border-2 border-superLightGray rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"

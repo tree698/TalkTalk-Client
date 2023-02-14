@@ -37,7 +37,7 @@ export default function DisplayDrawing({
         <img
           src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
           alt={title}
-          className="w-full rounded-t-xl"
+          className="w-full h-[247px] rounded-t-xl"
         />
         <div className="p-3 text-center">
           <p className="text-xl font-semibold">{title}</p>

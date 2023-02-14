@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   AuthErrorEventBus,
   ApiProvider,
@@ -39,7 +38,6 @@ function App() {
       >
         <Outlet />
       </ApiProvider>
-      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }
