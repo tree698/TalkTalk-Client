@@ -39,7 +39,7 @@ export default function DisplayDrawing({
           alt={title}
           className="w-full h-[247px] rounded-t-xl"
         />
-        <div className="p-3 text-center">
+        <div className="flex items-center justify-center gap-x-2 md:gap-x-0 md:flex-col p-3 text-center">
           <p className="text-xl font-semibold">{title}</p>
           <LoggedInUser
             photo={photo}

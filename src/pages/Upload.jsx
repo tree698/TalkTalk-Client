@@ -75,9 +75,9 @@ export default function Upload() {
   const LABEL_STYLE = 'text-xl mb-2';
 
   return (
-    <section className="w-full h-full flex flex-col">
+    <section className="md:w-full h-full flex flex-col">
       <Navbar />
-      <section className="flex-1 max-w-5xl w-full mx-auto">
+      <section className="w-3/4 md:w-full flex-1 max-w-5xl mx-auto">
         <div className="flex justify-center">
           <h2 className="text-3xl font-semibold m-12">Upload your drawing</h2>
         </div>

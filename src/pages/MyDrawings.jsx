@@ -59,7 +59,7 @@ export default function MyDrawings() {
       {!isLoading && drawings.length !== 0 && (
         <button
           onClick={handleClick}
-          className="flex items-center justify-center mx-auto w-[400px] text-xl text-center py-3 mt-5 mb-10 bg-accent border text-white border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+          className="flex items-center justify-center mx-auto w-[300px] md:w-[400px] text-xl text-center py-3 mt-5 mb-10 bg-accent border text-white border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
         >
           <BsChevronRight className=" mr-5" />
           <p>Delete checked drawing</p>

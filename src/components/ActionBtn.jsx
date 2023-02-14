@@ -5,9 +5,9 @@ import Search from './Search';
 
 export default function ActionBtn() {
   const linkStyle =
-    'w-[260px] text-xl text-center py-3 border border-superLightGray rounded-md shadow-inner hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out';
+    'w-[330px] md:w-[260px] text-xl text-center py-3 border border-superLightGray rounded-md shadow-inner hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out';
   return (
-    <section className="pt-[130px] flex max-w-4xl mx-auto my-14 gap-x-5">
+    <section className="pt-[130px] flex flex-col gap-y-2 md:gap-y-0 md:flex-row max-w-4xl mx-auto md:my-14 gap-x-5">
       <Link to="/home/alldrawings" className={`${linkStyle}`}>
         <div className="flex items-center">
           <BsChevronRight className="ml-7 mr-5" />

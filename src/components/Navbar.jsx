@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <header
       style={{ boxShadow: '0px 1px 9px 3px rgba(124, 121, 121, 0.2)' }}
-      className="w-full flex justify-between border-b border-superLightGray mx-auto px-10 md:px-12 lg:px-14 py-1 md:py-2 lg:py-3 "
+      className="w-full flex justify-between items-center border-b border-superLightGray mx-auto px-10 md:px-12 lg:px-14 py-1 md:py-2 lg:py-3 "
     >
       <Link to="/home">
         <img
