@@ -8,7 +8,7 @@ export default function Talk() {
   return (
     <section className="w-full h-screen flex flex-col">
       <Navbar />
-      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center flex-1  mt-10 mb-4">
+      <div className="mt-6 md:mt-8 lg:mt-10 mb-2 md:mb-4 max-w-[1400px] flex flex-col md:flex-row items-center mx-auto flex-1">
         <SelectedDrawing />
         <SelectedTweet />
       </div>

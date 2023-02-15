@@ -35,7 +35,7 @@ export default function NewTweetForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between items-center mb-2 text-xl"
+      className="flex justify-between items-center mb-1 lg:mb-2 text:base md:text-lg lg:text-xl"
     >
       <input
         type="text"
@@ -44,11 +44,11 @@ export default function NewTweetForm() {
         required
         autoFocus
         onChange={(e) => setTweet((prev) => e.target.value)}
-        className="w-full px-3 my-3 py-3 border-2 border-lightGray outline-none rounded-md placeholder:text-lightGray placeholder:italic shadow-lg"
+        className="w-full px-1 md:px-2 lg:px-3 my-3 py-1 md:py-2 lg:py-3 border-2 border-lightGray outline-none rounded-md placeholder:text-lightGray placeholder:italic shadow-lg placeholder:text-sm md:placeholder:text-lg lg:placeholder:text-xl"
       />
       <button
         type="submit"
-        className="w-12 h-12 flex justify-center items-center rounded-full ml-3 text-2xl text-white bg-lightGray hover:scale-110 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
+        className="w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 flex justify-center items-center rounded-full ml-2 md:ml-3 text-lg md:text-xl lg:text-2xl text-white bg-lightGray hover:scale-110 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
       >
         <FaPaperPlane className="" />
       </button>

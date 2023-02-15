@@ -11,9 +11,7 @@ export default function Home() {
         <Navbar />
       </div>
       <ActionBtn />
-      <div className="flex-1">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </section>
   );

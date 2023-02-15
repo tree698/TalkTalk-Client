@@ -68,20 +68,22 @@ export default function Upload() {
     setInfo((prev) => ({ ...info, [name]: value }));
   };
 
-  const INPUT_STYLE =
-    'w-full px-2 py-3 text-xl outline-none rounded-md border border-superLightGray mb-3 placeholder:text-superLightGray placeholder:italic placeholder:text-lg';
   const FILE_UPLOAD_STYLE =
-    'h-[378px] flex items-center justify-center rounded-lg text-xl border-2 border-superLightGray shadow-inner shadow-xl';
-  const LABEL_STYLE = 'text-xl mb-2';
+    'h-[200px] md:h-[300px] lg:h-[378px] text-base md:text-lg lg:text-xl flex items-center justify-center rounded-lg border-2 border-superLightGray shadow-inner shadow-xl';
+  const LABEL_STYLE = 'text-sm md:text-lg lg:text-xl mb-1 md:mb-2';
+  const INPUT_STYLE =
+    'w-full px-1 md:px-2 py-1 md:py-2 lg:py-3 text-sm md:text-lg lg:text-xl outline-none rounded-md border border-superLightGray mb-1 md:mb-2 lg:mb-3 placeholder:text-superLightGray placeholder:italic placeholder:text-sm md:placeholder:text-base lg:placeholder:text-lg';
 
   return (
-    <section className="md:w-full h-full flex flex-col">
+    <section className="w-screen h-screen flex flex-col">
       <Navbar />
-      <section className="w-3/4 md:w-full flex-1 max-w-5xl mx-auto">
+      <section className="w-full max-w-xs md:max-w-2xl lg:max-w-5xl mx-auto flex-1">
         <div className="flex justify-center">
-          <h2 className="text-3xl font-semibold m-12">Upload your drawing</h2>
+          <h2 className="text-xl md:text-2xl lg:text-3xl m-6 md:m-8 lg:m-12 font-semibold">
+            Upload your drawing
+          </h2>
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 md:mb-6 lg:mb-10">
           <div className={`${FILE_UPLOAD_STYLE}`}>
             <FileUpload sendPhoto={handlePhoto} />
           </div>
@@ -99,18 +101,18 @@ export default function Upload() {
         </div>
         <div>
           {fileName && (
-            <div>
+            <div className="flex flex-col items-center">
               {isLoading && (
-                <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-                  <MdDownloading className="text-3xl" />
+                <div className="flex items-center justify-center gap-4 mt-6 md:mt-10 lg:mt-12 text-lg md:text-xl lg:text-2xl">
+                  <MdDownloading className="text-xl md:text-2xl lg:text-3xl" />
                   <Banner text="Loading..." />
                 </div>
               )}
               <button
                 onClick={handleCancel}
-                className="flex items-center justify-center mx-auto w-[400px] text-xl text-center py-3 m-10 border border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+                className="w-[200px] md:w-[300px] lg:w-[400px] text-sm md:text-lg lg:text-xl py-1 md:py-2 lg:py-3 m-4 md:m-6 lg:m-10 flex items-center justify-center border border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
               >
-                <BsChevronRight className=" mr-5" />
+                <BsChevronRight className=" mr-1 md:mr-3 lg:mr-5" />
                 <p>Want you to cancel it?</p>
               </button>
             </div>
@@ -162,7 +164,7 @@ export default function Upload() {
           ></textarea>
           <br />
           <div className="flex justify-center">
-            <button className="w-[400px] py-3 px-2 my-6 text-xl font-semibold text-center text-white bg-accent rounded-2xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out">
+            <button className="w-[200px] md:w-[340px] lg:w-[400px] py-1 md:py-2 lg:py-3 px-1 md:px-2 my-2 md:my-4 lg:my-6 text-sm md:text-lg lg:text-xl font-semibold text-center text-white bg-accent rounded-2xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out">
               Submit
             </button>
           </div>

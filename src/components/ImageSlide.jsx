@@ -30,13 +30,13 @@ export default function ImageSlide() {
         indicators={false}
         animation="fade"
         navButtonsAlwaysVisible={false}
-        className="w-[437px] md:w-[525px] lg:w-[700px]"
+        className="w-[340px] md:w-[400px] lg:w-[700px]"
       >
         {images &&
           images.map((image) => (
             <div
               key={image.id}
-              className="w-full h-[340px] sm:h-[375px] md:h-[450px] lg:h-[600px]"
+              className="w-full h-[340px] md:h-[450px] lg:h-[600px] mx-auto"
             >
               <img
                 src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${image.fileName}`}

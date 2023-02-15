@@ -6,7 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 import Avatar from './Avatar';
 
 export default function UsersInConversation({ onAvatarClick }) {
-  const STYLE_FOR_AVATAR = 'w-12 h-12 rounded-full mr-2';
+  const STYLE_FOR_AVATAR =
+    'w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 mr-1 md:mr-2 rounded-full ';
   const [length, setLength] = useState();
   const { tweetService } = useApiContext();
   const {
@@ -32,8 +33,8 @@ export default function UsersInConversation({ onAvatarClick }) {
   }, [error]);
 
   return (
-    <section className="flex items-center px-3">
-      <span className="w-12 h-12 text-center text-3xl border-2 border-darkGray p-1 rounded-full mr-4">
+    <section className="flex items-center px-1 md:px-2 lg:px-3">
+      <span className="w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 text-xl md:text-2xl lg:text-3xl mr-2 md:mr-3 lg:mr-4 lg:p-1 text-center border-2 border-darkGray rounded-full">
         {length}
       </span>
       <ul>

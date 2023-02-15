@@ -27,29 +27,32 @@ export default function Login() {
   };
 
   const INPUT_STYLE =
-    'w-full px-2 py-3 text-xl outline-none border border-superLightGray rounded mt-2 mb-5 placeholder:italic placeholder:text-superLightGray placeholder:text-xl';
+    'w-full px-1 md:px-2 py-1 md:py-2 lg:py-3 text-xl outline-none border border-superLightGray rounded mt-2 mb-5 placeholder:italic placeholder:text-superLightGray  placeholder:text-base md:placeholder:text-lg lg:placeholder:text-xl';
 
   return (
-    <section className="w-full basis-1/2 lg:basis-2/5 bg-signupLoginBG flex justify-center items-center">
-      <div className="basis-4/6">
+    <section className="basis-1/2 md:basis-1/2 lg:basis-2/5 py-5 md:py-0 w-full flex justify-center items-center  bg-signupLoginBG ">
+      <div className="w-2/3">
         <div className="flex justify-end items-center">
-          <p className="text-base">Don't you have an account?</p>
+          <p className="text-xs md:text-base">Don't you have an account?</p>
           <button
-            className="px-5 py-1 ml-4 text-base border border-superLightGray rounded-xl hover:bg-accent hover:text-white hover:scale-110 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
+            className="px-5 py-1 ml-4 text-sm md:text-lg lg:text-base border border-superLightGray rounded-xl hover:bg-accent hover:text-white hover:scale-110 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
             onClick={() => navigate('/signup')}
           >
             SIGN UP
           </button>
         </div>
 
-        <h1 className="font-bold mt-12 mb-3 text-3xl md:text-3xl lg:text-4xl">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl mt-6 md:mt-12 mb-3 font-bold  ">
           Welcome Back
         </h1>
         <p className="text-base mb-8">Login your account</p>
 
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username" className="text-lg">
+            <label
+              htmlFor="username"
+              className="text-base md:text-lg lg:text-xl"
+            >
               Username
             </label>
             <br />
@@ -64,7 +67,7 @@ export default function Login() {
               className={`${INPUT_STYLE}`}
             />
             <br />
-            <label htmlFor="password" className="text-lg">
+            <label htmlFor="password" className="text-base md:text-lg">
               Password
             </label>
             <br />
@@ -80,7 +83,7 @@ export default function Login() {
             />
             <br />
           </div>
-          <button className="w-2/5 text-white bg-accent px-16 py-3 mt-4 text-2xl rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl">
+          <button className="w-full md:w-2/5 text-base md:text-lg lg:text-xl md:px-10 py-1 md:py-2 lg:py-3 mt-4  text-white bg-accent rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl">
             Login
           </button>
         </form>

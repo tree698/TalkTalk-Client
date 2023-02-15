@@ -11,8 +11,9 @@ export default function DisplayDrawing({
   const navigate = useNavigate();
 
   const STYLE_FOR_LOGGEDINUSER =
-    'flex items-center justify-center shrink-0 mt-3';
-  const STYLE_FOR_AVATAR = 'w-8 h-8 rounded-full mr-2';
+    'flex items-center justify-center shrink-0 mt-0md:mt-3';
+  const STYLE_FOR_AVATAR =
+    'w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 rounded-full mr-0 md:mr-2';
   const STYLE_FOR_USERNAME = 'hidden md:block text-sm';
 
   return (
@@ -23,7 +24,7 @@ export default function DisplayDrawing({
           id="delete"
           onChange={() => toBeDeletedId(id)}
           type="checkbox"
-          className="w-5 h-5 ml-4 mb-1 border border-lightGray"
+          className="w-3 md:w-4 lg:w-5 h-3 md:h-4 lg:h-5 ml-4 mb-1 border border-lightGray"
         />
       )}
       <li
@@ -39,8 +40,8 @@ export default function DisplayDrawing({
           alt={title}
           className="w-full h-[247px] rounded-t-xl"
         />
-        <div className="flex items-center justify-center gap-x-2 md:gap-x-0 md:flex-col p-3 text-center">
-          <p className="text-xl font-semibold">{title}</p>
+        <div className="flex items-center justify-center md:flex-col gap-x-2 md:gap-x-0 p-1 md:p-2 lg:p-3">
+          <p className="text-sm md:text-lg lg:text-xl font-semibold">{title}</p>
           <LoggedInUser
             photo={photo}
             username={username}

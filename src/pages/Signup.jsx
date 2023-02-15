@@ -49,12 +49,12 @@ export default function Signup() {
   };
 
   const INPUT_STYLE =
-    'w-full px-2 py-3 text-xl outline-none border-b border-superLightGray bg-signupLoginBG mb-3 placeholder:text-black placeholder:italic placeholder:text-lg';
+    'w-full px-2 md:px-2  py-1 md:py-2 lg:py-3 text-xl outline-none border-b border-superLightGray bg-signupLoginBG mb-3 placeholder:text-black placeholder:italic placeholder:text-base md:placeholder:text-lg lg:placeholder:text-xl';
 
   return (
-    <section className="w-full basis-1/2 lg:basis-2/5 bg-signupLoginBG flex justify-center items-center">
-      <div className="basis-4/6">
-        <h1 className="font-bold mb-10 text-3xl md:text-3xl lg:text-4xl text-center">
+    <section className="basis-1/2 lg:basis-2/5 w-full py-5 bg-signupLoginBG flex justify-center items-center">
+      <div className="w-2/3">
+        <h1 className="font-bold mb-6 md:mb-8 lg:mb-10 text-2xl md:text-3xl lg:text-4xl text-center">
           Create an account
         </h1>
         <form onSubmit={handleSubmit} className="w-full flex flex-col">
@@ -88,7 +88,8 @@ export default function Signup() {
           <input
             disabled={true}
             placeholder="Photo (optional)"
-            className="w-full px-2 py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-lg"
+            className="w-full px-2 py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-base md:placeholder:text-lg lg:placeholder:text-xl';
+            "
           />
         </form>
         <div className="border border-superLightGray rounded-md flex justify-center items-center py-3">
@@ -96,16 +97,16 @@ export default function Signup() {
         </div>
         <button
           onClick={handleSubmit}
-          className="w-full mt-12 mb-5 py-3 text-white bg-darkGray text-xl rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
+          className="w-full mt-6 md:mt-12 mb-3 md:mb-5 py-1 md:py-2 lg:py-3 text-base md:text-lg lg:text-xl text-white bg-darkGray rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
         >
           Create account
         </button>
 
-        <div className="flex justify-center items-center text-lg">
+        <div className="flex justify-center items-center text-sm md:text-base lg:text-lg">
           <p className="mr-4">Already have an account?</p>
           <button
             onClick={() => navigate('/login')}
-            className="border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg py-1 px-2 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
+            className="p-1 md:px-2 border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
           >
             Login
           </button>

@@ -32,7 +32,7 @@ export default function SearchedDrawings() {
           <Banner text="Loading..." />
         </div>
       )}
-      <ul className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+      <ul className="max-w-[340px] md:max-w-[800px] lg:max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4 p-2 md:p-3 lg:p-4">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing key={drawing.id} drawing={drawing} />

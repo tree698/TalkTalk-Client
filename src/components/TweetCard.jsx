@@ -10,8 +10,8 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
     <li
       className={
         owner
-          ? 'flex items-start justify-end mb-4 text-lg'
-          : 'flex items-start justify-start mb-4 text-lg'
+          ? 'flex items-start justify-end mb-2 md:mb-3 lg:mb-4 text-sm sm:text-base md:text-lg'
+          : 'flex items-start justify-start mb-2 md:mb-3 lg:mb-4 text-sm sm:text-base md:text-lg'
       }
     >
       <button
@@ -23,8 +23,8 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
           username={username}
           styleForAvatar={
             owner
-              ? 'w-10 h-10 rounded-full ml-2'
-              : 'w-10 h-10 rounded-full mr-2'
+              ? 'w-8 lg:w-10 h-8 lg:h-10 rounded-full ml-2'
+              : 'w-8 lg:w-10 h-8 lg:h-10 rounded-full mr-2'
           }
         />
       </button>
@@ -35,7 +35,7 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
             : 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tr-2xl rounded-b-2xl'
         }
       >
-        <div className="flex justify-between text-base mb-1">
+        <div className="flex justify-between text-sm md:text-base lg:text-base mb-1">
           <p className={owner ? 'order-1' : ''}>{username}</p>
           <p>{formatAgo(createdAt)}</p>
         </div>

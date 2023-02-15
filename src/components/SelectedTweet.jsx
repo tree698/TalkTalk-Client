@@ -57,18 +57,18 @@ export default function SelectedTweet() {
   };
 
   return (
-    <div id="whole" className="basis-1/2 w-4/5 flex flex-col ml-8">
+    <div className="basis-1/2 w-4/5 flex flex-col ml-0 lg:ml-8">
       <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
       <button
-        className="w-full my-3 text-xl text-center py-3 text-darkLightGray border-2 border-superLightGray rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+        className="w-full my-2 md:my-3 py-1 md:py-2 lg:py-3 text-sm md:text-lg lg:text-xl text-center text-darkLightGray border-2 border-superLightGray rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
         onClick={() => setSelectedUsersname((prev) => undefined)}
       >
         <div className="flex items-center">
-          <BsChevronRight className="ml-7 mr-5" />
+          <BsChevronRight className="ml-3 md:ml-5 lg:ml-7 mr-2 md:mr-3 lg:mr-5" />
           <p>All Talks</p>
         </div>
       </button>
-      <ul className="h-[60vh] p-8 bg-talkBG bg-cover bg-no-repeat shadow-lg overflow-y-scroll">
+      <ul className="h-[60vh] p-4 md:p-6 lg:p-8 bg-talkBG bg-cover bg-no-repeat shadow-lg overflow-y-scroll">
         {tweets.map((tweet) => (
           <TweetCard
             key={tweet.id}
