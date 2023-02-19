@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
-import { FileUpload } from '../components/FileUpload';
+import { FileUploadToCloudinary } from '../uploader/FileUploadToCloudinary';
 
 export default function Signup() {
   const [signupInfo, setSignupInfo] = useState({
@@ -10,7 +10,7 @@ export default function Signup() {
     password: '',
     email: '',
   });
-  const [photo, setPhoto] = useState('');
+  const [url, setURL] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
 
@@ -28,12 +28,7 @@ export default function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     authService
-      .signup(
-        signupInfo.username,
-        signupInfo.password,
-        signupInfo.email,
-        photo.fileName
-      )
+      .signup(signupInfo.username, signupInfo.password, signupInfo.email, url)
       .then(() => {
         setSuccess('Successfully signed up. Please, login.');
         setTimeout(() => {
@@ -93,7 +88,9 @@ export default function Signup() {
           />
         </form>
         <div className="border border-superLightGray rounded-md flex justify-center items-center py-3">
-          <FileUpload sendPhoto={setPhoto} />
+          <FileUploadToCloudinary
+            sendImageData={(data) => setURL((prev) => updateURL(data.url))}
+          />
         </div>
         <button
           onClick={handleSubmit}
@@ -114,4 +111,11 @@ export default function Signup() {
       </div>
     </section>
   );
+}
+
+function updateURL(url) {
+  const spliteURL = url.split(':');
+  const modify = `${spliteURL[0]}s:`;
+  const updatedURLArray = [`${modify}`, `${spliteURL[1]}`];
+  return updatedURLArray.join('');
 }

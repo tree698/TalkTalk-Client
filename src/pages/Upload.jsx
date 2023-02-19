@@ -5,7 +5,7 @@ import { BsChevronRight } from 'react-icons/bs';
 import { MdDownloading } from 'react-icons/md';
 import { useApiContext } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
-import { FileUpload } from '../components/FileUpload';
+import { FileUploadToCloudinary } from '../uploader/FileUploadToCloudinary';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Banner from '../components/ui/Banner';
@@ -29,9 +29,10 @@ export default function Upload() {
     error && toast.error(error);
   }, [error]);
 
-  const handlePhoto = (photo) => {
-    setFileName((prev) => photo.fileName);
-    setOriginalName((prev) => photo.originalName);
+  // multer가 아닌 Cloudinary 사용 -> fileName은 url을 가리킴
+  const handleImageData = (data) => {
+    setFileName((prev) => updateURL(data.url));
+    setOriginalName((prev) => data.original_filename);
   };
 
   const handleCancel = () => {
@@ -85,15 +86,11 @@ export default function Upload() {
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 md:mb-6 lg:mb-10">
           <div className={`${FILE_UPLOAD_STYLE}`}>
-            <FileUpload sendPhoto={handlePhoto} />
+            <FileUploadToCloudinary sendImageData={handleImageData} />
           </div>
           <div className={`${FILE_UPLOAD_STYLE}`}>
             {fileName ? (
-              <img
-                src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
-                alt={info.title}
-                className="w-full h-full"
-              />
+              <img src={fileName} alt={info.title} className="w-full h-full" />
             ) : (
               <BsPlusLg />
             )}
@@ -173,4 +170,11 @@ export default function Upload() {
       <Footer />
     </section>
   );
+}
+
+function updateURL(url) {
+  const spliteURL = url.split(':');
+  const modify = `${spliteURL[0]}s:`;
+  const updatedURLArray = [`${modify}`, `${spliteURL[1]}`];
+  return updatedURLArray.join('');
 }

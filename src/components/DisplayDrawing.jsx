@@ -36,12 +36,14 @@ export default function DisplayDrawing({
         className="list-none rounded-xl shadow-lg cursor-pointer hover:-translate-y-1 hover:brightness-125 transition-all delay-150 duration-300 ease-in-out"
       >
         <img
-          src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
+          src={fileName}
           alt={title}
           className="w-full h-[247px] rounded-t-xl"
         />
         <div className="flex items-center justify-center md:flex-col gap-x-2 md:gap-x-0 p-1 md:p-2 lg:p-3">
-          <p className="text-sm md:text-lg lg:text-xl font-semibold">{title}</p>
+          <p className="mb-1 md:mb-2 lg:mb-3 text-sm md:text-lg lg:text-xl font-semibold">
+            {title}
+          </p>
           <LoggedInUser
             photo={photo}
             username={username}

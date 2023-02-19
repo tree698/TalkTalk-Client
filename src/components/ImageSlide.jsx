@@ -39,7 +39,7 @@ export default function ImageSlide() {
               className="w-full h-[340px] md:h-[450px] lg:h-[600px] mx-auto"
             >
               <img
-                src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${image.fileName}`}
+                src={image.fileName}
                 alt={image.title}
                 style={{ width: '100%', height: 'auto', borderRadius: '3%' }}
                 className="border border-gray-100"

@@ -21,7 +21,7 @@ export default function SelectedDrawing() {
   return (
     <div className="mr-0 md:mr-4 lg:mr-8 basis-1/2 flex flex-col justify-center items-center">
       <img
-        src={`${process.env.REACT_APP_BASE_URL}/uploaded_images/${fileName}`}
+        src={fileName}
         alt={title}
         className="w-2/3 md:w-5/6 lg:w-full border border-superLightGray shadow-lg rounded-md"
       />
