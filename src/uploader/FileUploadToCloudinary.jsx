@@ -16,6 +16,10 @@ export const FileUploadToCloudinary = ({ sendImageData }) => {
   }, [error]);
 
   const dropHandler = async (file) => {
+    if (!isImageFile(file[0])) {
+      window.alert('Only image files can be uploaded');
+      return;
+    }
     setIsLoading(true);
     uploadImage(file[0])
       .then((data) => {
@@ -62,3 +66,7 @@ export const FileUploadToCloudinary = ({ sendImageData }) => {
     </>
   );
 };
+
+function isImageFile(file) {
+  return file.type.includes('image/');
+}
