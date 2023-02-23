@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLocation } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { MdDownloading } from 'react-icons/md';
 import DisplayDrawing from '../components/DisplayDrawing';
@@ -10,15 +9,24 @@ import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
 import Banner from '../components/ui/Banner';
 
 export default function SearchedDrawings() {
+  const [drawings, setDrawings] = useState([]);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const { limit, offset } = paginationForMyDrawingsAndSearchedDrawings;
   const { workService } = useApiContext();
   const {
     state: { searchTerm },
   } = useLocation();
-  const { isLoading, error, data: drawings } = useQuery(
-    ['searchedDrawings'],
-    () => workService.searchWorks(limit, offset, searchTerm)
-  );
+
+  useEffect(() => {
+    setIsLoading(true);
+    searchTerm &&
+      workService
+        .searchWorks(limit, offset, searchTerm)
+        .then((drawings) => setDrawings((prev) => [...drawings]))
+        .catch((error) => setError((prev) => error.toString()))
+        .finally(() => setIsLoading(false));
+  }, [searchTerm, workService]);
 
   useEffect(() => {
     error && toast.error(error);
@@ -38,7 +46,7 @@ export default function SearchedDrawings() {
             <DisplayDrawing key={drawing.id} drawing={drawing} />
           ))}
       </ul>
-      {!drawings && (
+      {drawings.length === 0 && (
         <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
           <AiOutlinePicture className="text-4xl" />
           <Banner text="No matched drawings" />
