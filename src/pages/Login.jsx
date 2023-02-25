@@ -27,31 +27,33 @@ export default function Login() {
   };
 
   const INPUT_STYLE =
-    'w-full px-1 md:px-2 py-1 md:py-2 lg:py-3 text-xl outline-none border border-superLightGray rounded mt-2 mb-5 placeholder:italic placeholder:text-superLightGray  placeholder:text-base md:placeholder:text-lg lg:placeholder:text-xl';
+    'w-full px-1 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border border-superLightGray rounded mt-1 md:mt-2 mb-2 md:mb-4 placeholder:italic placeholder:text-superLightGray placeholder:text-xs md:placeholder:text-sm';
 
   return (
-    <section className="basis-1/2 md:basis-1/2 lg:basis-2/5 py-5 md:py-0 w-full flex justify-center items-center  bg-signupLoginBG ">
-      <div className="w-2/3">
+    <section className="basis-1/2 lg:basis-2/5 w-full flex justify-center items-center bg-signupLoginBG ">
+      <div className="w-full px-14 lg:px-20">
         <div className="flex justify-end items-center">
-          <p className="text-xs md:text-base">Don't you have an account?</p>
+          <p className="text-[10px] md:text-xs">Don't you have an account?</p>
           <button
-            className="px-5 py-1 ml-4 text-sm md:text-lg lg:text-base border border-superLightGray rounded-xl hover:bg-accent hover:text-white hover:scale-110 transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
+            className="py-1 px-1 md:px-2 ml-2 md:ml-3 text-[10px] md:text-xs border border-superLightGray rounded-md hover:bg-accent hover:text-white transition-all delay-150 duration-300 ease-in-out"
             onClick={() => navigate('/signup')}
           >
             SIGN UP
           </button>
         </div>
 
-        <h1 className="text-2xl md:text-3xl lg:text-4xl mt-6 md:mt-12 mb-3 font-bold  ">
+        <h1 className="font-bold text-xl md:text-2xl lg:text-3xl mt-4 md:mt-6 lg:mt-8 mb-1 ">
           Welcome Back
         </h1>
-        <p className="text-base mb-8">Login your account</p>
+        <p className="text-[10px] md:text-x mb-4 md:mb-6 lg:mb-8">
+          Login your account
+        </p>
 
         <form onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="username"
-              className="text-base md:text-lg lg:text-xl"
+              className="text-xs md:text-sm lg:text-base"
             >
               Username
             </label>
@@ -67,7 +69,10 @@ export default function Login() {
               className={`${INPUT_STYLE}`}
             />
             <br />
-            <label htmlFor="password" className="text-base md:text-lg">
+            <label
+              htmlFor="password"
+              className="text-xs md:text-sm lg:text-base"
+            >
               Password
             </label>
             <br />
@@ -83,7 +88,7 @@ export default function Login() {
             />
             <br />
           </div>
-          <button className="w-full md:w-2/5 text-base md:text-lg lg:text-xl md:px-10 py-1 md:py-2 lg:py-3 mt-4  text-white bg-accent rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl">
+          <button className="w-full lg:w-2/5 text-sm md:text-lg lg:text-base py-1 md:py-2 mt-4  text-white bg-accent rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl">
             Login
           </button>
         </form>

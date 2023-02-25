@@ -44,12 +44,12 @@ export default function Signup() {
   };
 
   const INPUT_STYLE =
-    'w-full px-2 md:px-2  py-1 md:py-2 lg:py-3 text-xl outline-none border-b border-superLightGray bg-signupLoginBG mb-3 placeholder:text-black placeholder:italic placeholder:text-base md:placeholder:text-lg lg:placeholder:text-xl';
+    'w-full px-2 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border-b border-superLightGray bg-signupLoginBG mb-1 md:mb-2 placeholder:text-black placeholder:italic placeholder:text-xs md:placeholder:text-sm';
 
   return (
-    <section className="basis-1/2 lg:basis-2/5 w-full py-5 bg-signupLoginBG flex justify-center items-center">
-      <div className="w-2/3">
-        <h1 className="font-bold mb-6 md:mb-8 lg:mb-10 text-2xl md:text-3xl lg:text-4xl text-center">
+    <section className="basis-1/2 lg:basis-2/5 w-full bg-signupLoginBG flex justify-center items-center">
+      <div className="w-full px-14 lg:px-20">
+        <h1 className="mb-2 md:mb-4 lg:mb-6 font-bold text-xl md:text-2xl lg:text-3xl text-center">
           Create an account
         </h1>
         <form onSubmit={handleSubmit} className="w-full flex flex-col">
@@ -83,27 +83,27 @@ export default function Signup() {
           <input
             disabled={true}
             placeholder="Photo (optional)"
-            className="w-full px-2 py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-base md:placeholder:text-lg lg:placeholder:text-xl';
-            "
+            className="w-full px-2 md:px-2 py-1 md:py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-xs lg:placeholder:text-sm"
           />
         </form>
-        <div className="border border-superLightGray rounded-md flex justify-center items-center py-3">
+        <div className="border border-superLightGray rounded-md flex justify-center items-center py-1 md:py-2">
           <FileUploadToCloudinary
             sendImageData={(data) => setURL((prev) => updateURL(data.url))}
           />
         </div>
         <button
           onClick={handleSubmit}
-          className="w-full mt-6 md:mt-12 mb-3 md:mb-5 py-1 md:py-2 lg:py-3 text-base md:text-lg lg:text-xl text-white bg-darkGray rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
+          className="w-full mt-2 md:mt-4 lg:mt-6 mb-1 md:mb-2 lg:mb-3 py-1 md:py-2 text-xs md:text-sm lg:text-base text-white bg-darkGray rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105"
         >
           Create account
         </button>
 
-        <div className="flex justify-center items-center text-sm md:text-base lg:text-lg">
-          <p className="mr-4">Already have an account?</p>
+        <div className="flex justify-center items-center text-[10px] md:text-xs lg:text-sm">
+          <p className="mr-1 md:mr-2">Already have an account?</p>
           <button
             onClick={() => navigate('/login')}
-            className="p-1 md:px-2 border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg transition-all delay-150 duration-300 ease-in-out hover:shadow-xl"
+            className="p-1 border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg transition-all delay-150 duration-300 ease-in-out hover:px-2
+            "
           >
             Login
           </button>

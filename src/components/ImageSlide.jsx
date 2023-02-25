@@ -30,36 +30,38 @@ export default function ImageSlide() {
         indicators={false}
         animation="fade"
         navButtonsAlwaysVisible={false}
-        className="w-[340px] md:w-[400px] lg:w-[700px]"
+        className="w-[320px] md:w-[420px] lg:w-[520px] h-[240px] md:h-[315px] lg:h-[390px]"
       >
         {images &&
           images.map((image) => (
             <div
               key={image.id}
-              className="w-full h-[340px] md:h-[450px] lg:h-[600px] mx-auto"
+              className="w-[320px] md:w-[420px] lg:w-[520px] h-[240px] md:h-[315px] lg:h-[390px]"
             >
               <img
                 src={image.fileName}
                 alt={image.title}
-                style={{ width: '100%', height: 'auto', borderRadius: '3%' }}
-                className="border border-gray-100"
+                style={{ width: '100%', height: '100%', borderRadius: '3%' }}
+                className="border border-superLightGray shadow-md"
               />
-              <div className="flex justify-center text-center text-base md:text-lg lg:text-xl mt-5 text-gray-600">
-                <div className="flex justify-center items-center mr-8">
+              <div className="flex justify-center text-center text-xs md:text-sm lg:text-lg text-gray-600 mt-1 md:mt-2 lg:mt-3">
+                <div className="flex justify-center items-center mr-2 md:mr-4 lg:mr-6">
                   <SlUserFollowing />
-                  <span className="ml-2">{image.username}</span>
+                  <span className="ml-1 md:ml-2">{image.username}</span>
                 </div>
                 <div className="flex justify-center items-center">
                   <BiTime />
-                  <span className="ml-2">{formatAgo(image.createdAt)}</span>
+                  <span className="ml-1 md:ml-2">
+                    {formatAgo(image.createdAt)}
+                  </span>
                 </div>
               </div>
             </div>
           ))}
       </Carousel>
       {isLoading && (
-        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-          <MdDownloading className="text-3xl" />
+        <div className="flex items-center justify-center gap-4 mt-4 md:mt-6 lg:mt-8 text-xs md:text-sm lg:text-lg">
+          <MdDownloading className="text-lg md:text-base lg:text-xl" />
           <Banner text="Loading..." />
         </div>
       )}

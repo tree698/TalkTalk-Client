@@ -10,8 +10,8 @@ const STYLE_FOR_ICON_HOVER =
   'hover:rotate-17 hover:text-brand transition-all delay-150 duration-300 ease-in-out';
 const STYLE_FOR_LOGGEDINUSER = 'flex items-center shrink-0';
 const STYLE_FOR_AVATAR =
-  'w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 mr-0 lg:mr-2 rounded-full';
-const STYLE_FOR_USERNAME = 'text-sm hidden lg:block';
+  'w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 mr-0 lg:mr-1 rounded-full';
+const STYLE_FOR_USERNAME = 'text-xs md:text-sm hidden lg:block';
 
 export default function Navbar() {
   const { user, logOut } = useApiContext();
@@ -26,14 +26,18 @@ export default function Navbar() {
   return (
     <header
       style={{ boxShadow: '0px 1px 9px 3px rgba(124, 121, 121, 0.2)' }}
-      className="w-full px-3 md:px-9 lg:px-12 py-1 md:py-2 lg:py-3 border-b flex justify-between border-superLightGray"
+      className="w-full py-2 px-5 z-10 border-b flex justify-between border-superLightGray"
     >
-      <div className="hover:scale-105 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out">
+      <div className="hover:brightness-110 transition-all delay-150 duration-300 ease-in-out">
         <Link to="/home" className="">
-          <img src="images/logo.png" alt="logo" className="w-2/6" />
+          <img
+            src="images/logo.png"
+            alt="logo"
+            className="w-32 md:w-36 lg:w-40"
+          />
         </Link>
       </div>
-      <nav className="text-xl md:text-3xl lg:text-4xl gap-2 md:gap-4 lg:gap-6 flex items-center">
+      <nav className="text-lg md:text-xl lg:text-2xl gap-1 md:gap-2 lg:gap-3 flex items-center">
         <Link to="/home">
           <AiOutlineHome className={STYLE_FOR_ICON_HOVER} />
         </Link>

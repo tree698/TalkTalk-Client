@@ -10,7 +10,7 @@ module.exports = {
       black: '#000000',
       darkGray: '#4d4d4d',
       lightGray: '#7c7979',
-      superLightGray: '#ddd9d9',
+      superLightGray: '#CCCCCC',
       signupLoginBG: '#faf8fe',
     },
     backgroundImage: {

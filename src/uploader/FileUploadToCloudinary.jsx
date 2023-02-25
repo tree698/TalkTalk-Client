@@ -42,19 +42,19 @@ export const FileUploadToCloudinary = ({ sendImageData }) => {
               <input {...getInputProps()} />
               <button>
                 {isLoading && (
-                  <div className="flex items-center justify-center gap-2 text-xl">
+                  <div className="flex items-center justify-center gap-1 lg:gap-2 text-xs md:text-sm lg:text-base">
                     <MdDownloading className="text-xl" />
                     <Banner text="Loading..." />
                   </div>
                 )}
                 {success && (
-                  <div className="flex items-center justify-center gap-2 text-xl">
-                    <BsCheckLg className="text-xl" />
+                  <div className="flex items-center justify-center gap-1 lg:gap-2 text-xs md:text-sm lg:text-base">
+                    <BsCheckLg className="text-sm md:text-lg lg:text-xl" />
                     <Banner text="Your image is successfully uploaded" />
                   </div>
                 )}
                 {!success && !isLoading && (
-                  <p>
+                  <p className="text-[10px] md:text-xs lg:text-sm">
                     Drag & Drop Here <br /> or Click Here
                   </p>
                 )}
