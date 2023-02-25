@@ -11,7 +11,11 @@ export default function Footer() {
         >
           tree698@gmail.com
         </a>
-        <a href="https://github.com/tree698/TalkTalk-Client" target="_blank">
+        <a
+          href="https://github.com/tree698/TalkTalk-Client"
+          rel="noreferrer"
+          target="_blank"
+        >
           <BsGithub className="text-lg md:text-xl lg:text-2xl ml-3 hover:rotate-17 hover:scale-110 hover:hover:text-brand transition-all delay-150 duration-300 ease-in-out hover:shadow-xl" />
         </a>
       </div>
