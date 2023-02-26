@@ -6,9 +6,11 @@ import SelectedTweet from '../components/SelectedTweet';
 
 export default function Talk() {
   return (
-    <section className="w-full h-screen flex flex-col">
-      <Navbar />
-      <div className="mt-6 md:mt-8 lg:mt-10 mb-2 md:mb-4 w-full max-w-[1400px] flex flex-col md:flex-row items-center mx-auto flex-1">
+    <section className="w-full h-full flex flex-col">
+      <div className="w-full fixed top-0 left-0 bg-white">
+        <Navbar />
+      </div>
+      <div className="flex flex-col lg:flex-row flex-1 w-full lg:max-w-5xl my-6 md:my-8 lg:my-10 mx-auto pt-[66px]">
         <SelectedDrawing />
         <SelectedTweet />
       </div>

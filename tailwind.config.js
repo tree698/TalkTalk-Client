@@ -11,6 +11,10 @@ module.exports = {
       darkGray: '#4d4d4d',
       lightGray: '#7c7979',
       superLightGray: '#CCCCCC',
+      slate500: 'rgb(100 116 139)',
+      tweetOwner: 'rgb(51 65 85)',
+      tweetParticipant: '#f8f9fa',
+      tweetBG: 'rgb(203 213 225)',
       signupLoginBG: '#faf8fe',
     },
     backgroundImage: {

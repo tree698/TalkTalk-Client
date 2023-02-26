@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { FaPaperPlane } from 'react-icons/fa';
+import { BiMailSend } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import { useApiContext } from '../context/ApiContext';
 
@@ -35,7 +35,7 @@ export default function NewTweetForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between items-center mb-1 lg:mb-2 text:base md:text-lg lg:text-xl"
+      className="flex justify-between mt-3 md:mt-4 lg:mt-5 border border-superLightGray rounded-md overflow-hidden shadow-inner"
     >
       <input
         type="text"
@@ -44,13 +44,13 @@ export default function NewTweetForm() {
         required
         autoFocus
         onChange={(e) => setTweet((prev) => e.target.value)}
-        className="w-full px-1 md:px-2 lg:px-3 my-3 py-1 md:py-2 lg:py-3 border-2 border-lightGray outline-none rounded-md placeholder:text-lightGray placeholder:italic shadow-lg placeholder:text-sm md:placeholder:text-lg lg:placeholder:text-xl"
+        className="w-full px-2 py-1 md:py-2 outline-none placeholder:text-lightGray placeholder:italic placeholder:text-xs md:placeholder:text-sm lg:placeholder:text-base"
       />
       <button
         type="submit"
-        className="w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 flex justify-center items-center rounded-full ml-2 md:ml-3 text-lg md:text-xl lg:text-2xl text-white bg-lightGray hover:scale-110 hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
+        className="text-xl md:text-2xl lg:text-3xl px-1 md:px-2 lg:px-3"
       >
-        <FaPaperPlane className="" />
+        <BiMailSend className="text-lightGray hover:text-slate500 hover:scale-105" />
       </button>
     </form>
   );

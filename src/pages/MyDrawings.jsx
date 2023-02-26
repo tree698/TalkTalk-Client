@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { MdDownloading } from 'react-icons/md';
-import { BsChevronRight } from 'react-icons/bs';
 import { paginationForMyDrawingsAndSearchedDrawings } from '../config';
 import { useApiContext } from '../context/ApiContext';
 import DisplayDrawing from '../components/DisplayDrawing';

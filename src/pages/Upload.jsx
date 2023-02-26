@@ -77,8 +77,10 @@ export default function Upload() {
 
   return (
     <section className="w-full h-full flex flex-col">
-      <Navbar />
-      <section className="w-full md:max-w-2xl lg:max-w-3xl mx-auto flex-1 px-3 md:px-0">
+      <div className="w-full fixed top-0 left-0 bg-white">
+        <Navbar />
+      </div>
+      <section className="w-full md:max-w-2xl lg:max-w-3xl mx-auto flex-1 px-3 md:px-0 pt-[66px]">
         <div className="flex justify-center">
           <h2 className="text-lg md:text-base lg:text-xl m-6 md:m-8 lg:m-10 font-semibold">
             Upload your drawing
@@ -109,7 +111,7 @@ export default function Upload() {
               )}
               <button
                 onClick={handleCancel}
-                className="w-52 md:w-56 lg:w-60 text-xs md:text-sm lg:text-base py-1 md:py-2 m-2 md:m-4 lg:m-6 flex items-center justify-center border border-superLightGray rounded-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+                className="w-52 md:w-56 lg:w-60 text-xs md:text-sm lg:text-base py-1 md:py-2 m-1 md:m-2 lg:m-3 flex items-center justify-center border border-superLightGray rounded-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
               >
                 <BsChevronRight className=" mr-1 md:mr-3 lg:mr-4" />
                 <p>Want you to cancel it?</p>

@@ -10,8 +10,8 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
     <li
       className={
         owner
-          ? 'flex items-start justify-end mb-2 md:mb-3 lg:mb-4 text-sm sm:text-base md:text-lg'
-          : 'flex items-start justify-start mb-2 md:mb-3 lg:mb-4 text-sm sm:text-base md:text-lg'
+          ? 'flex items-start justify-end mb-1 md:mb-2 lg:mb-3 text-[10px] sm:text-xs md:text-sm'
+          : 'flex items-start justify-start mb-1 md:mb-2 lg:mb-3 text-[10px] sm:text-xs md:text-sm'
       }
     >
       <button
@@ -23,19 +23,19 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
           username={username}
           styleForAvatar={
             owner
-              ? 'w-8 lg:w-10 h-8 lg:h-10 rounded-full ml-2'
-              : 'w-8 lg:w-10 h-8 lg:h-10 rounded-full mr-2'
+              ? 'w-6 lg:w-8 h-6 lg:h-8 rounded-full ml-1'
+              : 'w-6 lg:w-8 h-6 lg:h-8 rounded-full mr-1'
           }
         />
       </button>
       <div
         className={
           owner
-            ? 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tl-2xl rounded-b-2xl bg-subBrand text-white'
-            : 'ml-2 w-4/6 py-2 px-5 border border-lightGray rounded-tr-2xl rounded-b-2xl'
+            ? 'w-3/5 p-2 rounded-tl-xl rounded-b-xl bg-test text-white bg-tweetOwner'
+            : 'w-3/5 p-2 rounded-tr-xl rounded-b-xl bg-tweetParticipant'
         }
       >
-        <div className="flex justify-between text-sm md:text-base lg:text-base mb-1">
+        <div className="flex justify-between text-[9px]">
           <p className={owner ? 'order-1' : ''}>{username}</p>
           <p>{formatAgo(createdAt)}</p>
         </div>
@@ -44,7 +44,7 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
           {owner && (
             <button
               onClick={() => onDelete(id)}
-              className="hover:scale-110 hover:rotate-17 hover:text-black transition-all delay-150 duration-300 ease-in-out"
+              className="hover:scale-105 hover:rotate-17 hover:text-black transition-all delay-150 duration-300 ease-in-out"
             >
               <RiDeleteBin6Line />
             </button>
