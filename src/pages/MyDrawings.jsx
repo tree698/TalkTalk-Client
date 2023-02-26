@@ -55,29 +55,28 @@ export default function MyDrawings() {
   };
 
   return (
-    <section className="flex-1">
+    <section className="flex flex-col items-center flex-1">
       {!isLoading && drawings.length !== 0 && (
         <button
           onClick={handleClick}
-          className="flex items-center justify-center mx-auto w-[300px] md:w-[400px] text-base md:text-lg lg:text-xl text-center py-1 md:py-2 lg:py-3 mt-5 mb-4 md:mb-6 lg:mb-10 bg-accent border text-white border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+          className="w-52 md:w-56 lg:w-60 py-1 md:py-2 lg:py-3 mb-6 md:mb-8 lg:mb-10  text-xs md:text-sm lg:text-base font-semibold text-center text-white bg-brand rounded-3xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
         >
-          <BsChevronRight className=" mr-5" />
-          <p>Delete checked drawing</p>
+          Delete checked drawing
         </button>
       )}
       {isLoading && (
-        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-          <MdDownloading className="text-3xl" />
+        <div className="flex items-center justify-center gap-1 md:gap-2 lg:gap-3 mt-8 md:mt-10 lg:mt-12 text-xs md:text-sm lg:text-base">
+          <MdDownloading className="text-lg md:text-base lg:text-xl" />
           <Banner text="Loading..." />
         </div>
       )}
       {!isLoading && drawings.length === 0 && (
-        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-          <AiOutlinePicture className="text-4xl" />
+        <div className="mt-8 md:mt-10 lg:mt-12 text-xs md:text-sm lg:text-base">
+          <AiOutlinePicture className="text-lg md:text-base lg:text-xl mx-auto" />
           <Banner text="Not yet uploaded your drawing" />
         </div>
       )}
-      <ul className="max-w-[340px] md:max-w-[800px] lg:max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4 p-2 md:p-3 lg:p-4">
+      <ul className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-1 md:gap-x-2 lg:gap-x-3 gap-y-4 md:gap-y-6 lg:gap-y-8 mb-6 md:mb-8 lg:mb-10 px-3 md:px-0">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing

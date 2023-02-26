@@ -10,11 +10,10 @@ export default function DisplayDrawing({
   const { id, fileName, title, username, brush, description, photo } = drawing;
   const navigate = useNavigate();
 
-  const STYLE_FOR_LOGGEDINUSER =
-    'flex items-center justify-center shrink-0 mt-0md:mt-3';
+  const STYLE_FOR_LOGGEDINUSER = 'flex items-center justify-center shrink-0';
   const STYLE_FOR_AVATAR =
-    'w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 rounded-full mr-0 md:mr-2';
-  const STYLE_FOR_USERNAME = 'hidden md:block text-sm';
+    'w-4 md:w-5 lg:w-6 h-4 md:h-5 lg:h-6 rounded-full mr-0 md:mr-1 lg:mr-2';
+  const STYLE_FOR_USERNAME = 'hidden md:block text-xs md:text-sm';
 
   return (
     <section className="flex flex-col">
@@ -24,7 +23,7 @@ export default function DisplayDrawing({
           id="delete"
           onChange={() => toBeDeletedId(id)}
           type="checkbox"
-          className="w-3 md:w-4 lg:w-5 h-3 md:h-4 lg:h-5 ml-4 mb-1 border border-lightGray"
+          className="w-3 h-3 lg:w-4 lg:h-4 ml-2 mb-1 border border-lightGray"
         />
       )}
       <li
@@ -33,15 +32,15 @@ export default function DisplayDrawing({
             state: { id, fileName, title, username, brush, description, photo },
           })
         }
-        className="list-none rounded-xl shadow-lg cursor-pointer hover:-translate-y-1 hover:brightness-125 transition-all delay-150 duration-300 ease-in-out"
+        className="border border-superLightGray list-none rounded-xl shadow-lg cursor-pointer overflow-hidden hover:-translate-y-1 hover:brightness-125 transition-all delay-150 duration-300 ease-in-out"
       >
         <img
           src={fileName}
           alt={title}
-          className="w-full h-[247px] rounded-t-xl"
+          className="w-full h-[246px] md:h-[185px] lg:h-[158px]"
         />
         <div className="flex items-center justify-center md:flex-col gap-x-2 md:gap-x-0 p-1 md:p-2 lg:p-3">
-          <p className="mb-1 md:mb-2 lg:mb-3 text-sm md:text-lg lg:text-xl font-semibold">
+          <p className="mb-1 md:mb-2 text-xs md:text-sm lg:text-base font-semibold">
             {title}
           </p>
           <LoggedInUser

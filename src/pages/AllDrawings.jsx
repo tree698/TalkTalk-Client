@@ -46,15 +46,15 @@ export default function AllDrawings() {
 
   return (
     <section className="flex flex-col items-center flex-1">
-      <ul className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4 p-2 md:p-3 lg:p-4">
+      <ul className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 lg:gap-3 px-3 md:px-0">
         {drawings &&
           drawings.map((drawing) => (
             <DisplayDrawing key={drawing.id} drawing={drawing} />
           ))}
       </ul>
       {isLoading && (
-        <div className="flex items-center justify-center gap-4 mt-12 text-2xl">
-          <MdDownloading className="text-3xl" />
+        <div className="flex items-center justify-center gap-1 md:gap-2 lg:gap-3 mt-8 md:mt-10 lg:mt-12 text-xs md:text-sm lg:text-base">
+          <MdDownloading className="text-lg md:text-base lg:text-xl" />
           <Banner text="Loading..." />
         </div>
       )}

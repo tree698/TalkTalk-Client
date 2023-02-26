@@ -8,12 +8,12 @@ export default function ViewMore({ lengthDrawings, limit, onButtonClick }) {
       {lengthDrawings === limit ? (
         <button
           onClick={() => onButtonClick()}
-          className="w-[200px] md:w-[400px] py-1 md:py-2 lg:py-3 px-2 mt-8 md:mt-10 lg:mt-12 mb-8 text-xl font-semibold text-center text-white bg-accent rounded-2xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+          className="w-52 md:w-56 lg:w-60 py-1 md:py-2 lg:py-3 my-6 md:my-8 lg:my-10  text-xs md:text-sm lg:text-base font-semibold text-center text-white bg-brand rounded-3xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
         >
           View More
         </button>
       ) : (
-        <div className="flex items-center gap-4 mt-12 text-2xl">
+        <div className="flex items-center gap-1 md:gap-2 lg:gap-3 my-6 md:my-8 lg:my-10 text-xs md:text-sm lg:text-base">
           <BsCheckLg />
           <Banner text="No more drawings" />
         </div>

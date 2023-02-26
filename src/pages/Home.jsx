@@ -6,11 +6,11 @@ import ActionBtn from '../components/ActionBtn';
 
 export default function Home() {
   return (
-    <section>
+    <section className="flex flex-col h-full">
       <div className="w-full fixed top-0 left-0 bg-white">
         <Navbar />
       </div>
-      <div className="w-full h-full md:max-w-3xl lg:max-w-4xl mx-auto">
+      <div className="w-full flex-1 md:max-w-3xl lg:max-w-4xl mx-auto">
         <ActionBtn />
         <Outlet />
       </div>
