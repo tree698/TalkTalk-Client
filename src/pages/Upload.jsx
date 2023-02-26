@@ -70,21 +70,22 @@ export default function Upload() {
   };
 
   const FILE_UPLOAD_STYLE =
-    'h-[200px] md:h-[300px] lg:h-[378px] text-base md:text-lg lg:text-xl flex items-center justify-center rounded-lg border-2 border-superLightGray shadow-inner shadow-xl';
-  const LABEL_STYLE = 'text-sm md:text-lg lg:text-xl mb-1 md:mb-2';
+    'h-[291px] md:h-[249px] text-xs md:text-sm lg:text-base flex items-center justify-center rounded-lg border border-superLightGray shadow-inner shadow-xl';
+  const LABEL_STYLE = 'text-xs md:text-sm lg:text-base mb-1 md:mb-2';
   const INPUT_STYLE =
-    'w-full px-1 md:px-2 py-1 md:py-2 lg:py-3 text-sm md:text-lg lg:text-xl outline-none rounded-md border border-superLightGray mb-1 md:mb-2 lg:mb-3 placeholder:text-superLightGray placeholder:italic placeholder:text-sm md:placeholder:text-base lg:placeholder:text-lg';
+    'w-full px-1 md:px-2 py-1 md:py-2 text-xs md:text-sm lg:text-base outline-none rounded-md border border-superLightGray mb-1 md:mb-2 placeholder:text-superLightGray placeholder:italic placeholder:text-xs md:placeholder:text-sm lg:placeholder:text-base';
 
   return (
-    <section className="w-screen h-screen flex flex-col">
+    <section className="w-full h-full flex flex-col">
       <Navbar />
-      <section className="w-full max-w-xs md:max-w-2xl lg:max-w-5xl mx-auto flex-1">
+      <section className="w-full md:max-w-2xl lg:max-w-3xl mx-auto flex-1 px-3 md:px-0">
         <div className="flex justify-center">
-          <h2 className="text-xl md:text-2xl lg:text-3xl m-6 md:m-8 lg:m-12 font-semibold">
+          <h2 className="text-lg md:text-base lg:text-xl m-6 md:m-8 lg:m-10 font-semibold">
             Upload your drawing
           </h2>
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 md:mb-6 lg:mb-10">
+
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 lg:gap-3 mb-6 md:mb-8 lg:mb-10">
           <div className={`${FILE_UPLOAD_STYLE}`}>
             <FileUploadToCloudinary sendImageData={handleImageData} />
           </div>
@@ -96,25 +97,27 @@ export default function Upload() {
             )}
           </div>
         </div>
+
         <div>
           {fileName && (
             <div className="flex flex-col items-center">
               {isLoading && (
-                <div className="flex items-center justify-center gap-4 mt-6 md:mt-10 lg:mt-12 text-lg md:text-xl lg:text-2xl">
-                  <MdDownloading className="text-xl md:text-2xl lg:text-3xl" />
+                <div className="flex items-center justify-center gap-1 md:gap-2 lg:gap-3 mt-8 md:mt-10 lg:mt-12 text-xs md:text-sm lg:text-base">
+                  <MdDownloading className="text-lg md:text-base lg:text-xl" />
                   <Banner text="Loading..." />
                 </div>
               )}
               <button
                 onClick={handleCancel}
-                className="w-[200px] md:w-[300px] lg:w-[400px] text-sm md:text-lg lg:text-xl py-1 md:py-2 lg:py-3 m-4 md:m-6 lg:m-10 flex items-center justify-center border border-superLightGray rounded-2xl shadow-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+                className="w-52 md:w-56 lg:w-60 text-xs md:text-sm lg:text-base py-1 md:py-2 m-2 md:m-4 lg:m-6 flex items-center justify-center border border-superLightGray rounded-xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
               >
-                <BsChevronRight className=" mr-1 md:mr-3 lg:mr-5" />
+                <BsChevronRight className=" mr-1 md:mr-3 lg:mr-4" />
                 <p>Want you to cancel it?</p>
               </button>
             </div>
           )}
         </div>
+
         <form onSubmit={handleSubmit}>
           <label htmlFor="title" className={`${LABEL_STYLE}`}>
             Title
@@ -161,7 +164,7 @@ export default function Upload() {
           ></textarea>
           <br />
           <div className="flex justify-center">
-            <button className="w-[200px] md:w-[340px] lg:w-[400px] py-1 md:py-2 lg:py-3 px-1 md:px-2 my-2 md:my-4 lg:my-6 text-sm md:text-lg lg:text-xl font-semibold text-center text-white bg-accent rounded-2xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out">
+            <button className="w-52 md:w-56 lg:w-60 text-xs md:text-sm lg:text-base py-1 md:py-2 px-1 md:px-2 my-2 md:my-4 lg:my-6 font-semibold text-center text-white bg-brand rounded-2xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out">
               Submit
             </button>
           </div>
