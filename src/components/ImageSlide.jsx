@@ -30,7 +30,7 @@ export default function ImageSlide() {
         indicators={false}
         animation="fade"
         navButtonsAlwaysVisible={false}
-        className="w-[320px] md:w-[420px] lg:w-[520px] h-[240px] md:h-[315px] lg:h-[390px]"
+        className="w-[320px] h-[240px] md:w-[420px] md:h-[315px] lg:w-[520px] lg:h-[390px]"
       >
         {images &&
           images.map((image) => (
@@ -41,7 +41,7 @@ export default function ImageSlide() {
               <img
                 src={image.fileName}
                 alt={image.title}
-                style={{ width: '100%', height: '100%', borderRadius: '3%' }}
+                style={{ width: '100%', height: '90%', borderRadius: '3%' }}
                 className="border border-superLightGray shadow-md"
               />
               <div className="flex justify-center text-center text-xs md:text-sm lg:text-lg text-gray-600 mt-1 md:mt-2 lg:mt-3">
