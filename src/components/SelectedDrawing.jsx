@@ -19,7 +19,7 @@ export default function SelectedDrawing() {
   } = useLocation();
 
   return (
-    <div className="basis-1/2 flex flex-col justify-center items-center px-10 md:px-12 lg:pl-0 lg:pr-3">
+    <div className="basis-1/2 flex flex-col justify-center items-center px-10 md:px-12 lg:pl-0 lg:pr-8">
       <img
         src={fileName}
         alt={title}

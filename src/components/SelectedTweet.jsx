@@ -57,7 +57,7 @@ export default function SelectedTweet() {
   };
 
   return (
-    <div className="basis-1/2 flex flex-col px-10 md:px-12 lg:pl-3 lg:pr-0">
+    <div className="basis-1/2 flex flex-col px-10 md:px-12 lg:pl-8 lg:pr-0">
       <UsersInConversation tweets={tweets} onAvatarClick={handleAvatarClick} />
 
       <button
