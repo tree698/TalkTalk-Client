@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar renders correctly with photo 1`] = `
+<div>
+  <img
+    src={true}
+  />
+</div>
+`;
