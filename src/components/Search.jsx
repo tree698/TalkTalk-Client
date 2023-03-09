@@ -34,6 +34,7 @@ export default function Search() {
         <div className="flex items-center pr-1 md:pr-2 lg:pr-3">
           <span
             onClick={() => setSearchTerm((prev) => '')}
+            title="delete"
             className="text-xs md:text-sm lg:text-lg hover:scale-125 transition-all delay-150 duration-300 ease-in-out"
           >
             <RxCross2 />
