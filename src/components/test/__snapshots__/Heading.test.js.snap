@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading renders correctly 1`] = `
+<section
+  className="basis-1/2 lg:basis-3/5 w-full flex flex-col justify-center items-center bg-cover bg-headingBG  md:mx-2 lg:mx-0"
+>
+  <img
+    alt="logo"
+    className="w-[30%] md:w-[40%]"
+    src="images/logo.png"
+  />
+  <h2
+    className="text-xs md:text-sm lg:text-base mb-4 md:mb-6 lg:mb-8"
+  >
+    Upload drawing, then enjoy talking
+  </h2>
+</section>
+`;
