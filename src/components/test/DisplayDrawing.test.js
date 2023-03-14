@@ -30,11 +30,7 @@ describe('DisplayDrawing', () => {
         <Route
           path="/"
           element={
-            <DisplayDrawing
-              checkboxForDelete={false}
-              drawing={drawing}
-              toBeDeletedId={id}
-            />
+            <DisplayDrawing checkboxForDelete={true} drawing={drawing} />
           }
         />
       )
@@ -72,5 +68,30 @@ describe('DisplayDrawing', () => {
         })
       )
     ).toBeInTheDocument();
+  });
+
+  it('send toBedeleteId props when checked the checkbox', () => {
+    const mockOnChecked = jest.fn();
+    render(
+      withRouter(
+        <Route
+          path="/"
+          element={
+            <DisplayDrawing
+              drawing={drawing}
+              checkboxForDelete={true}
+              toBeDeletedId={mockOnChecked}
+            />
+          }
+        />
+      )
+    );
+
+    const checkbox = screen.getByTestId('delete');
+
+    userEvent.click(checkbox);
+
+    expect(checkbox).toBeChecked();
+    expect(mockOnChecked).toHaveBeenCalledTimes(1);
   });
 });

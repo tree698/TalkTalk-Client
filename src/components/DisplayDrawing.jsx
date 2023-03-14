@@ -23,6 +23,7 @@ export default function DisplayDrawing({
           id="delete"
           onChange={() => toBeDeletedId(id)}
           type="checkbox"
+          data-testid="delete"
           className="w-3 h-3 lg:w-4 lg:h-4 ml-2 mb-1 border border-superLightGray"
         />
       )}
