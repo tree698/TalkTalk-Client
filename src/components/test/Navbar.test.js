@@ -39,7 +39,7 @@ describe('Navbar', () => {
         withRouter(
           <>
             <Route path="/navbar" element={<Navbar />} />
-            <Route path="/" element={<p>This is Home Page</p>} />
+            <Route path="/" element={<p>Home</p>} />
           </>,
           '/navbar'
         ),
@@ -51,6 +51,6 @@ describe('Navbar', () => {
     userEvent.click(btn);
 
     expect(mockAlert).toHaveBeenCalled();
-    // expect(screen.getByText('This is Home Page')).toBeInTheDocument();
+    // expect(screen.getByText('Home')).toBeInTheDocument();
   });
 });
