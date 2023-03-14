@@ -29,7 +29,7 @@ export default function Navbar() {
       className="w-full py-2 px-5 z-10 border-b flex justify-between border-superLightGray"
     >
       <div className="hover:brightness-110 transition-all delay-150 duration-300 ease-in-out">
-        <Link to="/home" className="">
+        <Link to="/home">
           <img
             src="images/logo.png"
             alt="logo"

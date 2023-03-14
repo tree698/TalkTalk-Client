@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 
-const ApiContext = createContext();
+export const ApiContext = createContext();
 const tokenRef = createRef();
 const csrfRef = createRef();
 
