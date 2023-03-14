@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TweetCard renders with owner correctly 1`] = `
+<li
+  className="flex items-start justify-end mb-1 md:mb-2 lg:mb-3 text-[10px] sm:text-xs md:text-sm"
+>
+  <button
+    className="order-1"
+    data-testid="avatar"
+    onClick={[Function]}
+  >
+    <div>
+      <img
+        alt="test"
+        className="w-6 lg:w-8 h-6 lg:h-8 rounded-full ml-1"
+        src="test"
+      />
+    </div>
+  </button>
+  <div
+    className="w-3/5 p-2 rounded-tl-xl rounded-b-xl bg-test text-white bg-tweetOwner"
+  >
+    <div
+      className="flex justify-between text-[9px]"
+    >
+      <p
+        className="order-1"
+      >
+        test
+      </p>
+      <p>
+        just now
+      </p>
+    </div>
+    <div
+      className="flex justify-between"
+    >
+      <p
+        className="font-semibold"
+      >
+        test
+      </p>
+      <button
+        className="hover:scale-105 hover:rotate-17 hover:text-black transition-all delay-150 duration-300 ease-in-out"
+        data-testid="delete"
+        onClick={[Function]}
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M7 4V2h10v2h5v2h-2v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6H2V4h5zM6 6v14h12V6H6zm3 3h2v8H9V9zm4 0h2v8h-2V9z"
+            />
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`TweetCard renders without owner correctly 1`] = `
+<li
+  className="flex items-start justify-start mb-1 md:mb-2 lg:mb-3 text-[10px] sm:text-xs md:text-sm"
+>
+  <button
+    className=""
+    data-testid="avatar"
+    onClick={[Function]}
+  >
+    <div>
+      <img
+        alt="test"
+        className="w-6 lg:w-8 h-6 lg:h-8 rounded-full mr-1"
+        src="test"
+      />
+    </div>
+  </button>
+  <div
+    className="w-3/5 p-2 rounded-tr-xl rounded-b-xl bg-tweetParticipant"
+  >
+    <div
+      className="flex justify-between text-[9px]"
+    >
+      <p
+        className=""
+      >
+        test
+      </p>
+      <p>
+        just now
+      </p>
+    </div>
+    <div
+      className="flex justify-between"
+    >
+      <p
+        className="font-semibold"
+      >
+        test
+      </p>
+    </div>
+  </div>
+</li>
+`;

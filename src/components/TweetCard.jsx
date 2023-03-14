@@ -17,6 +17,7 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
       <button
         onClick={() => onAvatarClick(username)}
         className={owner ? 'order-1' : ''}
+        data-testid="avatar"
       >
         <Avatar
           photo={photo}
@@ -45,6 +46,7 @@ export default function TweetCard({ owner, tweet, onAvatarClick, onDelete }) {
             <button
               onClick={() => onDelete(id)}
               className="hover:scale-105 hover:rotate-17 hover:text-black transition-all delay-150 duration-300 ease-in-out"
+              data-testid="delete"
             >
               <RiDeleteBin6Line />
             </button>
