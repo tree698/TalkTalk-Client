@@ -13,10 +13,10 @@ describe('Navbar', () => {
         photo: 'test',
         username: 'test',
       },
-      logout: jest.fn(),
+      logOut: jest.fn(),
     };
   });
-  afterEach(() => fakeContext.logout.mockReset());
+  afterEach(() => fakeContext.logOut.mockReset());
 
   it('renders correctly', () => {
     const component = renderer.create(
@@ -29,17 +29,37 @@ describe('Navbar', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('display confirm message and navigate to home when clicking logout button', () => {
+  it('display confirm message when clicking logout button', () => {
     const mockAlert = jest
       .spyOn(window, 'confirm')
       .mockImplementation(() => {});
 
     render(
       withApiContext(
+        withRouter(<Route path="/" element={<Navbar />} />),
+        fakeContext
+      )
+    );
+    const btn = screen.getByRole('button');
+
+    userEvent.click(btn);
+
+    expect(mockAlert).toHaveBeenCalled();
+  });
+
+  it('navigate to home when clicking logout button', () => {
+    const mockAlert = jest
+      .spyOn(window, 'confirm')
+      .mockImplementation(() => true);
+
+    fakeContext.logOut.mockImplementation(async () => {});
+
+    render(
+      withApiContext(
         withRouter(
           <>
             <Route path="/navbar" element={<Navbar />} />
-            <Route path="/" element={<p>Home</p>} />
+            <Route path="/" element={<p>{'Navigated Page!'}</p>} />
           </>,
           '/navbar'
         ),
@@ -51,6 +71,6 @@ describe('Navbar', () => {
     userEvent.click(btn);
 
     expect(mockAlert).toHaveBeenCalled();
-    // expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByText('Navigated Page!')).toBeInTheDocument();
   });
 });
