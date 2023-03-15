@@ -54,7 +54,7 @@ export default function UsersInConversation({ onAvatarClick }) {
   );
 }
 
-function removeDuplicatedUser(array) {
+export function removeDuplicatedUser(array) {
   const photo = [];
   const result = [];
   array.forEach((a) => {
