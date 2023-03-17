@@ -39,6 +39,7 @@ export default function NewTweetForm() {
     >
       <input
         type="text"
+        data-testid="input-tweet"
         placeholder="Type a talk"
         value={tweet}
         required
@@ -48,6 +49,7 @@ export default function NewTweetForm() {
       />
       <button
         type="submit"
+        data-testid="submit-tweet"
         className="text-xl md:text-2xl lg:text-3xl px-1 md:px-2 lg:px-3"
       >
         <BiMailSend className="text-lightGray hover:text-slate500 hover:scale-105" />

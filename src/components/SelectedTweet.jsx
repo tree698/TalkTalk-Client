@@ -62,6 +62,7 @@ export default function SelectedTweet() {
 
       <button
         className="w-full my-2 py-1 text-xs md:text-sm lg:text-base border border-superLightGray rounded-md hover:bg-slate500 hover:text-white hover:border-0 transition-all delay-150 duration-300 ease-in-out"
+        data-testid="allTalks"
         onClick={() => setSelectedUsersname((prev) => undefined)}
       >
         <div className="flex items-center">
@@ -72,6 +73,7 @@ export default function SelectedTweet() {
 
       <div
         style={{ boxShadow: '7px 7px 5px 0px rgba(124,121,121,1)' }}
+        data-testid="chatting-box"
         className="flex-1 overflow-y-auto bg-talkBG bg-cover bg-no-repeat border border-superLightGray rounded-md overflow-hidden"
       >
         <ul className="h-96 p-1 md:p-2 lg:p-3">

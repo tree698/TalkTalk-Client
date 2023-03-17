@@ -41,7 +41,11 @@ export default function UsersInConversation({ onAvatarClick }) {
       <ul>
         {data &&
           data.map((user) => (
-            <button key={user.id} onClick={() => onAvatarClick(user.username)}>
+            <button
+              key={user.id}
+              data-testid="tweet-owner"
+              onClick={() => onAvatarClick(user.username)}
+            >
               <Avatar
                 photo={user.photo}
                 username={user.username}
