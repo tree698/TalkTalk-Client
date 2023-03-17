@@ -30,7 +30,7 @@ export default function Navbar() {
       className="w-full py-2 px-5 z-10 border-b flex justify-between border-superLightGray"
     >
       <div className="hover:brightness-110 transition-all delay-150 duration-300 ease-in-out">
-        <Link to="/home">
+        <Link to="/home" data-testid="logo">
           <img
             src="images/logo.png"
             alt="logo"
@@ -39,13 +39,14 @@ export default function Navbar() {
         </Link>
       </div>
       <nav className="text-lg md:text-xl lg:text-2xl gap-1 md:gap-2 lg:gap-3 flex items-center">
-        <Link to="/home">
+        <Link to="/home" data-testid="home">
           <AiOutlineHome className={STYLE_FOR_ICON_HOVER} />
         </Link>
-        <Link to="/upload">
+        <Link to="/upload" data-testid="upload">
           <AiOutlineCloudUpload className={STYLE_FOR_ICON_HOVER} />
         </Link>
         <LoggedInUser
+          data-testid="user"
           photo={user.photo}
           username={user.username}
           styleForAvatar={STYLE_FOR_AVATAR}
@@ -53,7 +54,10 @@ export default function Navbar() {
           styleForLoggedInUser={STYLE_FOR_LOGGEDINUSER}
         />
         <button onClick={handleClick}>
-          <AiOutlineLogout className={STYLE_FOR_ICON_HOVER} />
+          <AiOutlineLogout
+            data-testid="logout"
+            className={STYLE_FOR_ICON_HOVER}
+          />
         </button>
       </nav>
     </header>
