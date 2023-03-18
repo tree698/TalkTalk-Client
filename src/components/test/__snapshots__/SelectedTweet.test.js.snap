@@ -6,6 +6,7 @@ exports[`SelectedTweet renders with tweets 1`] = `
 >
   <button
     className="w-full my-2 py-1 text-xs md:text-sm lg:text-base border border-superLightGray rounded-md hover:bg-slate500 hover:text-white hover:border-0 transition-all delay-150 duration-300 ease-in-out"
+    data-testid="allTalks"
     onClick={[Function]}
   >
     <div
@@ -38,6 +39,7 @@ exports[`SelectedTweet renders with tweets 1`] = `
   </button>
   <div
     className="flex-1 overflow-y-auto bg-talkBG bg-cover bg-no-repeat border border-superLightGray rounded-md overflow-hidden"
+    data-testid="chatting-box"
     style={
       Object {
         "boxShadow": "7px 7px 5px 0px rgba(124,121,121,1)",

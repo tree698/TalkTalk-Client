@@ -13,6 +13,7 @@ exports[`Navbar renders correctly 1`] = `
     className="hover:brightness-110 transition-all delay-150 duration-300 ease-in-out"
   >
     <a
+      data-testid="logo"
       href="/home"
       onClick={[Function]}
     >
@@ -27,6 +28,7 @@ exports[`Navbar renders correctly 1`] = `
     className="text-lg md:text-xl lg:text-2xl gap-1 md:gap-2 lg:gap-3 flex items-center"
   >
     <a
+      data-testid="home"
       href="/home"
       onClick={[Function]}
     >
@@ -51,6 +53,7 @@ exports[`Navbar renders correctly 1`] = `
       </svg>
     </a>
     <a
+      data-testid="upload"
       href="/upload"
       onClick={[Function]}
     >
@@ -98,6 +101,7 @@ exports[`Navbar renders correctly 1`] = `
     >
       <svg
         className="hover:rotate-17 hover:text-brand transition-all delay-150 duration-300 ease-in-out"
+        data-testid="logout"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
