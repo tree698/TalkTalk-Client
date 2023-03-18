@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload renders correctly 1`] = `
+<section
+  className="basis-1/2 lg:basis-2/5 w-full flex justify-center items-center bg-signupLoginBG "
+>
+  <div
+    className="w-full px-14 lg:px-20"
+  >
+    <div
+      className="flex justify-end items-center"
+    >
+      <p
+        className="text-[10px] md:text-xs"
+      >
+        Don't you have an account?
+      </p>
+      <button
+        className="py-1 px-1 md:px-2 ml-2 md:ml-3 text-[10px] md:text-xs border border-superLightGray rounded-md hover:bg-accent hover:text-white transition-all delay-150 duration-300 ease-in-out"
+        data-testid="signupBtn"
+        onClick={[Function]}
+      >
+        SIGN UP
+      </button>
+    </div>
+    <h1
+      className="font-bold text-xl md:text-2xl lg:text-3xl mt-4 md:mt-6 lg:mt-8 mb-1 "
+    >
+      Welcome Back
+    </h1>
+    <p
+      className="text-[10px] md:text-x mb-4 md:mb-6 lg:mb-8"
+    >
+      Login your account
+    </p>
+    <form
+      onSubmit={[Function]}
+      role="form"
+    >
+      <div>
+        <label
+          className="text-xs md:text-sm lg:text-base"
+          htmlFor="username"
+        >
+          Username
+        </label>
+        <br />
+        <input
+          className="w-full px-1 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border border-superLightGray rounded mt-1 md:mt-2 mb-2 md:mb-4 placeholder:italic placeholder:text-superLightGray placeholder:text-xs md:placeholder:text-sm"
+          id="username"
+          name="username"
+          onChange={[Function]}
+          placeholder="Your username"
+          required={true}
+          type="text"
+          value=""
+        />
+        <br />
+        <label
+          className="text-xs md:text-sm lg:text-base"
+          htmlFor="password"
+        >
+          Password
+        </label>
+        <br />
+        <input
+          className="w-full px-1 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border border-superLightGray rounded mt-1 md:mt-2 mb-2 md:mb-4 placeholder:italic placeholder:text-superLightGray placeholder:text-xs md:placeholder:text-sm"
+          id="password"
+          name="password"
+          onChange={[Function]}
+          placeholder="Your password"
+          required={true}
+          type="password"
+          value=""
+        />
+        <br />
+      </div>
+      <button
+        className="w-full lg:w-2/5 text-sm md:text-lg lg:text-base py-1 md:py-2 mt-4  text-white bg-accent rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
+        data-testid="loginBtn"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</section>
+`;

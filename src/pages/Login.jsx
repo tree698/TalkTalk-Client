@@ -10,15 +10,14 @@ export default function Login() {
   const navigate = useNavigate();
   const { logIn } = useApiContext();
 
-  useEffect(() => {
-    error && toast.error(error);
-  }, [error]);
+  // useEffect(() => {
+  //   error && toast.error(error);
+  // }, [error]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    logIn(loginInfo.username, loginInfo.password).catch((error) =>
-      setError((prev) => error.toString())
-    );
+    logIn(loginInfo.username, loginInfo.password); //
+    // .catch((error) => setError((prev) => error.toString()));
   };
 
   const handleChange = (e) => {
@@ -37,6 +36,7 @@ export default function Login() {
           <button
             className="py-1 px-1 md:px-2 ml-2 md:ml-3 text-[10px] md:text-xs border border-superLightGray rounded-md hover:bg-accent hover:text-white transition-all delay-150 duration-300 ease-in-out"
             onClick={() => navigate('/signup')}
+            data-testid="signupBtn"
           >
             SIGN UP
           </button>
@@ -49,7 +49,7 @@ export default function Login() {
           Login your account
         </p>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} role="form">
           <div>
             <label
               htmlFor="username"
@@ -88,7 +88,10 @@ export default function Login() {
             />
             <br />
           </div>
-          <button className="w-full lg:w-2/5 text-sm md:text-lg lg:text-base py-1 md:py-2 mt-4  text-white bg-accent rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl">
+          <button
+            data-testid="loginBtn"
+            className="w-full lg:w-2/5 text-sm md:text-lg lg:text-base py-1 md:py-2 mt-4  text-white bg-accent rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105 hover:shadow-xl"
+          >
             Login
           </button>
         </form>
