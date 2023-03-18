@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<section
+  className="w-full h-screen flex flex-col md:flex-row"
+>
+  <div
+    className="md:fixed md:bottom-1 md:left-1 text-[10px] md:text-xs lg:text-sm"
+  />
+</section>
+`;
