@@ -1,6 +1,6 @@
 import ViewMore from '../ViewMore';
 import renderer from 'react-test-renderer';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('ViewMore', () => {
@@ -20,7 +20,7 @@ describe('ViewMore', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('send client event', () => {
+  it('send client event', async () => {
     const mockOnClick = jest.fn();
     render(
       <ViewMore lengthDrawings={3} limit={3} onButtonClick={mockOnClick} />
@@ -29,6 +29,8 @@ describe('ViewMore', () => {
     const button = screen.getByRole('button');
     userEvent.click(button);
 
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(mockOnClick).toHaveBeenCalledTimes(1);
+    });
   });
 });

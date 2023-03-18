@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Route, useLocation } from 'react-router-dom';
 import { withRouter } from '../../test/utils';
 import userEvent from '@testing-library/user-event';
@@ -39,7 +39,7 @@ describe('DisplayDrawing', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('navigate to talk page with drawing info when clicking drawingCard', () => {
+  it('navigate to talk page with drawing info when clicking drawingCard', async () => {
     function LocationStateDisplay() {
       return <pre>{JSON.stringify(useLocation().state)}</pre>;
     }
@@ -55,22 +55,24 @@ describe('DisplayDrawing', () => {
     const card = screen.getByRole('listitem');
     userEvent.click(card);
 
-    expect(
-      screen.getByText(
-        JSON.stringify({
-          id,
-          fileName,
-          title,
-          username,
-          brush,
-          description,
-          photo,
-        })
-      )
-    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          JSON.stringify({
+            id,
+            fileName,
+            title,
+            username,
+            brush,
+            description,
+            photo,
+          })
+        )
+      ).toBeInTheDocument();
+    });
   });
 
-  it('send toBedeleteId props when checked the checkbox', () => {
+  it('send toBedeleteId props when checked the checkbox', async () => {
     const mockOnChecked = jest.fn();
     render(
       withRouter(
@@ -91,7 +93,9 @@ describe('DisplayDrawing', () => {
 
     userEvent.click(checkbox);
 
-    expect(checkbox).toBeChecked();
+    await waitFor(() => {
+      expect(checkbox).toBeChecked();
+    });
     expect(mockOnChecked).toHaveBeenCalledTimes(1);
   });
 });

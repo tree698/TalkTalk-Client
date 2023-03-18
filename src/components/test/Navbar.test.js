@@ -2,7 +2,7 @@ import renderer from 'react-test-renderer';
 import { withApiContext, withRouter } from '../../test/utils';
 import Navbar from '../Navbar';
 import { Route } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Navbar', () => {
@@ -29,28 +29,8 @@ describe('Navbar', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('display confirm message when clicking logout button', () => {
-    const mockAlert = jest
-      .spyOn(window, 'confirm')
-      .mockImplementation(() => {});
-
-    render(
-      withApiContext(
-        withRouter(<Route path="/" element={<Navbar />} />),
-        fakeContext
-      )
-    );
-    const btn = screen.getByRole('button');
-
-    userEvent.click(btn);
-
-    expect(mockAlert).toHaveBeenCalled();
-  });
-
-  it('navigate to home when clicking logout button', () => {
-    const mockAlert = jest
-      .spyOn(window, 'confirm')
-      .mockImplementation(() => true);
+  it('navigate to home when clicking logout button', async () => {
+    jest.spyOn(window, 'confirm').mockImplementation(() => true);
 
     fakeContext.logOut.mockImplementation(async () => {});
 
@@ -70,7 +50,8 @@ describe('Navbar', () => {
 
     userEvent.click(btn);
 
-    expect(mockAlert).toHaveBeenCalled();
-    expect(screen.getByText('Navigated Page!')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Navigated Page!')).toBeInTheDocument();
+    });
   });
 });

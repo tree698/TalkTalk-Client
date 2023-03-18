@@ -2,7 +2,7 @@ import NewTweetForm from '../NewTweetForm';
 import renderer from 'react-test-renderer';
 import { withApiContext, withRouter } from '../../test/utils';
 import { Route } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('NewTweetForm', () => {
@@ -27,7 +27,7 @@ describe('NewTweetForm', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('type tweet correctly', () => {
+  it('type tweet correctly', async () => {
     render(
       withApiContext(
         withRouter(<Route path="/" element={<NewTweetForm />} />, {
@@ -37,10 +37,11 @@ describe('NewTweetForm', () => {
       )
     );
 
-    userEvent.type(screen.getByRole('textbox'), 'fakedTweet');
-
     const inputElement = screen.getByRole('textbox');
-    const inputValue = inputElement.value;
-    expect(inputValue).toBe('fakedTweet');
+    userEvent.type(inputElement, 'fakedTweet');
+
+    await waitFor(() => {
+      expect(inputElement.value).toBe('fakedTweet');
+    });
   });
 });

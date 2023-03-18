@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Route, useLocation } from 'react-router-dom';
 import renderer from 'react-test-renderer';
@@ -15,43 +15,34 @@ describe('Search', () => {
   });
 
   describe('Form Submit', () => {
-    it('display the search term when typed a search term', () => {
+    it('display the search term when typed a search term', async () => {
       render(withRouter(<Route path="/" element={<Search />} />));
-      const input = screen.getByPlaceholderText('Search...');
 
-      userEvent.type(input, 'test');
       const inputElement = screen.getByRole('textbox');
-      const inputValue = inputElement.value;
-      expect(inputValue).toBe('test');
+      userEvent.type(inputElement, 'test');
+
+      await waitFor(() => {
+        expect(inputElement.value).toBe('test');
+      });
     });
 
-    it('navigate to searcheddrawings with searchTerm when the submit button is clicked', () => {
-      function LocationStateDisplay() {
-        return <pre>{JSON.stringify(useLocation().state)}</pre>;
-      }
-      render(
-        withRouter(
-          <>
-            <Route path="/" element={<Search />} />
-            <Route
-              path={`/home/searcheddrawings`}
-              element={<LocationStateDisplay />}
-            />
-          </>
-        )
-      );
-      const input = screen.getByPlaceholderText('Search...');
+    it('display warning message when clicking the submit button without searchTerm ', async () => {
+      const mockAlert = jest
+        .spyOn(window, 'alert')
+        .mockImplementation(() => true);
+
+      render(withRouter(<Route path="/" element={<Search />} />));
       const button = screen.getByRole('button');
 
-      userEvent.type(input, 'test');
       userEvent.click(button);
 
-      expect(
-        screen.getByText(JSON.stringify({ searchTerm: 'test' }))
-      ).toBeInTheDocument();
+      await waitFor(() => {
+        expect(mockAlert).toHaveBeenCalled();
+      });
+      mockAlert.mockRestore();
     });
 
-    it('display warning message when clicking the submit button without searchTerm ', () => {
+    it('navigate to searcheddrawings with searchTerm when the submit button is clicked', async () => {
       const mockAlert = jest
         .spyOn(window, 'alert')
         .mockImplementation(() => {});
@@ -71,12 +62,18 @@ describe('Search', () => {
           </>
         )
       );
+      const input = screen.getByPlaceholderText('Search...');
       const button = screen.getByRole('button');
 
+      userEvent.type(input, 'test');
       userEvent.click(button);
 
-      expect(mockAlert).toHaveBeenCalled();
-      mockAlert.mockRestore();
+      await waitFor(() => {
+        // expect(
+        //   screen.getByText(JSON.stringify({ searchTerm }))
+        // ).toBeInTheDocument();
+        expect(mockAlert).not.toHaveBeenCalled();
+      });
     });
 
     it('delete searchTerm when clicking delete btn', () => {

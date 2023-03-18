@@ -1,6 +1,6 @@
 import TweetCard from '../TweetCard';
 import renderer from 'react-test-renderer';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('TweetCard', () => {
@@ -29,7 +29,7 @@ describe('TweetCard', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('send click event when clicking avatar', () => {
+  it('send click event when clicking avatar', async () => {
     const mockOnClick = jest.fn();
     render(
       <TweetCard
@@ -41,10 +41,12 @@ describe('TweetCard', () => {
 
     const button = screen.getByTestId('avatar');
     userEvent.click(button);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(mockOnClick).toHaveBeenCalledTimes(1);
+    });
   });
 
-  it('send click event when clicking delete', () => {
+  it('send click event when clicking delete', async () => {
     const mockOnClick = jest.fn();
     render(
       <TweetCard owner="fakeOwner" tweet={fakeTweet} onDelete={mockOnClick} />
@@ -52,6 +54,8 @@ describe('TweetCard', () => {
 
     const button = screen.getByTestId('delete');
     userEvent.click(button);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(mockOnClick).toHaveBeenCalledTimes(1);
+    });
   });
 });

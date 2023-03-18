@@ -15,6 +15,7 @@ export default function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // navigate('/home/searcheddrawings', { state: { searchTerm } });
     if (!searchTerm) {
       window.alert('Please, enter search term!');
       return;
