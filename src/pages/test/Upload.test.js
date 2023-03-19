@@ -43,19 +43,4 @@ describe('Upload', () => {
 
     await waitFor(() => expect(inputElement).toHaveValue('test'));
   });
-
-  // it('check correct url for image file', () => {
-  //   FileUploadToCloudinary.mockImplementation((url) => updateURL(url));
-  //   render(
-  //     withApiContext(
-  //       withRouter(<Route path="/" element={<Upload />} />),
-  //       fakeContext
-  //     )
-  //   );
-
-  //   userEvent.click(screen.getByTestId('fileUpload'));
-  //   const img = screen.getByTestId('targetImg');
-
-  //   expect(img.src).toBe('https://test.com');
-  // });
 });

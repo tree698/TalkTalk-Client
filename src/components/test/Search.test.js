@@ -68,12 +68,7 @@ describe('Search', () => {
       userEvent.type(input, 'test');
       userEvent.click(button);
 
-      await waitFor(() => {
-        // expect(
-        //   screen.getByText(JSON.stringify({ searchTerm }))
-        // ).toBeInTheDocument();
-        expect(mockAlert).not.toHaveBeenCalled();
-      });
+      await waitFor(() => expect(mockAlert).not.toHaveBeenCalled());
     });
 
     it('delete searchTerm when clicking delete btn', () => {

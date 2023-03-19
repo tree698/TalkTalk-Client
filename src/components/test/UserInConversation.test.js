@@ -42,10 +42,6 @@ describe('UserInConversation', () => {
 
     await waitFor(() => screen.queryByRole('button'));
 
-    // userEvent.click(button);
-
     expect(asFragment()).toMatchSnapshot();
-    // await waitFor(() => expect(mockOnClick).toHaveBeenCalledTimes(1));
-    // await waitFor(() => expect(button).toBeInTheDocument());
   });
 });
