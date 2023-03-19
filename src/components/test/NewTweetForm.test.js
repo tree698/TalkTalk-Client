@@ -2,17 +2,15 @@ import NewTweetForm from '../NewTweetForm';
 import renderer from 'react-test-renderer';
 import { withApiContext, withRouter } from '../../test/utils';
 import { Route } from 'react-router-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { getByTestId, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('NewTweetForm', () => {
-  let fakeContext;
-  beforeEach(
-    () =>
-      (fakeContext = {
-        tweetService: jest.fn(),
-      })
-  );
+  const fakeContext = {
+    tweetService: {
+      createTweet: jest.fn(),
+    },
+  };
 
   it('renders correctly', () => {
     const component = renderer.create(
@@ -42,6 +40,35 @@ describe('NewTweetForm', () => {
 
     await waitFor(() => {
       expect(inputElement.value).toBe('fakedTweet');
+    });
+  });
+
+  it('should call createTweet and setTweet when form is submitted', async () => {
+    fakeContext.tweetService.createTweet.mockImplementation(() =>
+      Promise.resolve({})
+    );
+    const { getByTestId } = render(
+      withApiContext(
+        withRouter(<Route path="/" element={<NewTweetForm />} />, {
+          state: { id: 'fakedId' },
+        }),
+        fakeContext
+      )
+    );
+
+    const input = getByTestId('input-tweet');
+    const submitBtn = getByTestId('submit-tweet');
+
+    await userEvent.type(input, 'hello');
+    userEvent.click(submitBtn);
+
+    await waitFor(() => {
+      expect(fakeContext.tweetService.createTweet).toHaveBeenCalledTimes(1);
+      expect(fakeContext.tweetService.createTweet).toHaveBeenCalledWith(
+        'hello',
+        'fakedId'
+      );
+      expect(input).toHaveValue('');
     });
   });
 });
