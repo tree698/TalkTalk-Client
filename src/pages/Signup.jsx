@@ -102,6 +102,7 @@ export default function Signup() {
           <p className="mr-1 md:mr-2">Already have an account?</p>
           <button
             onClick={() => navigate('/login')}
+            data-testid="loginBtn"
             className="p-1 border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg transition-all delay-150 duration-300 ease-in-out hover:px-2
             "
           >

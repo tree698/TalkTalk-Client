@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload renders correctly 1`] = `
+<section
+  className="basis-1/2 lg:basis-2/5 w-full bg-signupLoginBG flex justify-center items-center"
+>
+  <div
+    className="w-full px-14 lg:px-20"
+  >
+    <h1
+      className="mb-2 md:mb-4 lg:mb-6 font-bold text-xl md:text-2xl lg:text-3xl text-center"
+    >
+      Create an account
+    </h1>
+    <form
+      className="w-full flex flex-col"
+      onSubmit={[Function]}
+    >
+      <input
+        className="w-full px-2 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border-b border-superLightGray bg-signupLoginBG mb-1 md:mb-2 placeholder:text-black placeholder:italic placeholder:text-xs md:placeholder:text-sm"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username (* Required)"
+        required={true}
+        type="text"
+        value=""
+      />
+      <input
+        className="w-full px-2 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border-b border-superLightGray bg-signupLoginBG mb-1 md:mb-2 placeholder:text-black placeholder:italic placeholder:text-xs md:placeholder:text-sm"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email (* Required)"
+        required={true}
+        type="email"
+        value=""
+      />
+      <input
+        className="w-full px-2 md:px-2 py-1 md:py-2 text-sm md:text-lg lg:text-base outline-none border-b border-superLightGray bg-signupLoginBG mb-1 md:mb-2 placeholder:text-black placeholder:italic placeholder:text-xs md:placeholder:text-sm"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password (* Required)"
+        required={true}
+        type="password"
+        value=""
+      />
+      <input
+        className="w-full px-2 md:px-2 py-1 md:py-2 outline-none bg-signupLoginBG placeholder:text-black placeholder:italic placeholder:text-xs lg:placeholder:text-sm"
+        disabled={true}
+        placeholder="Photo (optional)"
+      />
+    </form>
+    <div
+      className="border border-superLightGray rounded-md flex justify-center items-center py-1 md:py-2"
+    />
+    <button
+      className="w-full mt-2 md:mt-4 lg:mt-6 mb-1 md:mb-2 lg:mb-3 py-1 md:py-2 text-xs md:text-sm lg:text-base text-white bg-darkGray rounded-3xl transition-all delay-150 duration-300 ease-in-out hover:font-bold hover:scale-105"
+      onClick={[Function]}
+    >
+      Create account
+    </button>
+    <div
+      className="flex justify-center items-center text-[10px] md:text-xs lg:text-sm"
+    >
+      <p
+        className="mr-1 md:mr-2"
+      >
+        Already have an account?
+      </p>
+      <button
+        className="p-1 border-b border-gray-400 hover:bg-darkGray hover:text-white hover:scale-105 hover:rounded-lg transition-all delay-150 duration-300 ease-in-out hover:px-2 "
+        data-testid="loginBtn"
+        onClick={[Function]}
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</section>
+`;
