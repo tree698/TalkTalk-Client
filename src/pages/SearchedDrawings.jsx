@@ -47,7 +47,7 @@ export default function SearchedDrawings() {
           ))}
       </ul>
       {!isLoading && drawings.length === 0 && (
-        <div lassName="mt-8 md:mt-10 lg:mt-12 text-xs md:text-sm lg:text-base">
+        <div className="mt-8 md:mt-10 lg:mt-12 text-xs md:text-sm lg:text-base">
           <AiOutlinePicture className="text-lg md:text-base lg:text-xl mx-auto" />
           <Banner text="No matched drawings" />
         </div>
