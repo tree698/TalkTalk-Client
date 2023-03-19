@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllDrawings renders correctly 1`] = `
+<section
+  className="flex flex-col items-center flex-1"
+>
+  <ul
+    className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 lg:gap-3 px-3 md:px-0"
+  />
+  <div>
+    <button
+      className="w-52 md:w-56 lg:w-60 py-1 md:py-2 lg:py-3 my-6 md:my-8 lg:my-10  text-xs md:text-sm lg:text-base font-semibold text-center text-white bg-brand rounded-3xl hover:scale-105 hover:shadow-xl transition-all delay-150 duration-300 ease-in-out"
+      onClick={[Function]}
+    >
+      View More
+    </button>
+  </div>
+</section>
+`;
